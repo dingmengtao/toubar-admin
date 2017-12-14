@@ -61,4 +61,7 @@ class Post extends BaseModel implements PostModelContract
     {
         return $this->belongsTo(User::class, 'updated_by')->withTrashed();
     }
+    public function read($id){
+        return $this->find($id);
+    }
 }

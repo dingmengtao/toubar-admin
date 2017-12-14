@@ -112,4 +112,5 @@ class ResolveBlogController extends BaseFrontController
 
         return $this->themeController->handle($item, $this->dis);
     }
+
 }

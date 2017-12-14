@@ -262,4 +262,7 @@ class PostController extends BaseAdminController
         }
         return $data;
     }
+    public function read(Request $request){
+
+    }
 }

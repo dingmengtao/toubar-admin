@@ -71,8 +71,8 @@ class CategoryController extends AbstractController
         return $this->view('front.blog.category-templates.default');
     }
 
-    protected function _template_Products(){
-//        return $this->view('front.blog.category-templates.product_list');
-        echo 2;
-    }
+//    protected function _template_Products(){
+////        return $this->view('front.blog.category-templates.product_list');
+//        echo 2;
+//    }
 }
