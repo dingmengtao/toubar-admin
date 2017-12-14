@@ -6,7 +6,7 @@
 /.idea
 Homestead.json
 Homestead.yaml
-.env
+#.env
 composer.lock
 /config/webed-*.php
 /public/admin
