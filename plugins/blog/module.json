@@ -1,0 +1,10 @@
+{
+    "alias": "webed-blog",
+    "name": "Blog plugin for WebEd 4.0",
+    "author": "Tedozi Manson",
+    "description": "Blog plugin for WebEd 4.0",
+    "namespace": "WebEd\\Plugins\\Blog",
+    "version": "4.0.3",
+    "autoload": "psr-4",
+    "require": {}
+}
