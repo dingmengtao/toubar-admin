@@ -1,0 +1,82 @@
+body, h1, h2, h3, h4, h5, h6, * {
+    font-family : 'Open Sans', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    min-height: 0;
+}
+
+.block {
+    display : block;
+}
+
+.inline-block {
+    display : inline-block;
+}
+
+.v-middle {
+    vertical-align : middle;
+    tr, td {
+        vertical-align : middle !important;
+    }
+}
+
+.row {
+    margin : 0 -10px;
+}
+[class*='col-'] {
+    padding : 0 10px;
+}
+
+.content-wrapper {
+    @include flexbox;
+    @include flex-direction(column);
+    section.content {
+        height : 100%;
+        width : 100%;
+        @include flex-grow(1);
+        @include flexbox;
+        @include flex-direction(column);
+    }
+}
+
+.layout-1columns {
+    height : 100%;
+    width : 100%;
+    @include flexbox;
+    @include flex-direction(column);
+    @include flex-grow(1);
+    .column {
+        @include flexbox;
+        @include flex-direction(column);
+        @include flex-grow(1);
+    }
+}
+
+.layout-2columns {
+    $_sidebar-width : 300px;
+    margin         : 0 -10px;
+    @include flexbox;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    &.sidebar-left {
+        .column.left {
+            width : $_sidebar-width;
+        }
+        .column.main {
+            width : calc(100% - #{$_sidebar-width});
+        }
+    }
+    &.sidebar-right {
+        .column.right {
+            width : $_sidebar-width;
+        }
+        .column.main {
+            width : calc(100% - #{$_sidebar-width});
+        }
+    }
+    .column {
+        padding : 0 10px;
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "sgsoft-studio/hook",
+    "description": "WebEd hook",
+    "license": "MIT",
+    "homepage": "http://sgsoftware.net",
+    "support": {
+        "issues": "https://github.com/sgsoft-studio/hook/issues",
+        "source": "https://github.com/sgsoft-studio/hook"
+    },
+    "authors": [
+        {
+            "name": "Tedozi Manson",
+            "email": "duyphan.developer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebEd\\Base\\Hook\\": "src"
+        },
+        "files": [
+
+        ]
+    }
+}

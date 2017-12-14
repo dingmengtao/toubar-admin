@@ -1,0 +1,9 @@
+{
+    "repos": "sgsoft-studio/elfinder",
+    "alias": "webed-elfinder",
+    "name": "Elfinder",
+    "author": "Tedozi Manson - <a href=\"https://github.com/duyphan2502\">https://github.com/duyphan2502</a>",
+    "description": "Integration Elfinder to WebEd",
+    "namespace": "WebEd\\Base\\Elfinder",
+    "autoload": "psr-4"
+}

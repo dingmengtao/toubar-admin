@@ -1,0 +1,28 @@
+{
+    "name": "sgsoft-studio/elfinder",
+    "description": "WebEd elfinder",
+    "license": "MIT",
+    "homepage": "http://sgsoftware.net",
+    "support": {
+        "issues": "https://github.com/sgsoft-studio/elfinder/issues",
+        "source": "https://github.com/sgsoft-studio/elfinder"
+    },
+    "authors": [
+        {
+            "name": "Tedozi Manson",
+            "email": "duyphan.developer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "studio-42/elfinder": "^2.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebEd\\Base\\Elfinder\\": "src"
+        },
+        "files": [
+
+        ]
+    }
+}

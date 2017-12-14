@@ -1,0 +1,10 @@
+{
+    "repos": "sgsoft-studio/custom-fields",
+    "alias": "webed-custom-fields",
+    "name": "WebEd custom fields",
+    "author": "Tedozi Manson",
+    "description": "WebEd custom fields package",
+    "namespace": "WebEd\\Base\\CustomFields",
+    "autoload": "psr-4",
+    "require": {}
+}

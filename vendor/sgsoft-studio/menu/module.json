@@ -1,0 +1,9 @@
+{
+    "repos": "sgsoft-studio/menu",
+    "alias": "webed-menus",
+    "name": "WebEd Menu",
+    "author": "Tedozi Manson",
+    "description": "WebEd menu management package.",
+    "namespace": "WebEd\\Base\\Menu",
+    "autoload": "psr-4"
+}

@@ -1,0 +1,9 @@
+{
+    "repos": "sgsoft-studio/hook",
+    "alias": "webed-hook",
+    "name": "Filters - actions hook",
+    "author": "Tedozi Manson - <a href=\"https://github.com/duyphan2502\">https://github.com/duyphan2502</a>",
+    "description": "Hook support",
+    "namespace": "WebEd\\Base\\Hook",
+    "autoload": "psr-4"
+}

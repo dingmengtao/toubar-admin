@@ -1,0 +1,16 @@
+<?php namespace DummyNamespace;
+
+use WebEd\Base\Mails\BaseMail;
+
+class DummyClass extends BaseMail
+{
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('view.name');
+    }
+}

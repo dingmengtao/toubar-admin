@@ -1,0 +1,54 @@
+{
+    "name": "sgsoft-studio/base",
+    "description": "WebEd core system",
+    "license": "MIT",
+    "homepage": "http://sgsoftware.net",
+    "support": {
+        "issues": "https://github.com/sgsoft-studio/base/issues",
+        "source": "https://github.com/sgsoft-studio/base"
+    },
+    "authors": [
+        {
+            "name": "Tedozi Manson",
+            "email": "duyphan.developer@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "doctrine/dbal": "^2.5",
+        "laravelcollective/html": "5.5.*",
+        "yajra/laravel-datatables-oracle": "^8.0",
+        "sgsoft-studio/acl": "4.0.*",
+        "sgsoft-studio/assets-management": "4.0.*",
+        "sgsoft-studio/caching": "4.0.*",
+        "sgsoft-studio/elfinder": "4.0.*",
+        "sgsoft-studio/hook": "4.0.*",
+        "sgsoft-studio/menu": "4.0.*",
+        "sgsoft-studio/modules-management": "4.0.*",
+        "sgsoft-studio/settings": "4.0.*",
+        "sgsoft-studio/themes-management": "4.0.*",
+        "sgsoft-studio/users": "4.0.*",
+        "sgsoft-studio/pages": "4.0.*",
+        "sgsoft-studio/shortcode": "4.0.*",
+        "sgsoft-studio/custom-fields": "4.0.*",
+        "sgsoft-studio/static-blocks": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "WebEd\\Base\\": "src"
+        },
+        "files": [
+
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "WebEd\\Base\\Providers\\ModuleProvider"
+            ],
+            "aliases": {
+                "Seo": "WebEd\\Base\\Facades\\SeoFacade"
+            }
+        }
+    }
+}

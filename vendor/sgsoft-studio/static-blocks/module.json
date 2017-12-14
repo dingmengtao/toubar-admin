@@ -1,0 +1,10 @@
+{
+    "repos": "sgsoft-studio/static-blocks",
+    "alias": "webed-static-blocks",
+    "name": "WebEd static blocks",
+    "author": "Tedozi Manson",
+    "description": "WebEd static blocks",
+    "namespace": "WebEd\\Base\\StaticBlocks",
+    "autoload": "psr-4",
+    "require": {}
+}

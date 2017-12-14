@@ -1,0 +1,10 @@
+{
+    "repos": "sgsoft-studio/assets-management",
+    "alias": "webed-assets",
+    "name": "Assets management",
+    "author": "Tedozi Manson - <a href=\"https://github.com/duyphan2502\">https://github.com/duyphan2502</a>",
+    "description": "Assets management package.",
+    "type": "core",
+    "namespace": "WebEd\\Base\\AssetsManagement",
+    "autoload": "psr-4"
+}

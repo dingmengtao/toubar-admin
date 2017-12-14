@@ -1,0 +1,26 @@
+.box-header > .fa,
+.box-header > .glyphicon,
+.box-header > .ion,
+.box-header .box-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.box-header {
+    @include flexbox;
+    @include flex-direction(row);
+    @include justify-content(center);
+    @include align-items(center);
+    .box-title,
+    .box-tools {
+        float: none !important;
+        position: static !important;
+    }
+    .box-title {
+        @include flex(1);
+    }
+    .box-tools {
+        white-space: nowrap;
+    }
+}

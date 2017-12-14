@@ -1,0 +1,51 @@
+<?php namespace DummyNamespace;
+
+use Illuminate\Support\Facades\DB;
+use WebEd\Base\Actions\AbstractAction;
+
+class DummyClass extends AbstractAction
+{
+    /**
+     * @var YourRepository
+     */
+    protected $repository;
+
+    public function __construct(YourRepositoryContract $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @param $id
+     * @param array $data
+     * @return array
+     */
+    public function run($id, array $data)
+    {
+        $item = $this->repository->find($id);
+
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, your_screen_name, 'edit.post');
+
+        if (!$item) {
+            return $this->error(trans('webed-core::base.form.item_not_exists'));
+        }
+
+        DB::beginTransaction();
+
+        $data['updated_by'] = get_current_logged_user_id();
+
+        $result = $this->repository->update($item, $data);
+
+        DB::commit();
+
+        do_action(BASE_ACTION_AFTER_UPDATE, your_screen_name, $id, $result);
+
+        if (!$result) {
+            return $this->error();
+        }
+
+        return $this->success(null, [
+            'id' => $result,
+        ]);
+    }
+}

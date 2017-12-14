@@ -1,0 +1,9 @@
+{
+    "repos": "sgsoft-studio/shortcode",
+    "alias": "webed-shortcode",
+    "name": "WebEd shortcode integration",
+    "author": "Tedozi Manson",
+    "description": "WebEd shortcode integration",
+    "namespace": "WebEd\\Base\\Shortcode",
+    "autoload": "psr-4"
+}

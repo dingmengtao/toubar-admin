@@ -1,0 +1,1 @@
+{{ trans('webed-modules-management::base.update.our_system') }} {{ $modulesCount }} {{ trans('webed-modules-management::base.update.modules') }}. {{ trans('webed-modules-management::base.update.press') }} <a href="{{ route('admin::system.commands.update-cms.get') }}"><b>{{ trans('webed-modules-management::base.update.link') }}</b></a>.

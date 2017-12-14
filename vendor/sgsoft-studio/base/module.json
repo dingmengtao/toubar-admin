@@ -1,0 +1,9 @@
+{
+    "repos": "sgsoft-studio/base",
+    "alias": "webed-core",
+    "name": "WebEd core module",
+    "author": "Tedozi Manson - <a href=\"https://github.com/duyphan2502\">https://github.com/duyphan2502</a>",
+    "description": "WebEd core module",
+    "namespace": "WebEd\\Base",
+    "autoload": "psr-4"
+}
