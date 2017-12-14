@@ -1,0 +1,1 @@
+@extends('webed-theme::front._master')
