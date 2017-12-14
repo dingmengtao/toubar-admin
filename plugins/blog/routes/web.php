@@ -23,5 +23,5 @@ Route::group(['prefix' => $adminRoute . '/' . $moduleRoute], function (Router $r
 
 Route::get(config('webed-blog.front_url_prefix') . '/tag/{slug}.html', 'Front\TagController@handle')
     ->name('front.web.blog.tags.get');
-Route::get(config('webed-blog.front_url_prefix') . '/{slug}', 'Front\PostController@read')
+Route::get(config('webed-blog.front_url_prefix') . '/{slug}/{id?}', 'Front\PostController@read')
     ->name('front.web.resolve-blog.get');
