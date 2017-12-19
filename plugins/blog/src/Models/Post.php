@@ -61,7 +61,17 @@ class Post extends BaseModel implements PostModelContract
     {
         return $this->belongsTo(User::class, 'updated_by')->withTrashed();
     }
-    public function read($id){
+    /**
+     * 根据产品ID读取产品信息列表
+     */
+    public function getProductById($id){
         return $this->find($id);
+    }
+    /**
+     * 获得产品列表
+     */
+    public function getProductList(){
+        return $this->all();
+      
     }
 }
