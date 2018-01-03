@@ -1,0 +1,75 @@
+.fakerloader{position:absolute;top:0rem;left:0rem;z-index:10;height:800px;width:100%;background:url("../image/logo.png")  no-repeat center #334367;}
+header{background:#334367;position:relative;}
+header .top_header{height:0.3rem;}
+header .top_header ul li{line-height:0.3rem;}
+header .top_header ul li a{color:#ffffff;font-size:0.12rem;text-decoration:none;}
+header .top_header ul .l_item{margin-right:0.3rem;}
+header .top_header ul .login{padding-left:0.3rem;margin-right:0.6rem;background:url("../image/icon/login.png") no-repeat left; background-size:0.15rem;}
+header .lead_header{height:0.6rem;}
+header .lead_header .logo{height:0.9rem;width:2.1rem;background:url("../image/logo.png") no-repeat center;position:absolute;z-index:2;top:0;left:0.9rem;background-size:contain;}
+header .lead_header ul{position:absolute;top:0.3rem;right:0rem;}
+header .lead_header ul li{line-height:0.51rem;margin-right:0.6rem;}
+header .lead_header ul li a{transition:1.2s;-moz-transition:1.2s; /* Firefox 4 */-webkit-transition:1.2s; /* Safari 和 Chrome */-o-transition:1.2s;color:#ffffff;font-size:0.18rem;text-decoration:none;}
+header .lead_header ul li a:hover{text-decoration:underline;}
+.banner{margin:90px 0rem 60px;padding:0 0.6rem;box-sizing:border-box;-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box;position:relative;}
+.banner ul li .banner_pic{height:7rem;width:50%;background:url("../image/banner.png") no-repeat center;background-size:cover;} 
+.banner ul li .words{position:absolute;top:0rem;left:0.6rem;z-index:2;width:60%;}
+.banner ul li .words h2{letter-spacing:0.05=3rem;text-align:left;font-size:0.8rem;margin-top:1.5rem;color:#324367;text-shadow: 0.05rem 0.05rem 0.05rem #ffffff;}
+.banner ul li .words h5{text-align:right;font-size:0.2rem;color:#324367;}
+.banner ul li .words p{text-align:left;font-size:0.17rem;width:50%;margin:120px auto 0px auto;color:#324367;}
+.banner .banner_lead {text-align:center;margin-top:0.6rem;}
+.banner .banner_lead span{width:1.2rem;height:0.02rem;display:inline-block;background:#bccbee;}
+.banner .banner_lead .choose{background:#334367;}
+.product .text_title{margin-bottom:60px;text-align:center;font-size:0.3rem;color:#324367;}
+.product ul {margin:0 0.6rem 0 0.6rem;}
+.product ul li{width:20%;height:5.1rem;margin-left:6.6%;padding:0.3rem;box-sizing:border-box;-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box;position:relative;}
+.product ul li:first-child{margin-left:0rem;}
+.product ul li a{display:block;}
+.product ul li a .pic_box img{width:50%;}
+.product ul li a h5{display:none;text-align:center;font-size:0.25rem;line-height:0.3rem;}
+.product ul li a  p{display:none;text-align:center;}
+.product ul li:hover{box-shadow: 0px 0px 5px #f6f6f6;}
+.product ul li:hover a h5{display:block;}
+.product ul li:hover a p{display:block;}
+.company {background:#334367;}
+.company .text_title{color:#ffffff;padding-top:0.6rem;margin-bottom:0rem;}
+.company .inner_box{position:relative;height:5.1rem;background:url("../image/company  intro.png") left bottom no-repeat;background-size:contain;}
+.company .inner_box p{width:70%;text-align:center;position:absolute;right:0rem;bottom:0.9rem;font-size:0.27rem;color:#ffffff;}
+.company .inner_box .fuhao{height:1.5rem;width:1.5rem;background:url("../image/fuhao.png") no-repeat center;background-size:contain;position:absolute;right:0rem;top:0rem;}
+.video {height:5rem;position:relative;}
+.video .fl{background:#e7f0fe;width:60%;height:100%;}
+.video .fl p{height:auto;color:#324367;padding:0.8rem 0.6rem;font-size:0.27rem;width:55%;}
+.video .fl p span{margin-top:0.9rem;float:right;}
+.video .fr{width:40%;height:100%;}
+.video .fr video{width:50%;height:100%;position:absolute;right:-5%;top:0rem;z-index:2;}
+.video .fr .mask{text-align:center;line-height:5rem;width:50%;height:100%;position:absolute;right:-5%;top:0rem;z-index:3;}
+.video .fr .mask button{outline:none;border:0px;display:inline-block;width:1.2rem;height:1.2rem;background:url("../image/icon/play.png") no-repeat center;background-size:contain;}
+.video .float_img{height:7.2rem;width:3rem;background:url("../image/medicine.png") no-repeat center;background-size:contain; position:absolute;left:0rem;bottom:-3.1rem;}
+.form .text_title{text-align:center;font-size:0.3rem;color:#324367;margin-bottom:0rem;text-indent:0.3rem;text-align:left;margin-top:0.6rem;}
+.form form{width:9rem;margin:auto;margin-top:0.9rem;}
+.form form ul li{text-align:center;margin-bottom:0.6rem;}
+.form form ul li .text_i{font-size:0.21rem;text-indent:0.25rem;border-radius:0.3rem; width:3.9rem;height:0.51rem;border:0.015rem solid #000000!important; outline:none;}
+.form form ul li .text_i:first-child{margin-right:0.9rem;}
+.form form ul li textarea{overflow:hidden;scrowll:none;padding-top:0.18rem;font-size:0.21rem;text-indent:0.25rem;outline:none;height:3rem;width:9rem;border-radius:0.3rem;border:0.015rem solid #000000!important;}
+.form form ul li button{display:block;margin-top:0.3rem;color:#ffffff;background-color:#324367;outline:none;text-shadow:none;width:1.5rem;height:0.51rem;font-size:0.21rem;border-radius:0.3rem;}
+.map iframe{width:100%;height:5.3rem;border:0rem;}
+.map{position:relative;margin-bottom:0.9rem;}
+.map .map_detail{box-sizing:border-box;-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box;padding:0.3rem;position:absolute;top:0.6rem;left:0.9rem;z-index:2;height:3.9rem;width:3.9rem;background:rgba(255,255,255,0.9);}
+.map .map_detail h2{text-align:center;font-size:0.2rem;margin-bottom:0.3rem;}
+.map .map_detail p{font-size:0.18rem;}
+.ad ul li {height:1.1rem;}
+.ad ul {margin-left:0.6rem;}
+.end_line{width:100%;height:0.15rem;background:#000000;}
+footer .transform .t_main{height:2.4rem;line-height:2.4rem;}
+footer .transform ul li{height:2.4rem;line-height:2.4rem;margin-left:1.2rem;}
+footer .transform ul li img {height:0.3rem;width:0.3rem;}
+footer .lead .f_lead  .f_lead_item{margin-right:1.2rem;}
+footer .lead .f_lead  .f_lead_item .title{font-weight:600;font-size:0.2rem;line-height:0.6rem;}
+footer .lead .f_lead  .f_lead_item ul li a{ text-decoration:none;font-size:0.15rem;line-height:0.45rem;}
+footer .foot_comunicate .title{font-weight:600;font-size:0.2rem;line-height:0.6rem;}
+footer .foot_comunicate .email span {font-size:0.15rem;line-height:0.45rem;margin-right:1.8rem;}
+footer .foot_comunicate .email a{font-weight:600;font-size:0.2rem;line-height:0.45rem;text-decoration:underline;}
+footer .foot_comunicate .line{width:100%;margin-top:0.19rem;height:0.06rem;background:#000000;}
