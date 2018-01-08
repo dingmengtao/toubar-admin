@@ -18,7 +18,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(BannerRepository::class, function () {
             $repository = new BannerRepository(new Banner());
-
+            //缓存
             if (config('webed-caching.repository.enabled')) {
                 return new BannerRepositoryCacheDecorator($repository, WEBED_BLOG_GROUP_CACHE_KEY);
             }

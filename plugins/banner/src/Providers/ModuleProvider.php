@@ -45,15 +45,15 @@ class ModuleProvider extends ServiceProvider
     public function register()
     {
         //Load helpers
-        load_module_helpers(__DIR__);
+        load_module_helpers(__DIR__);//载入助手函数
 
         //Merge configs
-        $configs = split_files_with_basename($this->app['files']->glob(__DIR__ . '/../../config/*.php'));
+        $configs = split_files_with_basename($this->app['files']->glob(__DIR__ . '/../../config/*.php'));//载入配置
 
         foreach ($configs as $key => $row) {
             $this->mergeConfigFrom($row, $key);
         }
-
+        //使用服务提供者
         $this->app->register(RouteServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);//自动注入服务容器
         $this->app->register(BootstrapModuleServiceProvider::class);
