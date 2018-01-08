@@ -32,6 +32,9 @@ class ModuleProvider extends ServiceProvider
             __DIR__ . '/../../resources/root' => base_path(),
             __DIR__ . '/../../resources/public' => public_path(),
         ], 'webed-public-assets');
+        app()->booted(function () {
+            $this->app->register(BootstrapModuleServiceProvider::class);
+        });
     }
 
     /**
