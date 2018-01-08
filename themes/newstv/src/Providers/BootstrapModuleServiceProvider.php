@@ -32,14 +32,14 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'homepage'=>'HomePage',
 
         ], WEBED_PAGES);
-        add_new_template([
-            'products'=>'product',
-            'news'=>'news',
-        ], WEBED_BLOG_POSTS);
-        add_new_template([
-            'products'=>'product',
-            'new'=>'new'
-        ], WEBED_BLOG_CATEGORIES);
+//        add_new_template([
+//            'products'=>'product',
+//            'news'=>'news',
+//        ], WEBED_BLOG_POSTS);
+//        add_new_template([
+//            'products'=>'product',
+//            'new'=>'new'
+//        ], WEBED_BLOG_CATEGORIES);
         cms_theme_options()
             ->addGroup('menu', trans('webed-theme::base.theme_groups.menus'), 30)
             ->addGroup('footer', trans('webed-theme::base.theme_groups.footer'), 31)

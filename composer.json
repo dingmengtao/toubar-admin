@@ -39,6 +39,7 @@
             "App\\": "app/",
             "Tests\\": "tests/",
             "NewsTV\\": "F:\\Caredin\\webed\\themes\\newstv/src",
+            "WebEd\\Plugins\\Banner\\": "F:\\Caredin\\webed\\plugins\\banner/src",
             "WebEd\\Plugins\\Blog\\": "F:\\Caredin\\webed\\plugins\\blog/src"
         }
     },

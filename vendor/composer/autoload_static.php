@@ -42,6 +42,7 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
             'WebEd\\Plugins\\Blog\\' => 19,
+            'WebEd\\Plugins\\Banner\\' => 21,
             'WebEd\\Base\\Users\\' => 17,
             'WebEd\\Base\\ThemesManagement\\' => 28,
             'WebEd\\Base\\StaticBlocks\\' => 24,
@@ -178,6 +179,10 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'WebEd\\Plugins\\Blog\\' => 
         array (
             0 => __DIR__ . '/../..' . '/plugins/blog/src',
+        ),
+        'WebEd\\Plugins\\Banner\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/plugins/banner/src',
         ),
         'WebEd\\Base\\Users\\' => 
         array (
@@ -4660,6 +4665,21 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'WebEd\\Base\\Users\\Services\\GenerateResetPasswordTokenService' => __DIR__ . '/..' . '/sgsoft-studio/users/src/Services/GenerateResetPasswordTokenService.php',
         'WebEd\\Base\\Users\\Support\\CurrentUserSupport' => __DIR__ . '/..' . '/sgsoft-studio/users/src/Support/CurrentUserSupport.php',
         'WebEd\\Base\\Users\\Support\\Traits\\Auth' => __DIR__ . '/..' . '/sgsoft-studio/users/src/Support/Traits/Auth.php',
+        'WebEd\\Plugins\\Banner\\Actions\\indexAction' => __DIR__ . '/../..' . '/plugins/banner/src/Actions/indexAction.php',
+        'WebEd\\Plugins\\Banner\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/plugins/banner/src/Http/Controllers/IndexController.php',
+        'WebEd\\Plugins\\Banner\\Http\\DataTables\\BannerDataTable' => __DIR__ . '/../..' . '/plugins/banner/src/Http/DataTables/BannerDataTable.php',
+        'WebEd\\Plugins\\Banner\\Models\\Banner' => __DIR__ . '/../..' . '/plugins/banner/src/Models/Banner.php',
+        'WebEd\\Plugins\\Banner\\Models\\Contracts\\BannerModelContract' => __DIR__ . '/../..' . '/plugins/banner/src/Models/Contracts/BannerModelContract.php',
+        'WebEd\\Plugins\\Banner\\Providers\\BootstrapModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/BootstrapModuleServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\InstallModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/InstallModuleServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\ModuleProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/ModuleProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\RepositoryServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/RepositoryServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/RouteServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\UninstallModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/UninstallModuleServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Providers\\UpdateModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/banner/src/Providers/UpdateModuleServiceProvider.php',
+        'WebEd\\Plugins\\Banner\\Repositories\\BannerRepository' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/BannerRepository.php',
+        'WebEd\\Plugins\\Banner\\Repositories\\BannerRepositoryCacheDecorator' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/BannerRepositoryCacheDecorator.php',
+        'WebEd\\Plugins\\Banner\\Repositories\\Contracts\\BannerRepositoryContract' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/Contracts/BannerRepositoryContract.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\CreateCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/CreateCategoryAction.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\DeleteCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/DeleteCategoryAction.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\RestoreCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/RestoreCategoryAction.php',
@@ -4681,6 +4701,7 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\BlogTagController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/BlogTagController.php',
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/CategoryController.php',
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\Api\\PostController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/Front/Api/PostController.php',
+        'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\PostController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/Front/PostController.php',
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\ResolveBlogController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/Front/ResolveBlogController.php',
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\TagController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/Front/TagController.php',
         'WebEd\\Plugins\\Blog\\Http\\Controllers\\PostController' => __DIR__ . '/../..' . '/plugins/blog/src/Http/Controllers/PostController.php',

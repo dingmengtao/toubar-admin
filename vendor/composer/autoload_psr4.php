@@ -12,6 +12,7 @@ return array(
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
     'WebEd\\Plugins\\Blog\\' => array($baseDir . '/plugins/blog/src'),
+    'WebEd\\Plugins\\Banner\\' => array($baseDir . '/plugins/banner/src'),
     'WebEd\\Base\\Users\\' => array($vendorDir . '/sgsoft-studio/users/src'),
     'WebEd\\Base\\ThemesManagement\\' => array($vendorDir . '/sgsoft-studio/themes-management/src'),
     'WebEd\\Base\\StaticBlocks\\' => array($vendorDir . '/sgsoft-studio/static-blocks/src'),

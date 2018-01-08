@@ -1,0 +1,10 @@
+{
+    "alias": "banner",
+    "name": "WebEd banner",
+    "author": "zpk",
+    "description": "WebEd banner",
+    "namespace": "WebEd\\Plugins\\Banner",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "require": {}
+}
