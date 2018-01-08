@@ -34,7 +34,7 @@
     @php do_action('front_header_js') @endphp
 </head>
 <body class="{{ $bodyClass or '' }} @php do_action('front_body_class') @endphp">
-		 @include('webed-theme::front._partials.background_c')
+		@yield('move')
 		<div class="outer_continer">
 			@include('webed-theme::front._partials.header')
 			@yield('content')

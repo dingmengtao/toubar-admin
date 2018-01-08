@@ -1,4 +1,4 @@
-/*header*/
+/***************************header start**********************************/
 header{height:0.41rem;}
 header .logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;}
 header .lead{height:0.41rem;width:0.29rem;}
@@ -12,6 +12,8 @@ header .lead  .lead_content .lead_btn_close p:first-child{margin-top:0rem;width:
 header .lead  .lead_content  ul{margin:1.29rem auto 0rem auto;}
 header .lead  .lead_content  ul li{text-align:center;font-size:0.7rem;height:0px;overflow:hidden;}
 header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-webkit-text-stroke:1px #ffffff;  }
+/***************************header end**********************************/
+/***************************主页	home start**********************************/
 /*video*/
 .my_video{max-width:1075px;margin:auto;position:relative; /*temp */  text-align:center;height:8.34rem;line-height:8.34rem;}
 /*feedback*/
@@ -24,7 +26,22 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .user_feedback .feedback_list h6{font-size:0.35rem;margin-top:0.5rem;color:rgba(48,48,48,0.6);}
 .user_feedback .feedback_list h6 .pointer:hover{font-family:bold;color:#000000;text-decoration:underline;}
 .user_feedback .feedback_list p{font-size:0.36rem;margin-top:0.48rem;line-height:0.52rem;}
-/*footer*/
+/***************************主页home	 end**********************************/
+/***************************联系	contact end**********************************/
+.contact_title{word-spacing:0.1rem;font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;}
+.contact_title2{word-spacing:0.1rem; font-size:0.36rem;width:100%;;}
+.info_form{margin-top:1.62rem;}
+.info_form .contact_title2{margin-top:0.44rem;}
+.info_form  form{margin-top:0.6rem;}
+.info_form  form ul li {margin-top:0.3rem;}
+.info_form  form ul li:first-child{margin-top:0rem;}
+.info_form  form ul li .tinput{height:0.69rem;width:46%;border:2px solid rgba(0,0,0,0.3);font-size:0.36rem;text-indent:0.32rem;outline:none;}
+.info_form  form ul li .tinput:focus{outline:2px solid rgba(0,0,0,1);}
+.info_form  form ul li textarea{height:4.21rem; width:100%;display:block;border:2px solid rgba(0,0,0,0.3);outline:none;}
+.info_form  form ul li textarea:focus{outline:2px solid rgba(0,0,0,1);}
+.info_form  form ul li .sub{display:block;height:0.42rem;width:1.47rem;border:1px solid #000000;background:#ffffff;font-size:0.24rem;outline:none;}
+/***************************联系contact	 end**********************************/
+/***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}
 footer .footer_lead .fl_item{/*width:1.03rem;*/height:0.34rem;margin-left:1.87rem;}
@@ -37,13 +54,34 @@ footer .share-buttons .share_item:first-child{margin-left:0rem;}
 footer .share-buttons .share_item a {display:inline-block;height:0.95rem;line-height:0.7rem;width:0.95rem;background:url("../img/share_box.png") no-repeat center;background-size:contain;}
 footer .share-buttons .share_item a img{width:0.4rem;height:0.4rem;}
 footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin-top:0.25rem;}
-/*背景浮动物体容器*/
-.background_c{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
-.background_c .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
-.background_c .ball2{width:1.29rem;height:1.29rem;margin-top:3rem; margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
-.background_c .capsule1{width:3.61rem;height:5.58rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
-.background_c .capsule2{width:4.18rem;height:6.82rem;margin-top:4.59rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
-.background_c .word{/*font-size:2.11rem;*/font-size:0rem;opacity:0;color:rgba(119,192,223,1);font-family:bold;/*opacity:0.3;*/width:100%;}
-.background_c .box1{max-width:100%;margin-top:9rem;}
-.background_c .box2{max-width:100%;}
-.background_c .box3{max-width:100%;margin-top:1rem;}
+/***************************footer end**********************************/
+/***************************背景悬浮物体 start**********************************/
+.background_c.index{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.index .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.index .ball2{width:1.29rem;height:1.29rem;margin-top:3rem; margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.background_c.index .capsule1{width:3.61rem;height:5.58rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.index .capsule2{width:4.18rem;height:6.82rem;margin-top:4.59rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.index .word{/*font-size:2.11rem;*/font-size:0rem;opacity:0;color:rgba(119,192,223,1);font-family:bold;/*opacity:0.3;*/width:100%;}
+.background_c.index .box1{max-width:100%;margin-top:9rem;}
+.background_c.index .box2{max-width:100%;}
+.background_c.index .box3{max-width:100%;margin-top:1rem;}
+
+.background_c.contact{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.contact .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.contact .ball2{width:1.29rem;height:1.29rem;margin-top:3rem; margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.background_c.contact .capsule1{width:3.61rem;height:5.58rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.contact .capsule2{width:4.18rem;height:6.82rem;margin-top:4.59rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.contact .word{/*font-size:2.11rem;*/font-size:0rem;opacity:0;color:rgba(119,192,223,1);font-family:bold;/*opacity:0.3;*/width:100%;}
+.background_c.contact .box1{max-width:100%;margin-top:9rem;}
+.background_c.contact .box2{max-width:100%;}
+.background_c.contact .box3{max-width:100%;margin-top:1rem;}
+/**************************背景悬浮物体 end***********************************/
+/**************************前方悬浮物体 start***********************************/
+.before_c.index{width:auto;position:absolute;z-index:1;top:9rem;right:5rem;}
+.before_c.index .ball2{width:1.29rem;height:1.29rem;margin-top:3rem; margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.before_c.index .box1{max-width:100%;}
+
+.before_c.contact{width:auto;position:absolute;z-index:1;top:9rem;right:5rem;}
+.before_c.contact .ball2{width:1.29rem;height:1.29rem;margin-top:3rem; margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.before_c.contact .box1{max-width:100%;}
+/**************************前方悬浮物体 end***********************************/
