@@ -4680,6 +4680,7 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'WebEd\\Plugins\\Banner\\Repositories\\BannerRepository' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/BannerRepository.php',
         'WebEd\\Plugins\\Banner\\Repositories\\BannerRepositoryCacheDecorator' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/BannerRepositoryCacheDecorator.php',
         'WebEd\\Plugins\\Banner\\Repositories\\Contracts\\BannerRepositoryContract' => __DIR__ . '/../..' . '/plugins/banner/src/Repositories/Contracts/BannerRepositoryContract.php',
+        'WebEd\\Plugins\\Banner\\Services\\BannerService' => __DIR__ . '/../..' . '/plugins/banner/src/Services/BannerService.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\CreateCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/CreateCategoryAction.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\DeleteCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/DeleteCategoryAction.php',
         'WebEd\\Plugins\\Blog\\Actions\\Categories\\RestoreCategoryAction' => __DIR__ . '/../..' . '/plugins/blog/src/Actions/Categories/RestoreCategoryAction.php',

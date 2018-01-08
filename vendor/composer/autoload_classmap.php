@@ -4204,6 +4204,7 @@ return array(
     'WebEd\\Plugins\\Banner\\Repositories\\BannerRepository' => $baseDir . '/plugins/banner/src/Repositories/BannerRepository.php',
     'WebEd\\Plugins\\Banner\\Repositories\\BannerRepositoryCacheDecorator' => $baseDir . '/plugins/banner/src/Repositories/BannerRepositoryCacheDecorator.php',
     'WebEd\\Plugins\\Banner\\Repositories\\Contracts\\BannerRepositoryContract' => $baseDir . '/plugins/banner/src/Repositories/Contracts/BannerRepositoryContract.php',
+    'WebEd\\Plugins\\Banner\\Services\\BannerService' => $baseDir . '/plugins/banner/src/Services/BannerService.php',
     'WebEd\\Plugins\\Blog\\Actions\\Categories\\CreateCategoryAction' => $baseDir . '/plugins/blog/src/Actions/Categories/CreateCategoryAction.php',
     'WebEd\\Plugins\\Blog\\Actions\\Categories\\DeleteCategoryAction' => $baseDir . '/plugins/blog/src/Actions/Categories/DeleteCategoryAction.php',
     'WebEd\\Plugins\\Blog\\Actions\\Categories\\RestoreCategoryAction' => $baseDir . '/plugins/blog/src/Actions/Categories/RestoreCategoryAction.php',
