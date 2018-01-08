@@ -85,6 +85,7 @@ class PageController extends AbstractController
                     webed_db_prefix() . 'posts.id',
                     webed_db_prefix() . 'posts.slug',
                     webed_db_prefix() . 'posts.title',
+                    webed_db_prefix() . 'posts.order',
                     webed_db_prefix() . 'posts.thumbnail',
                     webed_db_prefix() . 'posts.created_at',
                 ],
