@@ -5,7 +5,6 @@ $(function() {
 				$(".background_c").css("height", b_c_height);
 				var old_t = 0,t = 0;
 				$(window).scroll(function() {
-					var position=$(".my_video").offset().top+$(".my_video").height()-300;
 					t=$(window).scrollTop();
 					var temp_str="translateY(" +(t-old_t)+"px)";
 					$(".background_c .move").each(function(){

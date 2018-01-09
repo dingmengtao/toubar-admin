@@ -40,7 +40,6 @@
 			@yield('content')
 			@include('webed-theme::front._partials.footer')
 		</div>
-
 <!--<script src="{{ asset('themes/news-tv/third_party/modernizr.js') }}"></script>
 <script type="text/javascript"
         src="//platform-api.sharethis.com/js/sharethis.js#property=58b80e5cfacf57001271be31&product=sticky-share-buttons"></script>
