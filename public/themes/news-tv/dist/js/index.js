@@ -37,4 +37,12 @@ $(function() {
 					})
 				})
 			});
+			//faq页面动态效果
+			$(".faq_tabs .lead").delegate(".item","click",function(){
+				$(this).parent().find(".current").removeClass("current");
+				$(this).addClass("current");
+				var index=$(this).index();
+				$(".faq_tabs .content").find(".current").removeClass("current");
+				$(".faq_tabs .content .item").eq(index).addClass("current");
+			});
 });
