@@ -45,4 +45,10 @@ $(function() {
 				$(".faq_tabs .content").find(".current").removeClass("current");
 				$(".faq_tabs .content .item").eq(index).addClass("current");
 			});
+//			404页面
+		$(".bug_continer").css("height",$(window).height());
+		var temp_value=$(window).height()/2-$(".bug_continer .content").height()/2;
+		$(".bug_continer .advice").css("position","absolute");
+		$(".bug_continer .advice").css("top",$(".bug_continer .content").height()+141);
+		$(".bug_continer .advice").css("left","38%");
 });
