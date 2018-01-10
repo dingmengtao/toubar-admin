@@ -1,9 +1,9 @@
 <?php namespace WebEd\Plugins\Banner\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use WebEd\Plugins\Banner\Repositories\BannerRepository;
-use  WebEd\Plugins\Banner\Repositories\Contracts\BannerRepositoryContract;
 use WebEd\Plugins\Banner\Models\Banner;
+use WebEd\Plugins\Banner\Repositories\BannerRepository;
+use WebEd\Plugins\Banner\Repositories\Contracts\BannerRepositoryContract;
 use WebEd\Plugins\Banner\Repositories\BannerRepositoryCacheDecorator;
 
 

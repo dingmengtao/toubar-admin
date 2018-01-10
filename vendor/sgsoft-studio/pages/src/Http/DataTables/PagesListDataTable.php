@@ -89,6 +89,7 @@ class PagesListDataTable extends AbstractDataTables
 
         $templates = ['' => trans('webed-core::datatables.select') . '...',] + get_templates(WEBED_PAGES);
 
+
         $this
             ->addFilter(1, form()->text('id', '', [
                 'class' => 'form-control form-filter input-sm',

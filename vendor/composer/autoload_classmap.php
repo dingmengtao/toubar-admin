@@ -4229,6 +4229,7 @@ return array(
     'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\PostController' => $baseDir . '/plugins/blog/src/Http/Controllers/Front/PostController.php',
     'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\ResolveBlogController' => $baseDir . '/plugins/blog/src/Http/Controllers/Front/ResolveBlogController.php',
     'WebEd\\Plugins\\Blog\\Http\\Controllers\\Front\\TagController' => $baseDir . '/plugins/blog/src/Http/Controllers/Front/TagController.php',
+    'WebEd\\Plugins\\Blog\\Http\\Controllers\\NewsController' => $baseDir . '/plugins/blog/src/Http/Controllers/NewsController.php',
     'WebEd\\Plugins\\Blog\\Http\\Controllers\\PostController' => $baseDir . '/plugins/blog/src/Http/Controllers/PostController.php',
     'WebEd\\Plugins\\Blog\\Http\\DataTables\\CategoriesListDataTable' => $baseDir . '/plugins/blog/src/Http/DataTables/CategoriesListDataTable.php',
     'WebEd\\Plugins\\Blog\\Http\\DataTables\\PostsListDataTable' => $baseDir . '/plugins/blog/src/Http/DataTables/PostsListDataTable.php',
@@ -4243,7 +4244,9 @@ return array(
     'WebEd\\Plugins\\Blog\\Models\\Category' => $baseDir . '/plugins/blog/src/Models/Category.php',
     'WebEd\\Plugins\\Blog\\Models\\Contracts\\BlogTagModelContract' => $baseDir . '/plugins/blog/src/Models/Contracts/BlogTagModelContract.php',
     'WebEd\\Plugins\\Blog\\Models\\Contracts\\CategoryModelContract' => $baseDir . '/plugins/blog/src/Models/Contracts/CategoryModelContract.php',
+    'WebEd\\Plugins\\Blog\\Models\\Contracts\\NavigationModelContract' => $baseDir . '/plugins/blog/src/Models/Contracts/NavigationModelContract.php',
     'WebEd\\Plugins\\Blog\\Models\\Contracts\\PostModelContract' => $baseDir . '/plugins/blog/src/Models/Contracts/PostModelContract.php',
+    'WebEd\\Plugins\\Blog\\Models\\Navigation' => $baseDir . '/plugins/blog/src/Models/Navigation.php',
     'WebEd\\Plugins\\Blog\\Models\\Post' => $baseDir . '/plugins/blog/src/Models/Post.php',
     'WebEd\\Plugins\\Blog\\Providers\\BootstrapModuleServiceProvider' => $baseDir . '/plugins/blog/src/Providers/BootstrapModuleServiceProvider.php',
     'WebEd\\Plugins\\Blog\\Providers\\ConsoleServiceProvider' => $baseDir . '/plugins/blog/src/Providers/ConsoleServiceProvider.php',
@@ -4260,6 +4263,7 @@ return array(
     'WebEd\\Plugins\\Blog\\Repositories\\CategoryRepositoryCacheDecorator' => $baseDir . '/plugins/blog/src/Repositories/CategoryRepositoryCacheDecorator.php',
     'WebEd\\Plugins\\Blog\\Repositories\\Contracts\\BlogTagRepositoryContract' => $baseDir . '/plugins/blog/src/Repositories/Contracts/BlogTagRepositoryContract.php',
     'WebEd\\Plugins\\Blog\\Repositories\\Contracts\\CategoryRepositoryContract' => $baseDir . '/plugins/blog/src/Repositories/Contracts/CategoryRepositoryContract.php',
+    'WebEd\\Plugins\\Blog\\Repositories\\Contracts\\NavigationRepositoryContract' => $baseDir . '/plugins/blog/src/Repositories/Contracts/NavigationRepositoryContract.php',
     'WebEd\\Plugins\\Blog\\Repositories\\Contracts\\PostRepositoryContract' => $baseDir . '/plugins/blog/src/Repositories/Contracts/PostRepositoryContract.php',
     'WebEd\\Plugins\\Blog\\Repositories\\PostRepository' => $baseDir . '/plugins/blog/src/Repositories/PostRepository.php',
     'WebEd\\Plugins\\Blog\\Repositories\\PostRepositoryCacheDecorator' => $baseDir . '/plugins/blog/src/Repositories/PostRepositoryCacheDecorator.php',
@@ -4390,5 +4394,4 @@ return array(
     'phpDocumentor\\Reflection\\Types\\String_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/String_.php',
     'phpDocumentor\\Reflection\\Types\\This' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/This.php',
     'phpDocumentor\\Reflection\\Types\\Void_' => $vendorDir . '/phpdocumentor/type-resolver/src/Types/Void_.php',
-    
 );

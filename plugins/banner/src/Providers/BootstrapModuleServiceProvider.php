@@ -28,8 +28,8 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'id' => 'banner',
             'priority' => 20,
             'parent_id' => null,
-            'heading' => 'Banner',//分组
-            'title' => 'WebEd banner',//菜单名称
+            'heading' => '',//分组
+            'title' => 'banner',//菜单名称
             'font_icon' => 'icon-puzzle',//菜单图标
             'link' => route('admin::banner.index.get'),//路由地址
             'css_class' => null,

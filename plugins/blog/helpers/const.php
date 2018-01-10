@@ -7,11 +7,18 @@ if (!defined('WEBED_BLOG')) {
 if (!defined('WEBED_BLOG_TAGS')) {
     define('WEBED_BLOG_TAGS', 'webed-blog.tags');
 }
-
+if (!defined('WEBED_BLOG_NEWS')) {
+    define('WEBED_BLOG_NEWS', 'webed-blog.news');
+}
 if (!defined('WEBED_BLOG_POSTS')) {
     define('WEBED_BLOG_POSTS', 'webed-blog.posts');
 }
-
+if (!defined('WEBED_BLOG_NAVIGATION')) {
+    define('WEBED_BLOG_NAVIGATION', 'webed-blog.navigation');
+}
+if (!defined('WEBED_BLOG_PRODUCTS')) {
+    define('WEBED_BLOG_PRODUCTS', 'webed-blog.products');
+}
 if (!defined('WEBED_BLOG_CATEGORIES')) {
     define('WEBED_BLOG_CATEGORIES', 'webed-blog.categories');
 }

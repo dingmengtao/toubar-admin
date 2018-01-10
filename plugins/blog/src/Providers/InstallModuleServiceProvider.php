@@ -150,5 +150,21 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->foreign('post_id')->references('id')->on(webed_db_prefix() . 'posts')->onDelete('cascade');
             $table->foreign('tag_id')->references('id')->on(webed_db_prefix() . 'tags')->onDelete('cascade');
         });
+        Schema::create(webed_db_prefix() . 'cms_navigation', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('title');
+//            $table->integer('parent_id')->unsigned()->nullable();
+            $table->string('slug', 255)->nullable();
+
+
+            $table->integer('order')->default(0);
+
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+
+        });
     }
 }

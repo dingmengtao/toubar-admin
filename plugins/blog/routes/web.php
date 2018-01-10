@@ -13,6 +13,9 @@ Route::group(['prefix' => $adminRoute . '/' . $moduleRoute], function (Router $r
     require 'web/posts.php';
     require 'web/categories.php';
     require 'web/tags.php';
+    require  'web/news.php';
+    require  'web/navigation.php';
+
 });
 
 /**
