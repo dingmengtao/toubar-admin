@@ -22,7 +22,7 @@
 </div>
 @endsection
 @section('content')
-   <h2 class="article_title">TERMS&CONDITIONS</h2>
+   <h2 class="article_title">TERMS&nbsp;&&nbsp;CONDITIONS</h2>
    <article class="article_content inner_continer">
    	     <div class="article_item">
    	     	<h3 class="lazyc">Lieblingsstadt, favorite City, is a Cityguide for the asa German town 
