@@ -58,4 +58,11 @@ $(function() {
 		var temp_left=($(window).width()-$(".news_detail .detail_content").width())/2;
 		console.log(temp_left);
 		$(".news_detail .detail_bg .pic").css("left",-temp_left);
+//关于我们
+	 var us_pic_height=$(".us_detail .us_content").height();
+		$(".us_detail .us_bg .pic").css("height",us_pic_height);
+		$(".us_detail .us_bg .pic").css("width",$(window).width());
+		$(".us_detail .us_bg .pic").css("position","absolute");
+		var us_temp_left=($(window).width()-$(".us_detail .us_content").width())/2;
+		$(".us_detail .us_bg .pic").css("left",-us_temp_left);
 });

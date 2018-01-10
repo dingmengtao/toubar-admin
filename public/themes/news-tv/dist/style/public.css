@@ -136,6 +136,25 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .article_content .article_item  h4{font-size:0.3rem;width:100%;color:rgba(0,0,0,0.8);width:100%;text-align:center;margin-top:0.37rem;}
 .article_content .article_item p{margin-top:0.16rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
 /***************************文章article end**********************************/
+/***************************关于我们aboutus start**********************************/
+.us_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.us_detail{position:relative;}
+.us_detail .us_bg{position:absolute;top:0rem;left:0rem;z-index:-1;width:100%;height:100%;}
+.us_detail .us_bg .pic{background:url("../img/news_temp.png") no-repeat top;background-size:contain;}
+.us_detail .us_content h4{font-size:0.46rem;font-family:bold;}
+.us_detail .us_content .pic_temp{height:8rem;width:100%;}
+.us_detail .us_content .word{font-size:0.36rem;margin-top:0.49rem;}
+.us_medicine{margin-top:0.16rem;height:6.44rem;background:url("../img/us_medicine.png") no-repeat bottom;background-size:contain;}
+.us_way{width:90%;margin:auto;margin-top:0.6rem;}
+.us_way .way_item{width:24%;margin-left:14%;}
+.us_way .way_item:first-child{margin-left:0rem;}
+.us_way .way_item .way_logo{width:30%;height:1.04rem;margin:auto;}
+.us_way .way_item .way_logo.phone{background:url("../img/mobile.png") no-repeat center;background-size:contain;}
+.us_way .way_item .way_logo.ball{background:url("../img/globe.png") no-repeat center;background-size:contain;}
+.us_way .way_item .way_logo.text{background:url("../img/text.png") no-repeat center;background-size:contain;}
+.us_way .way_item h4{margin-top:0.49rem;width:100%;text-align:center;font-size:0.36rem;font-family:bold;}
+.us_way .way_item p{margin-top:0.29rem;width:100%;text-align:center;font-size:0.24rem;color:rgba(0,0,0,0.8);}
+/***************************关于我们aboutus end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}
