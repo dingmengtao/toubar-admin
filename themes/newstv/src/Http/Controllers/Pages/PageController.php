@@ -116,14 +116,13 @@ class PageController extends AbstractController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-        protected function _template_page404()
+    protected function _template_page404()
     {
-//        google_recaptcha()
-//            ->setLanguage(app()->getLocale())
-//            ->registerForm('contactFormRecaptcha')
-//            ->renderScript('front_footer_js');
-
         return $this->view('front.page-templates.page404');
+    }
+     protected function _template_news()
+    {
+        return $this->view('front.page-templates.news');
     }
     protected function _template_Videos()
     {

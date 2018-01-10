@@ -79,6 +79,7 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .faq_contact  p.link span{font-size:0.3rem;}
 .faq_contact  p.link a{font-size:0.3rem;color:rgba(0,0,0,0.3);text-decoration:none;}
 /***************************解答FAQ	 end**********************************/
+/***************************报错404	 start**********************************/
 .bug_continer{width:100%;background:url("../img/bug_bg.png") repeat center;background-size:cover;}
 .bug_continer .content{width:30%;min-height:auto;margin:0rem auto 0rem auto;}
 .bug_continer .content .content_pic {margin:auto;width:68%;}
@@ -91,9 +92,25 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .bug_continer .advice{width:80%;margin:1.41rem auto 0rem auto;}
 .bug_continer .advice h4{width:100%;font-size:0.32rem;font-family:bold;}
 .bug_continer .advice p{font-size:0.25rem;font-family:bold;}
-/***************************报错404	 start**********************************/
-
 /***************************报错404	 end**********************************/
+/***************************新闻news	 start**********************************/
+.news_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.news_tabs{margin-top:0.34rem;}
+.news_tabs .news_list .news_item{margin-top:0.94rem;}
+.news_tabs .news_list .news_item:first-child{margin-top:0rem;}
+.news_tabs .news_list .news_item h3{font-size:0.6rem;font-family:bold;color:rgba(0,0,0,0.5);width:100%;text-align:center;}
+.news_tabs .news_list .news_item h4{margin-top:0.29rem;font-size:0.36rem;width:100%;text-align:center;}
+.news_tabs .news_list .news_item h5{width:100%;text-align:center;font-size:0.24rem;color:rgba(0,0,0,0.6);margin-top:0.19rem;}
+.news_tabs .news_list .news_item p{margin-top:0.19rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
+.news_article{margin-top:1rem;width:100%;padding-bottom:1rem;}
+.news_article h2{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.news_article .c{width:100%;margin-top:0.6rem;}
+.news_article .c .article_item{width:35%;}
+.news_article .c .article_item h3{text-align:center;width:100%;font-size:0.36rem;font-family:bold;}
+.news_article .c .article_item p{text-align:center;width:100%;font-size:0.24rem;color:rgba(0,0,0,0.8) margin-top:0.29rem;}
+.news_article .more{margin-top:0.8rem;width:100%;text-align:center;}
+.news_article .more a{font-size:0.3rem;color:rgba(0,0,0,0.6);font-family:bold;text-decoration:none;}
+/***************************新闻news	 end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}
@@ -133,6 +150,14 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .background_c.faq .triangle1{position:absolute;right:4.23rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
 .background_c.faq .box1{max-width:100%;margin-top:2.47rem;}
 .background_c.faq .box2{max-width:100%;margin-top:4.70rem;position:relative;}
+
+.background_c.news{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.news .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.news .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.news .capsule2{width:5.03rem;height:7.81rem;margin-top:7.31rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.news .triangle1{position:absolute;right:4.23rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
+.background_c.news .box1{max-width:100%;margin-top:2.47rem;}
+.background_c.news .box2{max-width:100%;margin-top:4.70rem;position:relative;}
 /**************************背景悬浮物体 end***********************************/
 /**************************前方悬浮物体 start***********************************/
 .before_c.index{height:0rem;width:0rem;position:absolute;z-index:1;top:9rem;right:5rem;}
@@ -148,4 +173,9 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .before_c.faq .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
 .before_c.faq .triangle2{width:1.04rem;height:1.04rem;position:relative;left:1rem;bottom:6rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
 .before_c.faq .box1{max-width:100%;}
+
+.before_c.news{width:0rem;height:0rem;position:absolute;z-index:1;top:20rem;left:5rem;}
+.before_c.news .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;position:relative;bottom:13rem;}
+.before_c.news .triangle2{width:1.04rem;height:1.04rem;position:relative;left:1rem;bottom:6rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.news .box1{max-width:100%;}
 /**************************前方悬浮物体 end***********************************/
