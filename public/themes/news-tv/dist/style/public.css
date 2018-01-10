@@ -59,13 +59,109 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .map .map_content .left_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;left:0rem;top:10%;z-index:2;}
 .map .map_content .right_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;right:0rem;top:10%;z-index:2;}*/
 /***************************联系contact	 end**********************************/
+/***************************解答FAQ	 start**********************************/
+.faq_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.faq_tabs{margin-top:0.34rem;}
+.faq_tabs .lead .item{cursor:pointer;width:25%;font-size:0.3rem;color:rgba(0,0,0,0.6);text-decoration:none;}
+.faq_tabs .lead .item.current{color:rgba(0,0,0,1);text-decoration:underline;}
+.faq_tabs .content{margin-top:0.94rem;}
+.faq_tabs .content .item{display:none;}
+.faq_tabs .content .item.current{display:block;}
+.faq_tabs .content .item .problem_list .problem_item{margin-top:0.94rem;}
+.faq_tabs .content .item .problem_list .problem_item:first-child{margin-top:0rem;}
+.faq_tabs .content .item .problem_list .problem_item h3{font-size:0.6rem;font-family:bold;color:rgba(0,0,0,0.5);width:100%;text-align:center;}
+.faq_tabs .content .item .problem_list .problem_item h4{margin-top:0.29rem;font-size:0.36rem;width:100%;text-align:center;}
+.faq_tabs .content .item .problem_list .problem_item p{margin-top:0.19rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
+.faq_contact {max-width:8.41rem;margin:1.72rem auto 0rem auto;}
+.faq_contact  .talk{width:1.48rem;height:1.41rem;background:url("../img/comments@2x.png") no-repeat center;background-size:contain;}
+.faq_contact  p.title{font-size:0.6rem;line-height:0.75rem;font-family:bold;max-width:6.56rem;}
+.faq_contact  p.link{width:100%;margin-bottom:1.25rem;}
+.faq_contact  p.link span{font-size:0.3rem;}
+.faq_contact  p.link a{font-size:0.3rem;color:rgba(0,0,0,0.3);text-decoration:none;}
+/***************************解答FAQ	 end**********************************/
+/***************************报错404	 start**********************************/
+.bug_continer{width:100%;background:url("../img/bug_bg.png") repeat center;background-size:cover;}
+.bug_continer .content{width:30%;min-height:auto;margin:0rem auto 0rem auto;}
+.bug_continer .content .content_pic {margin:auto;width:68%;}
+.bug_continer .content .content_pic .item{width:32%;height:1.49rem;margin-left:1%;}
+.bug_continer .content .content_pic .item.pic_1{background:url("../img/pic1.png") no-repeat center;background-size:contain;}
+.bug_continer .content .content_pic .item.pic_2{background:url("../img/pic2.png") no-repeat center;background-size:contain;}
+.bug_continer .content .content_pic .item.pic_3{background:url("../img/pic3.png") no-repeat center;background-size:contain;}
+.bug_continer .content p{font-size:0.36rem;margin-top:0.5rem;font-family:bold;font-weight:800;}
+.bug_continer .content p a{color:#000000;font-weight:900;}
+.bug_continer .advice{width:80%;margin:1.41rem auto 0rem auto;}
+.bug_continer .advice h4{width:100%;font-size:0.32rem;font-family:bold;}
+.bug_continer .advice p{font-size:0.25rem;font-family:bold;}
+/***************************报错404	 end**********************************/
+/***************************新闻news	 start**********************************/
+.news_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.news_tabs{margin-top:0.34rem;}
+.news_tabs .news_list .news_item{margin-top:0.94rem;}
+.news_tabs .news_list .news_item:first-child{margin-top:0rem;}
+.news_tabs .news_list .news_item h3{font-size:0.6rem;font-family:bold;color:rgba(0,0,0,0.5);width:100%;text-align:center;}
+.news_tabs .news_list .news_item h4{margin-top:0.29rem;font-size:0.36rem;width:100%;text-align:center;}
+.news_tabs .news_list .news_item h5{width:100%;text-align:center;font-size:0.24rem;color:rgba(0,0,0,0.6);margin-top:0.19rem;}
+.news_tabs .news_list .news_item p{margin-top:0.19rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
+.news_article{margin-top:1rem;width:100%;padding-bottom:1rem;}
+.news_article h2{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.news_article .c{width:100%;margin-top:0.6rem;}
+.news_article .c .article_item{width:35%;}
+.news_article .c .article_item h3{text-align:center;width:100%;font-size:0.36rem;font-family:bold;}
+.news_article .c .article_item p{text-align:center;width:100%;font-size:0.24rem;color:rgba(0,0,0,0.8) margin-top:0.29rem;}
+.news_article .more{margin-top:0.8rem;width:100%;text-align:center;}
+.news_article .more a{font-size:0.3rem;color:rgba(0,0,0,0.6);font-family:bold;text-decoration:none;}
+/***************************新闻news	 end**********************************/
+/***************************新闻详情newsdetail start**********************************/
+.news_detail{position:relative;}
+.news_detail .detail_bg{position:absolute;top:0rem;left:0rem;z-index:-1;width:100%;height:100%;}
+.news_detail .detail_bg .pic{background:url("../img/news_temp.png") no-repeat top;background-size:contain;}
+.news_detail .detail_content h3{font-size:0.46rem;width:100%;margin-top:1.20rem;} 
+.news_detail .detail_content h4{font-size:0.24rem;color:rgba(0,0,0,0.6);margin-top:0.18rem;}
+.news_detail .detail_content .pic_temp{height:8.3rem;width:100%;}
+.news_detail .detail_content .word{font-size:0.36rem;}
+.news_detail .detail_content .bottom{margin-top:0.79rem;}
+.news_detail .detail_content .bottom .tag{width:40%;}
+.news_detail .detail_content .bottom .tag .tag_title{font-size:0.24rem;width:15%;}
+.news_detail .detail_content .bottom .tag .tag_content{width:85%;font-size:0.24rem;color:rgba(0,0,0,0.6)}
+.news_detail .detail_content .bottom ul{width:30%;}
+.news_detail .detail_content .bottom ul li{width:9%;height:0.77rem;margin-left:11%;}
+.news_detail .detail_content .bottom ul li a{display:block;width:100%;height:100%;}
+.news_detail .detail_content .bottom ul li a img{vertical-align:top;}
+/***************************新闻详情newsdetail end**********************************/
+/***************************文章article start**********************************/
+.article_title{font-size:0.86rem;font-family:bold;text-decoration:underline;width:100%;text-align:center;margin-top:1.20rem;}
+.article_content{padding-bottom:0.31rem;}
+.article_content .article_item{margin-top:1rem;}
+.article_content .article_item h3{font-family:bold;font-size:0.36rem;width:100%;text-align:center;}
+.article_content .article_item  h4{font-size:0.3rem;width:100%;color:rgba(0,0,0,0.8);width:100%;text-align:center;margin-top:0.37rem;}
+.article_content .article_item p{margin-top:0.16rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
+/***************************文章article end**********************************/
+/***************************关于我们aboutus start**********************************/
+.us_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
+.us_detail{position:relative;}
+.us_detail .us_bg{position:absolute;top:0rem;left:0rem;z-index:-1;width:100%;height:100%;}
+.us_detail .us_bg .pic{background:url("../img/news_temp.png") no-repeat top;background-size:contain;}
+.us_detail .us_content h4{font-size:0.46rem;font-family:bold;}
+.us_detail .us_content .pic_temp{height:8rem;width:100%;}
+.us_detail .us_content .word{font-size:0.36rem;margin-top:0.49rem;}
+.us_medicine{margin-top:0.16rem;height:6.44rem;background:url("../img/us_medicine.png") no-repeat bottom;background-size:contain;}
+.us_way{width:90%;margin:auto;margin-top:0.6rem;}
+.us_way .way_item{width:24%;margin-left:14%;}
+.us_way .way_item:first-child{margin-left:0rem;}
+.us_way .way_item .way_logo{width:30%;height:1.04rem;margin:auto;}
+.us_way .way_item .way_logo.phone{background:url("../img/mobile.png") no-repeat center;background-size:contain;}
+.us_way .way_item .way_logo.ball{background:url("../img/globe.png") no-repeat center;background-size:contain;}
+.us_way .way_item .way_logo.text{background:url("../img/text.png") no-repeat center;background-size:contain;}
+.us_way .way_item h4{margin-top:0.49rem;width:100%;text-align:center;font-size:0.36rem;font-family:bold;}
+.us_way .way_item p{margin-top:0.29rem;width:100%;text-align:center;font-size:0.24rem;color:rgba(0,0,0,0.8);}
+/***************************关于我们aboutus end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}
-footer .footer_lead .fl_item{/*width:1.03rem;*/height:0.34rem;margin-left:1.87rem;}
+footer .footer_lead .fl_item{width:25%;height:0.34rem;}
 footer .footer_lead .fl_item:first-child{margin-left:0rem;}
 footer .footer_lead .fl_item a{color:#303030;text-decoration:none;font-size:0.3rem;vertical-align:top;}
-footer .footer_lead .fl_item:hover {border-bottom:1px solid #303030;}
+footer .footer_lead .fl_item:hover a{border-bottom:1px solid #303030;}
 footer .share-buttons{max-width:3.66rem;/*height:1.18rem;*/margin:auto;margin-top:0.66rem;}
 footer .share-buttons .share_item {margin-left:0.405rem;}
 footer .share-buttons .share_item:first-child{margin-left:0rem;}
@@ -90,6 +186,31 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .background_c.contact .triangle1{position:absolute;right:4.23rem;top:5.5rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
 .background_c.contact .box1{max-width:100%;margin-top:2.47rem;}
 .background_c.contact .box2{max-width:100%;margin-top:4.70rem;position:relative;}
+
+.background_c.faq{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.faq .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.faq .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.faq .capsule2{width:5.03rem;height:7.81rem;margin-top:6.58rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.faq .triangle1{position:absolute;right:4.23rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
+.background_c.faq .box1{max-width:100%;margin-top:2.47rem;}
+.background_c.faq .box2{max-width:100%;margin-top:4.70rem;position:relative;}
+
+.background_c.news{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.news .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.news .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.news .capsule2{width:5.03rem;height:7.81rem;margin-top:7.31rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.news .triangle1{position:absolute;right:4.23rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
+.background_c.news .box1{max-width:100%;margin-top:2.47rem;}
+.background_c.news .box2{max-width:100%;margin-top:4.70rem;position:relative;}
+
+
+.background_c.newsdetail{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.newsdetail .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.newsdetail .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
+.background_c.newsdetail .capsule2{width:5.03rem;height:7.81rem;margin-top:7.31rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;}
+.background_c.newsdetail .triangle1{position:absolute;right:0rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
+.background_c.newsdetail .box1{max-width:100%;margin-top:2.47rem;}
+.background_c.newsdetail .box2{max-width:100%;margin-top:4.70rem;position:relative;}
 /**************************背景悬浮物体 end***********************************/
 /**************************前方悬浮物体 start***********************************/
 .before_c.index{height:0rem;width:0rem;position:absolute;z-index:1;top:9rem;right:5rem;}
@@ -100,4 +221,19 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .before_c.contact .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
 .before_c.contact .triangle2{width:1.04rem;height:1.04rem;position:relative;left:9rem;top:3.22rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
 .before_c.contact .box1{max-width:100%;}
+
+.before_c.faq{width:0rem;height:0rem;position:absolute;z-index:1;top:20rem;left:5rem;}
+.before_c.faq .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.before_c.faq .triangle2{width:1.04rem;height:1.04rem;position:relative;left:1rem;bottom:6rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.faq .box1{max-width:100%;}
+
+.before_c.news{width:0rem;height:0rem;position:absolute;z-index:1;top:20rem;left:5rem;}
+.before_c.news .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;position:relative;bottom:13rem;}
+.before_c.news .triangle2{width:1.04rem;height:1.04rem;position:relative;left:1rem;bottom:6rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.news .box1{max-width:100%;}
+
+.before_c.newsdetail{width:0rem;height:0rem;position:absolute;z-index:1;top:20rem;left:5rem;}
+.before_c.newsdetail .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;position:relative;bottom:13rem;}
+.before_c.newsdetail .triangle2{width:1.04rem;height:1.04rem;position:relative;left:0rem;bottom:7rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.newsdetail .box1{max-width:100%;}
 /**************************前方悬浮物体 end***********************************/

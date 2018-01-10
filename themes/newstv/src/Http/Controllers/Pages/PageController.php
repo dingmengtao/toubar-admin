@@ -116,6 +116,22 @@ class PageController extends AbstractController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    protected function _template_page404()
+    {
+        return $this->view('front.page-templates.page404');
+    }
+    protected function _template_news()
+    {
+        return $this->view('front.page-templates.news');
+    }
+    protected function _template_newsdetail()
+    {
+        return $this->view('front.page-templates.newsdetail');
+    }
+     protected function _template_article()
+    {
+        return $this->view('front.page-templates.article');
+    }
     protected function _template_Videos()
     {
         $this->dis['posts'] = get_posts([
