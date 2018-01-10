@@ -48,7 +48,9 @@ $(function() {
 //			404页面
 		$(".bug_continer").css("height",$(window).height());
 		var temp_value=$(window).height()/2-$(".bug_continer .content").height()/2;
+		$(".bug_continer .content").css("position","relative");
+		$(".bug_continer .content").css("top",temp_value);
 		$(".bug_continer .advice").css("position","absolute");
-		$(".bug_continer .advice").css("top",$(".bug_continer .content").height()+141);
+		$(".bug_continer .advice").css("top",$(".bug_continer .content").height()+141+temp_value);
 		$(".bug_continer .advice").css("left","38%");
 });
