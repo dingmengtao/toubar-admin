@@ -120,9 +120,13 @@ class PageController extends AbstractController
     {
         return $this->view('front.page-templates.page404');
     }
-     protected function _template_news()
+    protected function _template_news()
     {
         return $this->view('front.page-templates.news');
+    }
+    protected function _template_newsdetail()
+    {
+        return $this->view('front.page-templates.newsdetail');
     }
     protected function _template_Videos()
     {
