@@ -128,6 +128,14 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .news_detail .detail_content .bottom ul li a{display:block;width:100%;height:100%;}
 .news_detail .detail_content .bottom ul li a img{vertical-align:top;}
 /***************************新闻详情newsdetail end**********************************/
+/***************************文章article start**********************************/
+.article_title{font-size:0.86rem;font-family:bold;text-decoration:underline;width:100%;text-align:center;margin-top:1.20rem;}
+.article_content{padding-bottom:0.31rem;}
+.article_content .article_item{margin-top:1rem;}
+.article_content .article_item h3{font-size:0.36rem;width:100%;text-align:center;}
+.article_content .article_item  h4{font-size:0.3rem;width:100%;color:rgba(0,0,0,0.8);width:100%;text-align:center;margin-top:0.37rem;}
+.article_content .article_item p{margin-top:0.16rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
+/***************************文章article end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}

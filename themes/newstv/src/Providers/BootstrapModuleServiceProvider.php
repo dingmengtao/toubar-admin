@@ -33,6 +33,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'page404'=>'page404',
             'news'=>'news',
             'newsdetail'=>'newsdetail',
+            'article'=>'article',
         ], WEBED_PAGES);
 //        add_new_template([
 //            'products'=>'product',
