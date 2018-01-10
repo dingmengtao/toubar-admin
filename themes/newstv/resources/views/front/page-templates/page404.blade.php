@@ -32,7 +32,7 @@
     @stack('css')
     @php do_action('front_header_js') @endphp
 </head>
-<body class="{{ $bodyClass or '' }} @php do_action('front_body_class') @endphp" >
+<body class="{{ $bodyClass or '' }} @php do_action('front_body_class') @endphp" overflow="hidden">
 	<div class="bug_continer">
 		<div class="content">
 			<ul class="content_pic">
@@ -46,15 +46,16 @@
 				</br>
 				本页面将在6s后自动跳转到<a href="../home">首页</a>
 			</p>
+			<div class="advice">
+				<h4>建议</h4>
+				<p>
+					检查你的网络是否正确<br/>
+					检查您是否使用了错误的网址连接
+				</p>
+			</div>
 			
 		</div>
-		<div class="advice">
-			<h4>建议</h4>
-			<p>
-				检查你的网络是否正确<br/>
-				检查您是否使用了错误的网址连接
-			</p>
-		</div>
+
 	</div>
 	<script src="{{ asset('themes/news-tv/dist/js/jquery-3.1.1.min.js') }}"></script>
 	<script src="{{ asset('themes/news-tv/dist/js/index.js') }}"></script>
