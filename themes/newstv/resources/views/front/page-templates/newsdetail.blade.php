@@ -1,6 +1,6 @@
 @extends('webed-theme::front._master')
 @section('move')
- <div class="background_c news">
+ <div class="background_c newsdetail">
 	<div class="box box1 transition">
 		<div class="target ball1 fr move"></div>
 		<div class="clear"></div>
@@ -12,7 +12,7 @@
 		<div class="clear"></div>
 	</div>
 </div>
-<div class="before_c news">
+<div class="before_c newsdetail">
 	<div class="box box1 transition">
 		<div class="target ball2 fr move"></div>
 	</div>
