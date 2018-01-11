@@ -1,6 +1,6 @@
 @extends('webed-theme::front._master')
 @section('move')
- <!--<div class="background_c newsdetail">
+ <div class="background_c about">
 	<div class="box box1 transition">
 		<div class="target ball1 fr move"></div>
 		<div class="clear"></div>
@@ -12,14 +12,14 @@
 		<div class="clear"></div>
 	</div>
 </div>
-<div class="before_c newsdetail">
+<div class="before_c about">
 	<div class="box box1 transition">
 		<div class="target ball2 fr move"></div>
 	</div>
 	<div class="box box2 transition">
 		<div class="target triangle2 fr move"></div>
 	</div>
-</div>-->
+</div>
 @endsection
 @section('content')
    <h2 class="us_title tl_center">ADOUT&nbsp;MEDISUM</h2>
@@ -66,4 +66,49 @@ Cityguide for the German</p>
    		</li>
    		<li class="clear"></li>
    </ul>
+   <div class="us_retailer  inner_continer">
+   		 <h2 class="us_title tl_center">Retailer</h2>
+   		 <div class="c">
+   		 	<div class="half fl">
+	   		 	<ul class="half_list">
+	   		 		<li>
+	   		 			<div class="title"><span></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 		<li>
+	   		 			<div class="title"><span></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 		<li>
+	   		 			<div class="title"><span></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 	</ul>
+   		 	</div>
+	   		 <div class="half fr">
+	   		 	<ul class="half_list">
+	   		 		<li>
+	   		 			<div class="title"><span class="transition"></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 		<li>
+	   		 			<div class="title"><span></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 		<li>
+	   		 			<div class="title"><span></span>Retailer 1</div>
+	   		 			<div class="address"><span></span>1 / 24 Sydney Street, Burwood VIC 1324</div>
+	   		 			<div class="phone"><span></span>9856 5555</div>
+	   		 		</li>
+	   		 	</ul>
+	   		 </div>
+	   		 <div class="clear"></div>
+   		 </div>
+   		
+   </div>
 @endsection

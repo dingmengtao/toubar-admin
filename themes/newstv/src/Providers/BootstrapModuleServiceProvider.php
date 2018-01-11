@@ -34,6 +34,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'news'=>'news',
             'newsdetail'=>'newsdetail',
             'article'=>'article',
+            'products'=>'products',
         ], WEBED_PAGES);
 //        add_new_template([
 //            'products'=>'product',

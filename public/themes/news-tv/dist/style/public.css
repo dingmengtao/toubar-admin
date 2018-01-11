@@ -154,7 +154,48 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .us_way .way_item .way_logo.text{background:url("../img/text.png") no-repeat center;background-size:contain;}
 .us_way .way_item h4{margin-top:0.49rem;width:100%;text-align:center;font-size:0.36rem;font-family:bold;}
 .us_way .way_item p{margin-top:0.29rem;width:100%;text-align:center;font-size:0.24rem;color:rgba(0,0,0,0.8);}
+.us_retailer{margin-top:1.57rem;margin-bottom:1rem;}
+.us_retailer .us_title{margin-top:0rem;}
+.us_retailer .c{width:90%;margin:auto;}
+.us_retailer .c .half{width:43%;}
+.us_retailer .c .half .half_list li{margin-top:0.57rem;border-bottom:1px solid #fffff;}
+.us_retailer .c .half .half_list li  span{vertical-align:middle;width:0.29rem;height:0.29rem;display:inline-block;}
+.us_retailer .c .half .half_list li .title{font-size:0.36rem;font-family:bold;line-height:0.29rem;}
+.us_retailer .c .half .half_list li .title span{display:none;margin-right:0.42rem;background:url("../img/right.png") no-repeat center;background-size:contain;}
+.us_retailer .c .half .half_list li .address{margin-top:0.29rem;font-size:0.24rem;color:rgba(0,0,0,0.6);line-height:0.29rem;}
+.us_retailer .c .half .half_list li .address span{margin-right:0.22rem;background:url("../img/home_grey.png") no-repeat center;background-size:150%;}
+.us_retailer .c .half .half_list li .phone{margin-top:0.19rem;margin-bottom:0.21rem;font-size:0.24rem;color:rgba(0,0,0,0.6);line-height:0.29rem;}
+.us_retailer .c .half .half_list li .phone span{margin-right:0.22rem;background:url("../img/phone_grey.png") no-repeat center;background-size:contain;}
+.us_retailer .c .half .half_list li:hover{border-bottom:1px solid #000000;}
+.us_retailer .c .half .half_list li:hover .title span{display:inline-block}
+.us_retailer .c .half .half_list li:hover .address{color:#000000;}
+.us_retailer .c .half .half_list li:hover .address span{background:url("../img/home.png") no-repeat center;background-size:contain;}
+.us_retailer .c .half .half_list li:hover .phone{color:#000000;}
+.us_retailer .c .half .half_list li:hover .phone span{background:url("../img/phone.png") no-repeat center;background-size:contain;}
 /***************************关于我们aboutus end**********************************/
+/***************************产品product start**********************************/
+.product_intro {margin-top:1rem;width:100%;position:relative;/*background:pink;*/}
+.product_intro .intro_pic{width:100%;height:100%;position:absolute;z-index:-1;left:0rem;top:0rem;}
+.product_intro .intro_pic .pic{/*height:5.83rem;width:40%;*/ /*效果*/ opacity:0;height:0rem;  width:0rem;margin:auto;background:url("../img/temp_pic.png") no-repeat center;background-size:contain;}
+.product_intro .intro_content{width:100%;height:100%;position:relative;}
+.product_intro .intro_content .pic_temp{width:40%;height:5.83rem;margin:auto;}
+.product_intro .intro_content .content_word{ width:31%;/*效果*/ height:0rem;overflow:hidden; }
+.product_intro .intro_content .content_word h3{margin-top:1.6rem;font-size:0.56rem;font-family:bold;ext-shadow: 5px 5px 5px #FF0000;}
+.product_intro .intro_content .content_word p{font-size:0.24rem;}
+.product_intro .intro_content .content_left{position:absolute;z-index:1;left:0rem;top:0rem;padding-left:0.69rem;box-sizing:border-box;}
+.product_intro .intro_content .content_right{position:absolute;z-index:1;right:0rem;top:0rem;padding-right:0.69rem;box-sizing:border-box;}
+.product_intro .intro_content .content_bottom{width:45%;margin:auto;position:relative;bottom:1.1rem;}
+.product_intro .intro_content .content_bottom h4{font-size:0.56rem;color:red;width:90%;text-align:right;/*效果*/height:0rem;}
+.product_intro .intro_content .content_bottom h2{/*font-size:1.72rem;*//*效果*/font-size:0rem;font-family:bold;width:100%;text-align:center;}
+.product_intro .intro_component {display:none; width:100%;height:100%;position:absolute;z-index:1;left:0rem;top:0rem;}
+.product_intro .intro_component .compoment_c{width:3rem;height:3rem;margin:1rem auto 0rem auto;position:relative;left:-5%;}
+.product_intro .intro_component .compoment_c .c .pic_box{opacity:0;width:1rem;height:1rem;}
+.product_intro .component_detail{opacity:0;display:none; width:100%;min-height:110%;background:rgba(255,255,255,0.7);position:absolute;z-index:2;left:0rem;top:-0.55rem;}
+.product_intro .component_detail .box{width:80%;min-height:2rem;box-shadow:0rem 0rem 0.2rem rgba(0,0,0,0.1);background:#ffffff;margin:auto;border-radius:0.2rem;padding:0.86rem 1.68rem;box-sizing:border-box;}
+.product_intro .component_detail .box .title .pic_box{width:1.75rem;height:1.75rem;background:url("../img/comp1.png") no-repeat center;background-size:contain;}
+.product_intro .component_detail .box .title h3{font-size:0.64rem;font-family:bold;line-height:1.75rem;text-indent:0.28rem;}
+.product_intro .component_detail .box p {font-size:0.31rem;line-height:0.38rem;margin-top:0.3rem;}
+/***************************产品product end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
 footer .footer_lead{margin:auto;max-width:9.73rem;margin-top:0.78rem;}
@@ -203,7 +244,6 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .background_c.news .box1{max-width:100%;margin-top:2.47rem;}
 .background_c.news .box2{max-width:100%;margin-top:4.70rem;position:relative;}
 
-
 .background_c.newsdetail{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
 .background_c.newsdetail .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
 .background_c.newsdetail .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;}
@@ -211,6 +251,14 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .background_c.newsdetail .triangle1{position:absolute;right:0rem;top:1rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
 .background_c.newsdetail .box1{max-width:100%;margin-top:2.47rem;}
 .background_c.newsdetail .box2{max-width:100%;margin-top:4.70rem;position:relative;}
+
+.background_c.about{width:100%;position:absolute;top:0rem;left:0rem;z-index:-1;}
+.background_c.about .ball1{width:3.44rem;height:3.44rem;margin-right:2.48rem;  background:url("../img/ball1.png") no-repeat center;background-size:contain;}
+.background_c.about .capsule1{width:2.74rem;height:5.56rem;background:url("../img/capsule1.png") no-repeat top right;background-size:6rem auto;position:relative;top:10rem;}
+.background_c.about .capsule2{width:5.03rem;height:7.81rem;margin-top:6.58rem; background:url("../img/capsule2.png") no-repeat top left;background-size:6rem auto;position:relative;top:10rem;}
+.background_c.about .triangle1{position:absolute;right:5.23rem;top:5.5rem;height:3.01rem;width:2.60rem;background:url("../img/right_tri.png") no-repeat center;background-size:contain;}
+.background_c.about .box1{max-width:100%;margin-top:2.47rem;}
+.background_c.about .box2{max-width:100%;margin-top:4.70rem;position:relative;}
 /**************************背景悬浮物体 end***********************************/
 /**************************前方悬浮物体 start***********************************/
 .before_c.index{height:0rem;width:0rem;position:absolute;z-index:1;top:9rem;right:5rem;}
@@ -219,7 +267,7 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 
 .before_c.contact{width:0rem;height:0rem;position:absolute;z-index:1;top:17rem;left:5rem;}
 .before_c.contact .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
-.before_c.contact .triangle2{width:1.04rem;height:1.04rem;position:relative;left:9rem;top:3.22rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.contact .triangle2{width:1.04rem;height:1.04rem;position:relative;left:6rem;top:3.22rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
 .before_c.contact .box1{max-width:100%;}
 
 .before_c.faq{width:0rem;height:0rem;position:absolute;z-index:1;top:20rem;left:5rem;}
@@ -236,4 +284,9 @@ footer .info{font-size:0.16rem;color:#231815;width:100%;text-align:center;margin
 .before_c.newsdetail .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;position:relative;bottom:13rem;}
 .before_c.newsdetail .triangle2{width:1.04rem;height:1.04rem;position:relative;left:0rem;bottom:7rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
 .before_c.newsdetail .box1{max-width:100%;}
+
+.before_c.about{width:0rem;height:0rem;position:absolute;z-index:1;top:17rem;left:5rem;}
+.before_c.about .ball2{width:1.29rem;height:1.29rem;margin-right:1rem;background:url("../img/ball2.png") no-repeat center;background-size:contain;}
+.before_c.about .triangle2{width:1.04rem;height:1.04rem;position:relative;left:9rem;top:3.22rem;background:url("../img/rorate_tri.png") no-repeat center;background-size:contain;}
+.before_c.about .box1{max-width:100%;}
 /**************************前方悬浮物体 end***********************************/

@@ -11,6 +11,7 @@ return array(
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Webmozart\\Assert\\' => array($vendorDir . '/webmozart/assert/src'),
+    'WebEd\\Plugins\\Share\\' => array($baseDir . '/plugins/share/src'),
     'WebEd\\Plugins\\Blog\\' => array($baseDir . '/plugins/blog/src'),
     'WebEd\\Plugins\\Banner\\' => array($baseDir . '/plugins/banner/src'),
     'WebEd\\Base\\Users\\' => array($vendorDir . '/sgsoft-studio/users/src'),

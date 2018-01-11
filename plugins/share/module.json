@@ -1,0 +1,10 @@
+{
+    "alias": "share",
+    "name": "WebEd share",
+    "author": "ding",
+    "description": "WebEd share",
+    "namespace": "WebEd\\Plugins\\Share",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "require": {}
+}
