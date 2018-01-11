@@ -55,7 +55,7 @@ a{cursor:pointer;}
 .fr{float:right;}
 .clear{margin: 0px auto;clear:both;height: 0px;font-size: 0px;overflow: hidden;}
 /*容器*/
-.outer_continer{max-width:1920px;margin:auto;padding:28px 69px 38px 69px;}
+.outer_continer{box-sizing:border-box;max-width:1920px;margin:auto;padding:28px 69px 38px 69px;}
 .inner_continer{margin:auto;max-width:1203px;}
 .pic_box {text-align:center;}
 .pic_box  img{max-height:100%;max-width:100%;vertical-align:middle;}

@@ -132,6 +132,10 @@ class PageController extends AbstractController
     {
         return $this->view('front.page-templates.article');
     }
+     protected function _template_products()
+    {
+        return $this->view('front.page-templates.products');
+    }
     protected function _template_Videos()
     {
         $this->dis['posts'] = get_posts([
