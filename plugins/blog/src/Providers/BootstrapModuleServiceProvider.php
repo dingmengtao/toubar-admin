@@ -77,7 +77,26 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'link' => route('admin::blog.tags.index.get'),
             'css_class' => null,
             'permissions' => ['view-tags'],
+        ])->registerItem([
+            'id' => WEBED_BLOG_NEWS,
+            'priority' => 2.3,
+            'parent_id' => WEBED_BLOG_POSTS,
+            'title' => trans('webed-blog::base.admin_menu.news'),
+            'font_icon' => 'icon-tag',
+            'link' => route('admin::blog.news.index.get'),
+            'css_class' => null,
+            'permissions' => ['view-news'],
         ]);
+//->registerItem([
+//            'id' => WEBED_BLOG_PRODUCTS,
+//            'priority' => 2.4,
+//            'parent_id' => WEBED_BLOG_POSTS,
+//            'title' => trans('webed-blog::base.admin_menu.products'),
+//            'font_icon' => 'icon-tag',
+//            'link' => route('admin::blog.products.index.get'),
+//            'css_class' => null,
+//            'permissions' => ['view-products'],
+//        ]);
 
         /**
          * Register menu widget

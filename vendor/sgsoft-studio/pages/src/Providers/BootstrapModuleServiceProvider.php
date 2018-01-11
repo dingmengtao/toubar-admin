@@ -59,7 +59,17 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'link' => route('admin::pages.index.get'),
             'css_class' => null,
             'permissions' => ['view-pages'],
-        ]);
+        ])->registerItem([
+        'id' => 'webed-navgition',
+        'priority' => 1.1,
+        'parent_id' => null,
+        'title' => '导航',
+        'font_icon' => 'icon-notebook',
+        'link' => route('admin::navigation.index.get'),
+        'css_class' => null,
+        'permissions' => ['view-pages'],
+    ]);
+
     }
 
     protected function registerMenu()

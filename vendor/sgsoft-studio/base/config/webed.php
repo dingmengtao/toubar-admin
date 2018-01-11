@@ -14,7 +14,8 @@ return [
 
     'languages' => [
         'vi' => 'Vietnamese',
-        'en' => 'English'
+        'en' => 'English',
+
     ],
 
     'external_core' => [

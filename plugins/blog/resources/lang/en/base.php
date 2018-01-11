@@ -7,6 +7,8 @@ return [
         'posts' => 'Posts',
         'categories' => 'Categories',
         'tags' => 'Tags',
+        'news'=>'News',
+        'products'=>'Products'
     ],
 
     'admin_bar' => [
@@ -55,4 +57,5 @@ return [
             'create_tag' => 'Create tag',
         ],
     ],
+    'navigation'=>'navigation',
 ];
