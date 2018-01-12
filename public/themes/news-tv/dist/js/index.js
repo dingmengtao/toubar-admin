@@ -71,40 +71,104 @@ $(function() {
 	}
 	aboutus();
 	//产品页面
-	$(".product_intro .intro_pic .pic").animate({width:"40%",height:"5.83rem",opacity:"1"},"slow");
-	$(".product_intro .intro_content .content_word").each(function(){
-		$(this).animate({height:"4.47rem"},"slow");
-	});
-	$(".product_intro .intro_content .content_bottom h2").css("fontSize","1.72rem");
-	$(".product_intro .intro_content .content_bottom h4").css("height","0.688rem");
-//	var product_num=["0.2rem","-0.2rem","0.2rem","0rem"];
-//	function productmove()
-//	{
-//		var product_str="translateY(" +product_num+"px)";
-//		$(this).css("transform",product_str);
-//		$(this).css("-ms-transform",product_str);
-//		$(this).css("-moz-transform",product_str);
-//		$(this).css("-webkit-transform",product_str);
-//		$(this).css("-o-transform",procuct_str);
-//	}
-	
-	function product2()
-	{
-		var movex=$(window).width()/5;
-		var movey=$(window).width()/15;
-		$(".intro_component .compoment_c .pic_box").css("position","relative");
-		$(".intro_component .compoment_c .com_1").animate({left:-movex,top:-movey,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_2").animate({top:-movey,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_3").animate({left:movex,top:-movey,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_4").animate({left:-movex*1.7,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_5").animate({left:movex*1.7,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_6").animate({left:-movex,top:movey,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_7").animate({top:movey,opacity:"1"},"slow");
-		$(".intro_component .compoment_c .com_8").animate({left:movex,top:movey,opacity:"1"},"slow");	
+	$(".product_intro .intro_pic .pic").animate({
+		width: "40%",
+		height: "5.83rem",
+		opacity: "1"
+	}, "slow");
+
+	function productShow() {
+		$(".product_intro .intro_content .content_word").each(function() {
+			$(this).animate({
+				minHeight: "5rem",
+				height: "auto"
+			}, "slow");
+		});
+		$(".product_intro .intro_content .content_bottom h2").animate({
+			fontSize: "1.72rem"
+		});
+		$(".product_intro .intro_content .content_bottom h2").animate({
+			fontSize: "1.6rem"
+		});
+		$(".product_intro .intro_content .content_bottom h2").animate({
+			fontSize: "1.72rem"
+		});
+		$(".product_intro .intro_content .content_bottom h4").animate({
+			height: "0.688rem",
+			opacity: "1"
+		});
 	}
-	product2()
+	productShow();
+
+	function productHide() {
+		$(".product_intro .intro_content .content_word").each(function() {
+			$(this).animate({
+				height: "0rem"
+			}, "slow");
+		});
+		$(".product_intro .intro_content .content_bottom h2").animate({
+			fontSize: "0rem"
+		});
+		$(".product_intro .intro_content .content_bottom h4").animate({
+			height: "0rem",
+			opacity: "0"
+		});
+	}
+
+	function compmove() {
+		var movex = $(window).width() / 5;
+		var movey = $(window).width() / 15;
+		$(".intro_component .compoment_c .pic_box").css("position", "relative");
+		$(".intro_component .compoment_c .com_1").animate({
+			left: -movex,
+			top: -movey,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_2").animate({
+			top: -movey,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_3").animate({
+			left: movex,
+			top: -movey,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_4").animate({
+			left: -movex * 1.7,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_5").animate({
+			left: movex * 1.7,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_6").animate({
+			left: -movex,
+			top: movey,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_7").animate({
+			top: movey,
+			opacity: "1"
+		}, "slow");
+		$(".intro_component .compoment_c .com_8").animate({
+			left: movex,
+			top: movey,
+			opacity: "1"
+		}, "slow");
+	}
+	window.addEventListener("scroll",function(evt){
+		product_t = $(window).scrollTop();
+		if(product_t+$(window).height()-100>$("header").height())
+		{
+			console.log("yes");
+		}
+		if(product_t+$(window).height()-100>$("header").height()+$(".product_intro").height())
+		{
+			console.log("yes2");
+		}
+	},false);
 	//页面改变引发的各页面变化
-	$(window).resize(function(){
+	$(window).resize(function() {
 		newsdetail();
 		aboutus();
 	});

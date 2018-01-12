@@ -14,8 +14,8 @@ accumsan et viverra justo commodo.</p>
 			
 		</div>
 		<div class="content_bottom">
-			<h4 class="transition">RRP$100</h4>
-			<h2 class="transition">Trim 1+1</h2>
+			<h4 >RRP&nbsp;$100</h4>
+			<h2 >Trim 1+1</h2>
 		</div>
 		<div class="content_right  content_word">
 			<h3>Trim Carb Eraser</h3>
