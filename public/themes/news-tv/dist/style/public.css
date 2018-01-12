@@ -177,24 +177,74 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .product_intro {/*margin-top:1rem;*//*首屏*/margin-top:0rem;width:100%;position:relative;}
 .product_intro .intro_pic{width:100%;height:100%;position:absolute;z-index:-1;left:0rem;top:0rem;}
 .product_intro .intro_pic .pic{/*height:5.83rem;width:40%;*/ /*效果*/ opacity:0;height:0rem;  width:0rem;margin:auto;background:url("../img/temp_pic.png") no-repeat top;background-size:contain;}
-.product_intro .intro_content{width:100%;height:100%;position:relative;}
+.product_intro .intro_content{width:100%;height:100%;position:relative;padding-bottom:2.24rem;box-sizing:border-box;}
 .product_intro .intro_content .pic_temp{width:40%;/*height:5.83rem;*//*首屏*/height:5rem;margin:auto;}
-.product_intro .intro_content .content_word{ width:30%;/*效果*/ height:0rem;overflow:hidden;min-height:0rem; }
+.product_intro .intro_content .content_word{ width:30%;/*效果*/ height:0rem;overflow:hidden;min-height:0rem;opacity:0; }
 .product_intro .intro_content .content_word h3{/*margin-top:1.6rem;*/margin-top:1.2rem;font-size:0.56rem;font-family:bold;text-shadow: 10px 10px 5px #C7C7C7;}
 .product_intro .intro_content .content_word p{font-size:0.24rem;}
 .product_intro .intro_content .content_left{position:absolute;z-index:1;left:0rem;top:0rem;padding-left:0.69rem;box-sizing:border-box;}
 .product_intro .intro_content .content_right{position:absolute;z-index:1;right:0rem;top:0rem;padding-right:0.69rem;box-sizing:border-box;}
-.product_intro .intro_content .content_bottom{width:45%;margin:auto;position:relative;bottom:1.1rem;}
+.product_intro .intro_content .content_bottom{width:45%;position:absolute;bottom:1rem;left:27.5%;}
 .product_intro .intro_content .content_bottom h4{font-size:0.56rem;color:red;width:90%;text-align:right;/*效果*/height:0rem;opacity:0;}
 .product_intro .intro_content .content_bottom h2{/*font-size:1.72rem;*//*效果*/font-size:0rem;font-family:bold;width:100%;text-align:center;}
-.product_intro .intro_component {display:none; width:100%;height:100%;position:absolute;z-index:1;left:0rem;top:0rem;}
-.product_intro .intro_component .compoment_c{width:3rem;height:3rem;margin:1rem auto 0rem auto;position:relative;left:-5%;}
-.product_intro .intro_component .compoment_c .c .pic_box{opacity:0;width:1rem;height:1rem;}
-.product_intro .component_detail{opacity:0;display:none; width:100%;min-height:110%;background:rgba(255,255,255,0.7);position:absolute;z-index:2;left:0rem;top:-0.55rem;}
-.product_intro .component_detail .box{width:80%;min-height:2rem;box-shadow:0rem 0rem 0.2rem rgba(0,0,0,0.1);background:#ffffff;margin:auto;border-radius:0.2rem;padding:0.86rem 1.68rem;box-sizing:border-box;}
-.product_intro .component_detail .box .title .pic_box{width:1.75rem;height:1.75rem;background:url("../img/comp1.png") no-repeat center;background-size:contain;}
-.product_intro .component_detail .box .title h3{font-size:0.64rem;font-family:bold;line-height:1.75rem;text-indent:0.28rem;}
-.product_intro .component_detail .box p {font-size:0.31rem;line-height:0.38rem;margin-top:0.3rem;}
+.product_intro .intro_component {/*效果*/display:none; width:100%;height:100%;position:absolute;z-index:1;left:0rem;top:0rem;}
+.product_intro .intro_component .compoment_c{width:3rem;height:4.5rem;margin:1rem auto 0rem auto;position:relative;left:-5%;}
+.product_intro .intro_component .compoment_c .c .pic_box{position:relative;opacity:0;width:1rem;height:1rem;line-height:1rem;padding-bottom:0.5rem;cursor:pointer;}
+.product_intro .intro_component .compoment_c .c .pic_box h4{/*font-size:0.24rem;*/font-size:0rem;line-height:0.5rem;font-family:bold;position:absolute;bottom:0rem;left:0rem;width:100%;text-align:center;}
+.product_intro .intro_component .compoment_c .c .pic_box:hover h4{font-size:0.24rem;}
+.product_intro .component_detail{/*效果*/opacity:0;display:none; width:100%;min-height:110%;background:rgba(255,255,255,0.7);position:absolute;z-index:2;left:0rem;top:-0.55rem;}
+.product_intro .component_detail .box{/*效果*/display:none;width:80%;min-height:2rem;box-shadow:0rem 0rem 0.2rem rgba(0,0,0,0.1);background:#ffffff;margin:auto;border-radius:0.2rem;padding:0.86rem 1.68rem;box-sizing:border-box;position:relative;top:0.5rem;}
+.product_intro .component_detail .box .close{width:0.5rem;height:0.5rem;position:absolute;top:0.03rem;right:0.39rem;background:url("../img/close2.png") no-repeat center;background-size:contain;}
+.product_intro .component_detail .box .title .pic_box{width:1.75rem;height:1.75rem;/*background:url("../img/comp1.png") no-repeat center;background-size:contain;*/}
+.product_intro .component_detail .box .title h3{/*效果*/opacity:0; font-size:0.64rem;font-family:bold;line-height:1.75rem;text-indent:0.28rem;}
+.product_intro .component_detail .box p {/*效果*/overflow:hidden;line-height:0rem; font-size:0.31rem;/*line-height:0.38rem;*/margin-top:0.3rem;}
+.product_video {margin-top:1.46rem;/*temp*/width:100%;height:10.12rem;line-height:10.12rem;text-align:right;overflow:hidden;}
+.product_video  img{width:100%;}
+.product_search{display:block;width:100%;}
+.product_search .left{width:60%;height:8.98rem;background:url("../img/pro_search.png") no-repeat left;background-size:90%;}
+.product_search .right{width:40%;height:8.98rem;}
+.product_search .right .c{width:60%;}
+.product_search .right .c .pic_box{width:2.18rem;height:2.45rem;margin:1.93rem auto 0rem auto;background:url("../img/watch.png") no-repeat center;background-size:contain;}
+.product_search .right .c h4{width:100%;text-align:center;font-size:0.27rem;color:#000000;}
+.product_search .right .c h3{width:100%;text-align:center;font-size:0.30rem;color:#000000;font-family:bold;margin-top:0.97rem;}
+.product_feedback{margin-top:0.26rem;margin-bottom:1.25rem;}
+.product_feedback h5{width:100%;font-size:0.42rem;font-family:bold;}
+.product_feedback h6{width:100%;line-height:0.4148rem;}
+.product_feedback h6.title{margin-top:0.24rem;font-size:0.36rem;}
+.product_feedback .feedback_list{margin-top:0.2rem;}
+.product_feedback .feedback_list .head_pic{width:1.16rem;height:1.16rem;border-radius:2rem;overflow:hidden;margin:1.16rem auto 0rem auto;}
+.product_feedback .feedback_list h6{font-size:0.35rem;margin-top:0.5rem;color:rgba(48,48,48,0.6);}
+.product_feedback .feedback_list h6 .pointer:hover{font-family:bold;color:#000000;text-decoration:underline;}
+.product_feedback .feedback_list p{font-size:0.36rem;margin-top:0.48rem;line-height:0.52rem;}
+.product_bmi{background:rgba(218,242,252,0.5);padding:0.47rem 0rem;}
+.product_bmi .title{font-size:0.73rem;font-family:bold;width:100%;text-align:center;}
+.product_bmi .title span{font-size:0.36rem;margin-left:0.19rem;}
+.product_bmi .bmi_intro{width:100%;text-align:center;font-size:0.36rem;margin-top:0.49rem;}
+.product_bmi form{margin-top:0.6rem;}
+.product_bmi form .left{width:40%;}
+.product_bmi form .left .c{/*box-shadow:10px 10px 5px #DBDBDB;-webkit-box-shadow:0px 0px 5px #DBDBDB;*/border-radius:0.3rem;overflow:hidden;width:2.24rem;height:2.24rem;position:relative;}
+.product_bmi form .left .c.c_male{background:#618AC2;}
+.product_bmi form .left .c.c_female{background:#999999;}
+.product_bmi form .left .c input{display:block;width:100%;height:100%;position:absolute;z-index:2;left:0rem;top:0rem;opacity:0;}
+.product_bmi form .left .c .radio_temp{width:100%;height:100%;position:absolute;z-index:1;left:0rem;top:0rem;}
+.product_bmi form .left .c .radio_temp .pic_box{width:0.83rem;height:1.17rem;margin:0.27rem auto 0.29rem auto;}
+.product_bmi form .left .c .temp_male .pic_box{background:url("../img/male.png") no-repeat center;background-size:contain;}
+.product_bmi form .left .c .temp_female .pic_box{background:url("../img/female.png") no-repeat center;background-size:contain;}
+.product_bmi form .left .c .radio_temp h4{color:#ffffff;font-size:0.36rem;line-height:0.41rem;width:100%;text-align:center;}
+.bmi_result{padding:0.59rem 0rem 0.27rem 0rem; background:rgba(218,242,252,0.8);}
+.bmi_result h3{font-size:0.73rem;font-family:bold;width:100%;text-align:center;}
+.bmi_result h4{font-size:0.36rem;width:100%;text-align:center;margin-top:0.30rem;}
+.bmi_result p{font-size:0.36rem;line-height:0.42rem;width:100%;text-align:center;margin-top:0.31rem;}
+.product_list{margin-top:1rem;margin-bottom:1.46rem;}
+.product_list .pl_lead{width:80%;margin:auto;}
+.product_list .pl_lead li{width:20%;margin-left:20%;text-align:center;font-size:0.36rem;font-family:bold;color:rgba(0,0,0,0.6);}
+.product_list .pl_lead li:first-child{margin-left:0rem;}
+.product_list .pl_lead li.current{color:rgba(0,0,0,1);text-decoration:underline;}
+.product_list .pl_detail{margin-top:0.35rem;width:100%;}
+.product_list .pl_detail .detail_item{width:100%;}
+.product_list .pl_detail .detail_item h3{font-size:0.30rem;}
+.product_list .pl_detail .detail_item .comp_list{margin-top:0.37rem;width:100%;}
+.product_list .pl_detail .detail_item .comp_list li{width:100%;font-size:0.24rem;margin-bottom:0.29rem;}
 /***************************产品product end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}

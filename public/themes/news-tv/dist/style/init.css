@@ -64,6 +64,7 @@ a{cursor:pointer;}
 .tl_center{text-align:center;}
 .pointer{cursor:pointer;}
 .transition{transition:2s;-moz-transition:2s; /* Firefox 4 */-webkit-transition:2s; /* Safari 和 Chrome */-o-transition:2s; /* Opera */}
+.transitionf{transition:0.5s;-moz-transition:0.5s; /* Firefox 4 */-webkit-transition:0.5s; /* Safari 和 Chrome */-o-transition:0.5s; /* Opera */}
 .lazyc .lazy_item{opacity:0;}
 .lazyc {opacity:0;}
 
