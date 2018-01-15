@@ -16,8 +16,8 @@ use Illuminate\Routing\Router;
 
 $router->group(['prefix' => 'news'], function (Router $router) {
     $router->get('', 'NewsController@getIndex')
-        ->name('admin::blog.news.index.get')
-        ->middleware('has-permission:view-news');
+        ->name('admin::blog.news.index.get');
+//        ->middleware('has-permission:view-news');
 
 //    $router->post('', 'PostController@postListing')
 //        ->name('admin::blog.posts.index.post')
