@@ -81,7 +81,8 @@ $(function() {
 		}
 		//					懒加载结束
 		t = $(window).scrollTop();
-		var temp_str = "translateY(" + (t - old_t) + "px)";
+//		var temp_str = "translateY(" + (t - old_t) + "px)";
+		var temp_str = "translateY(" + (old_t-t) + "px)";
 		$(".background_c .move").each(function() {
 			$(this).css("transform", temp_str);
 			$(this).css("-ms-transform", temp_str);
@@ -107,6 +108,6 @@ $(function() {
 		}
 		setTimeout(function() {
 			old_t = t;
-		}, 1000);
+		});
     },false);	
 })

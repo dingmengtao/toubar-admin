@@ -3,7 +3,7 @@
  <div class="background_c index">
 	<div class="box box1 transition">
 		<div class="target ball1 fr move"></div>
-		<!--<div class="target ball2 fr move"></div>-->
+		<div class="target ball3 fr move"></div>
 		<div class="clear"></div>
 	</div>
 	<div class="box  box2 transition ">

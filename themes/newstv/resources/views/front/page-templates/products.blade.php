@@ -1,4 +1,24 @@
 @extends('webed-theme::front._master_free')
+@section('move')
+ <div class="background_c product">
+	<div class="box box1 transition">
+		<div class="target ball3 fr move"></div>
+		<div class="target ball1 fr move"></div>
+		<!--<div class="target ball2 fr move"></div>-->
+		<div class="clear"></div>
+	</div>
+	<div class="box  box2 transition ">
+		<div class="target capsule1 fl move"></div>
+		<div class="target capsule2 fr move"></div>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="before_c product">
+	<div class="box box1 transition">
+		<div class="target ball2 fr move"></div>
+	</div>
+</div>
+@endsection
 @section('content')
 <div class="product_intro">
 	<div class="intro_pic"><div class="pic"></div></div>
@@ -218,9 +238,9 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 	<div class="inner_continer">
 		<h3 class="title">BMI<span>Calculator</span></h3>
 		<p class="bmi_intro">Body Mass Index is... vestibulum ex dui, dignissim ac rhoncus non, rhoncus sed mi. In hac habitasse platea dictumst. Praesent eu ante mollis, malesuada tortor ac, porttitor velit. Phasellus iaculis pretium magna, et rutrum mauris convallis pellentesque. Suspendisse convallis ut eros ut scelerisque. Pellentesque dictum turpis dolor, eu laoreet eros mollis non. Sed non est et mi pretium feugiat vitae id massa.</p>
-		<form>
+		<form method="post" onsubmit="return false;" name="bmi">
 			<div class="fl left">
-			  <div class="c c_male fl">
+			  <div class="c c_male fl ">
 				<input type="radio" name="sex" value="1"/>
 				<div class="radio_temp temp_male">
 					<div class="pic_box"></div>
@@ -236,20 +256,28 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 		      </div>
 		      <div class="clear"></div>		
 			</div>
-			<div class="fr right">
+			<div class="fl right">
 				<ul>
 					<li class="unknow">
-						<div class="c fl"><input type="radio" name="unknow" value="1"/><div>miperial</div></div>
+						<div class="c fl choose"><input type="radio" name="unknow" value="1" checked/><div>miperial</div></div>
 						<div class="c fr"><input type="radio" name="unknow" value="0"//><div>metric</div></div>
 						<div class="clear"></div>
 					</li>
-					<li class="height">
+					<li class="height range">
 						<h4>Height</h4>
-						<div><input type="range" name="height"/></div>
+						<div class="c">
+							<input type="range" name="height" class="fl rangein" max="250"  min="50"/>
+							<p class="fl"><span class="number"></span><span class="unit">CM</span></p>
+							<div class="clear"></div>
+						</div>
 					</li>
-					<li class="width">
+					<li class="width range">
 						<h4>Weight</h4>
-						<div><input type="range" name="width"/></div>
+						<div class="c">
+							<input type="range" name="width" class="fl rangein" max="150" min="0"/>
+							<p class="fl"><span class="number"></span><span class="unit">KG</span></p>
+							<div class="clear"></div>
+						</div>
 						
 					</li>
 					<li class="sub">
@@ -292,8 +320,8 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 				<li><span class="fl">Equiv. Magnolia officinalis dry bark</span><span class="fr">225mg</span><div class="clear"></div></li>
 			</ul>
 		</li>
-		<li class="fl detail_item"></li>
-		<li class="fl detail_item"></li>
+		<li class="fl detail_item">test2</li>
+		<li class="fl detail_item">test3</li>
 		<li class="clear"></li>
 	</ul>
 </div>

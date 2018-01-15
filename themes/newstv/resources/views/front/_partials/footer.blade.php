@@ -13,6 +13,9 @@
 		<li class="fl_item fl tl_center">
 			<a href="#">Contact</a>
 		</li>
+		<li class="fl_item fl tl_center">
+			<a href="#">Term</a>
+		</li>
 		<li class="clear"></li>
 	</ul>
 	<ul class="share-buttons lazy_item">

@@ -244,6 +244,53 @@ $(function() {
 		$(".product_intro .component_detail").animate({opacity:"0"});
 		$(".product_intro .component_detail").css("display","none");
 	});
+		//bmi表单-sex
+	$(".product_bmi form .left").delegate(".c","click",function(){
+		if(!$(this).hasClass("choose"))
+		{
+			$(".product_bmi form .left .choose").removeClass("choose");
+			$(this).addClass("choose");
+		}
+	});
+		//bmi表单-unknow
+	$(".product_bmi form .right .unknow ").delegate(".c","click",function(){
+		if(!$(this).hasClass("choose"))
+		{
+			$(".product_bmi form .right .unknow .choose").removeClass("choose");
+			$(this).addClass("choose");
+		}
+	});
+		//bmi表单-height/weight
+	$(".product_bmi form .right .rangein").each(function(){
+		var max=parseFloat($(this).attr("max"));
+        var min=parseFloat($(this).attr("min"));
+        var value=parseFloat($(this).val());
+        var temp=(value-min)/(max-min)*100;
+		$(this).css( 'background', '-webkit-linear-gradient(to right, #000000, #000000,' +temp+ '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', '-o-linear-gradient(to right, #000000, #000000,' +temp + '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', '-moz-linear-gradient(to right, #000000,#000000, ' + temp+ '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)' );   
+		$(this).parent().find(".number").html(value+"");
+	});
+	$(".product_bmi form .right").delegate(".rangein","input",function(){
+        var max=parseFloat($(this).attr("max"));
+        var min=parseFloat($(this).attr("min"));
+        var value=parseFloat($(this).val());
+        var temp=(value-min)/(max-min)*100;
+        $(this).css( 'background', '-webkit-linear-gradient(to right, #000000, #000000,' +temp+ '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', '-o-linear-gradient(to right, #000000, #000000,' + temp+ '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', '-moz-linear-gradient(to right, #000000,#000000, ' +temp+ '%, #B0B0B0,#B0B0B0)' );
+        $(this).css( 'background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)' );
+		$(this).parent().find(".number").html(value+"");
+	});
+		//产品成分
+	$(".product_list .pl_lead").delegate("li","click",function(){
+		$(".product_list .pl_lead .current").removeClass("current");
+		$(this).addClass("current");
+		var index=$(this).index();
+		$(".product_list .pl_detail .current").removeClass("current");
+		$(".product_list .pl_detail .detail_item").eq(index).addClass("current");
+	})
 	//页面改变引发的各页面变化
 	$(window).resize(function() {
 		newsdetail();
