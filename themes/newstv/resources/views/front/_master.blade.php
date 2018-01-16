@@ -50,7 +50,6 @@
 @php do_action('front_footer_js') @endphp-->
 @yield('js')
 <script src="{{ asset('themes/news-tv/dist/js/jquery-3.1.1.min.js') }}"></script>
-<script src="{{ asset('themes/news-tv/dist/js/lazy.js') }}"></script>
 <script src="{{ asset('themes/news-tv/dist/js/public.js') }}"></script>
 <script src="{{ asset('themes/news-tv/dist/js/index.js') }}"></script>
 <!--@stack('js')

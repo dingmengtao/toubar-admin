@@ -3,37 +3,43 @@ $(function() {
 	$("header .lead .lead_btn_open").mouseenter(function() {
 		$(this).find("p").eq(0).animate({
 			width: "0.29rem"
-		}, 600);
+		});
 	});
 	$("header .lead .lead_btn_open").mouseleave(function() {
 		$("header .lead_btn_open p").eq(0).animate({
 			width: "0.21rem"
-		}, 600);
+		});
 	});
 	$("header .lead .lead_btn_open").click(function() {
-		// 	    $("header .lead_content .lead_btn_close").find("p").each(function(){
-		// 	    	$(this).animate({display:"none"});
-		// 	    });
-		// 	    $("header .lead_content .lead_btn_close").css("background","url('../img/close.png') no-repeat top");
-		// 	     $("header .lead_content .lead_btn_close").css("background-size","contain");
 		$("header").find(".lead_content").css("display", "block");
 		$("header").find(".lead_content").animate({
 			width: "100%"
-		}, 1200, function() {
-
+		},function() {
+			console.log("test1");
+			$("header .lead  .lead_content .lead_btn_close").css("display","block");
+//			$("header .lead  .lead_content .lead_btn_close").find("p").each(function() {
+//				$(this).animate({opacity: "0"});
+//			});
+//			$("header .lead .lead_btn_open").css("opacity","0");
 			$("header .lead_content").find("li").animate({
 				height: "0.928rem"
-			}, 1200);
+			});
 		});
 	});
-	$("header .lead .lead_btn_close").click(function() {
+	$("header .lead .lead_btn_close").click(function(){
 		$("header .lead_content").find("li").animate({
 			height: "0rem"
-		}, 1200, function() {
+		},function() {
 			$("header").find(".lead_content").animate({
 				width: "0rem"
-			}, 1200, function() {
+			},function() {
+				$("header .lead  .lead_content .lead_btn_close").css("display","none");
+			//		$("header .lead  .lead_content .lead_btn_close").find("p").each(function() {
+			//			$(this).css("opacity", "1");
+			//		});
+			//		$("header .lead .lead_btn_open").css("opacity", "1");
 				$("header").find(".lead_content").css("display", "none");
+				console.log("test2");
 			})
 		})
 	});
@@ -218,76 +224,85 @@ $(function() {
 		var product_t = $(window).scrollTop();
 		var product_temp2 = $("header").height();
 
-		if(product_t >product_temp2&&product_t < product_temp2+$(window).height()) {
+		if(product_t > product_temp2 && product_t < product_temp2 + $(window).height()) {
 			productHide();
 			compmove();
-		} 
-		if(product_t > product_temp2+$(window).height()||product_t <product_temp2)
-		{
+		}
+		if(product_t > product_temp2 + $(window).height() || product_t < product_temp2) {
 			comphide();
 			productShow();
 		}
 	}, false);
-	$(".product_intro .intro_component .compoment_c").delegate(".pic_box","click",function(){
-		var pro_index=$(".product_intro .intro_component .compoment_c .com").index(this);
-		$(".product_intro .component_detail").css("display","block");
-		$(".product_intro .component_detail").animate({opacity:"1"});
-		$(".product_intro .component_detail .box").eq(pro_index).css("display","block");
-		$(".product_intro .component_detail .box").eq(pro_index).find("h3").animate({opacity:"1"},"slow");
-		$(".product_intro .component_detail .box").eq(pro_index).find("p").animate({lineHeight:"0.38rem"},"slow");
-		
+	$(".product_intro .intro_component .compoment_c").delegate(".pic_box", "click", function() {
+		var pro_index = $(".product_intro .intro_component .compoment_c .com").index(this);
+		$(".product_intro .component_detail").css("display", "block");
+		$(".product_intro .component_detail").animate({
+			opacity: "1"
+		});
+		$(".product_intro .component_detail .box").eq(pro_index).css("display", "block");
+		$(".product_intro .component_detail .box").eq(pro_index).find("h3").animate({
+			opacity: "1"
+		}, "slow");
+		$(".product_intro .component_detail .box").eq(pro_index).find("p").animate({
+			lineHeight: "0.38rem"
+		}, "slow");
+
 	});
-	$(".product_intro .component_detail").delegate(".close","click",function(){
-		$(this).parent().find("h3").animate({opacity:"0"});
-		$(this).parent().find("p").animate({lineHeight:"0rem"});
-		$(this).parent().css("display","none");
-		$(".product_intro .component_detail").animate({opacity:"0"});
-		$(".product_intro .component_detail").css("display","none");
+	$(".product_intro .component_detail").delegate(".close", "click", function() {
+		$(this).parent().find("h3").animate({
+			opacity: "0"
+		});
+		$(this).parent().find("p").animate({
+			lineHeight: "0rem"
+		});
+		$(this).parent().css("display", "none");
+		$(".product_intro .component_detail").animate({
+			opacity: "0"
+		});
+		$(".product_intro .component_detail").css("display", "none");
 	});
-		//bmi表单-sex
-	$(".product_bmi form .left").delegate(".c","click",function(){
-		if(!$(this).hasClass("choose"))
-		{
+	//bmi表单-sex
+	$(".product_bmi form .left").delegate(".c", "click", function() {
+		if(!$(this).hasClass("choose")) {
 			$(".product_bmi form .left .choose").removeClass("choose");
 			$(this).addClass("choose");
 		}
 	});
-		//bmi表单-unknow
-	$(".product_bmi form .right .unknow ").delegate(".c","click",function(){
-		if(!$(this).hasClass("choose"))
-		{
+	//bmi表单-unknow
+	$(".product_bmi form .right .unknow ").delegate(".c", "click", function() {
+		if(!$(this).hasClass("choose")) {
 			$(".product_bmi form .right .unknow .choose").removeClass("choose");
 			$(this).addClass("choose");
 		}
 	});
-		//bmi表单-height/weight
-	$(".product_bmi form .right .rangein").each(function(){
-		var max=parseFloat($(this).attr("max"));
-        var min=parseFloat($(this).attr("min"));
-        var value=parseFloat($(this).val());
-        var temp=(value-min)/(max-min)*100;
-		$(this).css( 'background', '-webkit-linear-gradient(to right, #000000, #000000,' +temp+ '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', '-o-linear-gradient(to right, #000000, #000000,' +temp + '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', '-moz-linear-gradient(to right, #000000,#000000, ' + temp+ '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)' );   
-		$(this).parent().find(".number").html(value+"");
+	//bmi表单-height/weight
+	$(".product_bmi form .right .rangein").each(function() {
+		var max = parseFloat($(this).attr("max"));
+		var min = parseFloat($(this).attr("min"));
+		var value = parseFloat($(this).val());
+		var temp = (value - min) / (max - min) * 100;
+		$(this).css('background', '-webkit-linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', '-o-linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', '-moz-linear-gradient(to right, #000000,#000000, ' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).parent().find(".number").html(value + "");
 	});
-	$(".product_bmi form .right").delegate(".rangein","input",function(){
-        var max=parseFloat($(this).attr("max"));
-        var min=parseFloat($(this).attr("min"));
-        var value=parseFloat($(this).val());
-        var temp=(value-min)/(max-min)*100;
-        $(this).css( 'background', '-webkit-linear-gradient(to right, #000000, #000000,' +temp+ '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', '-o-linear-gradient(to right, #000000, #000000,' + temp+ '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', '-moz-linear-gradient(to right, #000000,#000000, ' +temp+ '%, #B0B0B0,#B0B0B0)' );
-        $(this).css( 'background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)' );
-		$(this).parent().find(".number").html(value+"");
+	$(".product_bmi form .right").delegate(".rangein", "input", function() {
+		var max = parseFloat($(this).attr("max"));
+		var min = parseFloat($(this).attr("min"));
+		var value = parseFloat($(this).val());
+		var temp = (value - min) / (max - min) * 100;
+		$(this).css('background', '-webkit-linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', '-o-linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', '-moz-linear-gradient(to right, #000000,#000000, ' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).css('background', 'linear-gradient(to right, #000000, #000000,' + temp + '%, #B0B0B0,#B0B0B0)');
+		$(this).parent().find(".number").html(value + "");
 	});
-		//产品成分
-	$(".product_list .pl_lead").delegate("li","click",function(){
+	//产品成分
+	$(".product_list .pl_lead").delegate("li", "click", function() {
 		$(".product_list .pl_lead .current").removeClass("current");
 		$(this).addClass("current");
-		var index=$(this).index();
+		var index = $(this).index();
 		$(".product_list .pl_detail .current").removeClass("current");
 		$(".product_list .pl_detail .detail_item").eq(index).addClass("current");
 	})
