@@ -4,7 +4,7 @@ $(function() {
 	var now_position = $(".lazyc").eq(0).offset().top;
 	var lazyc_index = 0;
 	var lazyc_length = $(".lazyc").length;
-	var lazy_speed = 2400;
+	var lazy_speed = 1200;
 	var offset_margin = 100;
 	var finish_flag = false;
 	var ing = false;
