@@ -306,6 +306,17 @@ $(function() {
 	})
 	//页面改变引发的各页面变化
 	$(window).resize(function() {
+		if($(window).width()> 1400) {
+			$(".background_c  .box3 .word").css("font-size", "2.11rem");
+		} else if($(window).width()> 1000) {
+			$(".background_c  .box3 .word").css("font-size", "1.5rem");
+		} else if($(window).width()> 800) {
+			$(".background_c  .box3 .word").css("font-size", "1.2rem");
+		} else if($(window).width()> 600) {
+			$(".background_c  .box3 .word").css("font-size", "0.8rem");
+		} else {
+			$(".background_c  .box3 .word").css("font-size", "0.5rem");
+		}
 		newsdetail();
 		aboutus();
 	});

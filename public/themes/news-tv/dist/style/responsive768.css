@@ -1,56 +1,36 @@
 @media only screen and (max-width:768px) {
-	.outer_continer {
-		padding: 0px 0px 0px 0px;
-		width: 100%;
-		margin: auto;
-	}
-	.inner_continer {
-		margin: auto;
-		width: 100%;
-		box-sizing: border-box;
-		padding: 0px 20px;
-	}
-	header {
-		height: 0.96rem;
-		line-height: 0.96rem;
-		padding: 0.18rem 0.18rem 0.30rem 0.18rem;
-	}
-	footer
-	{
-		background:#F9F9F9;
-		padding-top:0.15rem;
-		padding-top:0.15rem;
-	}
-	footer .footer_lead .fl_item {
-		width: 100%;
-		height: 0.34rem;
-		margin-top: 0.3rem;
-	}
-	footer .footer_lead .fl_item:first-child {
-		margin-top: 0rem;
-	}
-	footer .share-buttons {
-		max-width: auto;
-		margin: auto;
-		width: 100%;
-	}
-	footer .share-buttons .share_item {
-		margin-left: 10%;
-		width: 20%;
-	}
-	footer .share-buttons .share_item:first-child {
-		margin-left: 10%;
-	}
-	footer .share-buttons .share_item a {
-		display: inline-block;
-		height: 0.95rem;
-		line-height: 0.7rem;
-		width: 100%;
-		background: url("../img/share_box.png") no-repeat center;
-		background-size: contain;
-	}
-	footer .share-buttons .share_item a img {
-		width: 50%;
-		height: 50%;
-	}
+	/*init.css*/
+	.outer_continer {padding: 0px 0px 0px 0px;width: 100%;margin: auto;}
+	.inner_continer {margin: auto;width: 100%;box-sizing: border-box;padding: 0px 20px;}
+	/*header*/
+	header {background:#000000;position:relative;height: 0.96rem;line-height: 0.96rem;padding: 0.18rem 0.18rem 0.30rem 0.18rem;box-sizing:border-box;}
+	header .logo{position:absolute;top:0rem;left:0rem;width:100%;height:100%;background:url("../img/Medisum_logo_white.png") no-repeat center;background-size:1.93rem 0.47rem;}
+	header .lead{height:0.41rem;width:0.29rem;position:absolute;left:0.18rem;top:0.5rem;}
+	header .lead .lead_btn_open p{background:#FFFFFF;}
+	header .lead  .lead_content{position:fixed;top:0rem;left:0rem;z-index:2;}
+	header .lead  .lead_content .lead_btn_close{position:fixed;top:0.5rem;left:0.18rem;}
+	/*my_video*/
+	.my_video{max-width:1075px;margin:auto;position:relative; /*temp */  text-align:center;height:5.17rem;/*首屏*/line-height:5.17rem;margin-top:0.31rem;}
+	.my_video  img{width:100%;}
+	/*feedback*/
+	.user_feedback h5{font-size:0.52rem;}
+	.user_feedback .feedback_list li{margin-top:0.69rem;}
+	.user_feedback .feedback_list li .head_pic{margin-top:0rem!important;max-width:30%;height:0.80rem;width:0.80rem;float:left;}
+	.user_feedback .feedback_list li .head_pic img{vertical-align:middle;border-radius:2rem;}
+	.user_feedback .feedback_list li h6{margin-top:0rem!important;font-size:0rem;float:left;max-width:70%;line-height:0.2rem;}
+	.user_feedback .feedback_list li h6 span{text-indent:0.17rem;font-size:0.30rem;width:100%;display:block;text-align:left;overflow:hidden;}
+	.user_feedback .feedback_list li h6 span:first-child{margin-top:0.1rem;color:#000000;font-family:bold;}
+	.user_feedback .feedback_list h6 .pointer:hover{underline:none;}
+	.user_feedback .feedback_list li p{font-size:0.30rem;float:left;margin-top:0.23rem;line-height:0.36rem;}
+	.user_feedback .feedback_list li .res_clear{clear:both;}
+	/*footer*/
+	footer{background:#F9F9F9;padding-top:0.15rem;padding-top:0.15rem;}
+	footer .footer_lead .fl_item {width: 100%;height: 0.34rem;margin-top: 0.3rem;}
+	footer .footer_lead .fl_item:first-child {margin-top: 0rem;}
+	footer .share-buttons{max-width: auto;margin: auto;width: 100%;}
+	footer .share-buttons .share_item {margin-left: 10%;width: 20%;}
+	footer .share-buttons .share_item:first-child {margin-left: 10%;}
+	footer .share-buttons .share_item a {display: inline-block;height: 0.95rem;line-height: 0.7rem;width: 100%;background: url("../img/share_box.png") no-repeat center;background-size: contain;}
+	footer .share-buttons .share_item a img {width: 50%;height: 50%;}
+	/*background_c*/
 }
