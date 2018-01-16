@@ -41,6 +41,7 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         array (
             'Whoops\\' => 7,
             'Webmozart\\Assert\\' => 17,
+            'WebEd\\Plugins\\Share\\' => 20,
             'WebEd\\Plugins\\Blog\\' => 19,
             'WebEd\\Plugins\\Banner\\' => 21,
             'WebEd\\Base\\Users\\' => 17,
@@ -175,6 +176,10 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'Webmozart\\Assert\\' => 
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
+        'WebEd\\Plugins\\Share\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/plugins/share/src',
         ),
         'WebEd\\Plugins\\Blog\\' => 
         array (
@@ -4753,6 +4758,27 @@ class ComposerStaticInit827729eefc4475e25df8389dfa8286e7
         'WebEd\\Plugins\\Blog\\Repositories\\NavigationRepositoryCacheDecorator' => __DIR__ . '/../..' . '/plugins/blog/src/Repositories/NavigationRepositoryCacheDecorator.php',
         'WebEd\\Plugins\\Blog\\Repositories\\PostRepository' => __DIR__ . '/../..' . '/plugins/blog/src/Repositories/PostRepository.php',
         'WebEd\\Plugins\\Blog\\Repositories\\PostRepositoryCacheDecorator' => __DIR__ . '/../..' . '/plugins/blog/src/Repositories/PostRepositoryCacheDecorator.php',
+        'WebEd\\Plugins\\Share\\Actions\\CreateShareAction' => __DIR__ . '/../..' . '/plugins/share/src/Actions/CreateShareAction.php',
+        'WebEd\\Plugins\\Share\\Actions\\DeleteShareAction' => __DIR__ . '/../..' . '/plugins/share/src/Actions/DeleteShareAction.php',
+        'WebEd\\Plugins\\Share\\Actions\\RestoreShareAction' => __DIR__ . '/../..' . '/plugins/share/src/Actions/RestoreShareAction.php',
+        'WebEd\\Plugins\\Share\\Actions\\UpdateShareAction' => __DIR__ . '/../..' . '/plugins/share/src/Actions/UpdateShareAction.php',
+        'WebEd\\Plugins\\Share\\Http\\Controllers\\ShareController' => __DIR__ . '/../..' . '/plugins/share/src/Http/Controllers/ShareController.php',
+        'WebEd\\Plugins\\Share\\Http\\DataTables\\ShareListDataTable' => __DIR__ . '/../..' . '/plugins/share/src/Http/DataTables/ShareListDataTable.php',
+        'WebEd\\Plugins\\Share\\Http\\Requests\\CreateShareRequest' => __DIR__ . '/../..' . '/plugins/share/src/Http/Requests/CreateShareRequest.php',
+        'WebEd\\Plugins\\Share\\Http\\Requests\\UpdateShareRequest' => __DIR__ . '/../..' . '/plugins/share/src/Http/Requests/UpdateShareRequest.php',
+        'WebEd\\Plugins\\Share\\Models\\Contracts\\ShareModelContract' => __DIR__ . '/../..' . '/plugins/share/src/Models/Contracts/ShareModelContract.php',
+        'WebEd\\Plugins\\Share\\Models\\Share' => __DIR__ . '/../..' . '/plugins/share/src/Models/Share.php',
+        'WebEd\\Plugins\\Share\\Providers\\BootstrapModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/BootstrapModuleServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\InstallModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/InstallModuleServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\ModuleProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/ModuleProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\RepositoryServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/RepositoryServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/RouteServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\ShareServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/ShareServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\UninstallModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/UninstallModuleServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Providers\\UpdateModuleServiceProvider' => __DIR__ . '/../..' . '/plugins/share/src/Providers/UpdateModuleServiceProvider.php',
+        'WebEd\\Plugins\\Share\\Repositories\\Contracts\\ShareRepositoryContract' => __DIR__ . '/../..' . '/plugins/share/src/Repositories/Contracts/ShareRepositoryContract.php',
+        'WebEd\\Plugins\\Share\\Repositories\\ShareRepository' => __DIR__ . '/../..' . '/plugins/share/src/Repositories/ShareRepository.php',
+        'WebEd\\Plugins\\Share\\Repositories\\ShareRepositoryCacheDecorator' => __DIR__ . '/../..' . '/plugins/share/src/Repositories/ShareRepositoryCacheDecorator.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',
