@@ -95,6 +95,16 @@
 	.info_list  .worktime{width:50%;margin-top:0rem;font-size:0.30rem;color:#000000;}
 	.info_list  .worktime span{display:inline-block;height:auto;}
 	.map{margin-top:1rem;}
+	/*aboutus关于我们*/
+	.us_title{/*font-size:0.52rem;*/font-size:0.36rem;text-decoration:none;text-align:left;text-indent:20px;margin-top:0.4rem;}
+	.us_detail .us_content h4{font-size:0.32rem;}
+	.us_detail .us_content .word{font-size:0.24rem;}
+	.us_way .way_item{width:33.3%;margin-left:0rem;overflow:hidden;}
+	.us_way .way_item h4{/*font-size:0.24rem;*/font-size:0.20rem;font-family:normal;}
+	.us_way .way_item p{display:none;}
+	.us_retailer{margin-top:1.13rem;}
+	.us_retailer .c .half .half_list li .title{font-size:0.26rem;}
+	.us_retailer .c .half{width:100%;}
 	/*footer*/
 	footer{background:#F9F9F9;padding-top:0.15rem;padding-top:0.15rem;}
 	footer .footer_lead .fl_item {width: 100%;height: 0.34rem;margin-top: 0.3rem;}

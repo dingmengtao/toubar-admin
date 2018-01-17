@@ -84,6 +84,18 @@ $(function() {
 		$(".us_detail .us_bg .pic").css("position", "absolute");
 		var us_temp_left = ($(window).width() - $(".us_detail .us_content").width()) / 2;
 		$(".us_detail .us_bg .pic").css("left", -us_temp_left);
+		var temp_width=$(".us_detail .us_bg .pic").width();
+	    $(".us_detail .us_content .pic_temp").css("height",temp_width/2);
+		if($(window).width()>768)
+		{
+			var temp_height=$(".us_detail .us_content h3").height();
+			$(".us_detail .us_bg .pic").css("position","relative");
+			$(".us_detail .us_bg .pic").css("top",temp_height);
+		}
+		else
+		{
+			$(".us_detail .detail_bg .pic").css("left", "0px");
+		}
 	}
 	aboutus();
 	//联系我们
