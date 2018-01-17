@@ -86,26 +86,34 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'link' => route('admin::blog.news.index.get'),
             'css_class' => null,
             'permissions' => ['view-news'],
-        ])->registerItem([
-            'id' => 'webed-navgition',
-            'priority' => 1.1,
-            'parent_id' => null,
-            'title' => '导航',
-            'font_icon' => 'icon-notebook',
-            'link' => route('admin::navigation.index.get'),
-            'css_class' => null,
-            'permissions' => ['view-pages'],
-        ]);
-//->registerItem([
-//            'id' => WEBED_BLOG_PRODUCTS,
-//            'priority' => 2.4,
-//            'parent_id' => WEBED_BLOG_POSTS,
-//            'title' => trans('webed-blog::base.admin_menu.products'),
-//            'font_icon' => 'icon-tag',
-//            'link' => route('admin::blog.products.index.get'),
+        ])
+//            ->registerItem([
+//            'id' => 'webed-navgition',
+//            'priority' => 1.1,
+//            'parent_id' => null,
+//            'title' => '导航',
+//            'font_icon' => 'icon-notebook',
+//            'link' => route('admin::navigation.index.get'),
 //            'css_class' => null,
-//            'permissions' => ['view-products'],
-//        ]);
+//            'permissions' => ['view-pages'],
+//        ])
+            ->registerItem([
+            'id' => WEBED_BLOG_PRODUCTS,
+            'priority' => 2.4,
+            'parent_id' => WEBED_BLOG_POSTS,
+            'title' => trans('webed-blog::base.admin_menu.products'),
+            'font_icon' => 'icon-tag',
+            'link' => route('admin::product.posts.index.get'),
+            'css_class' => null,
+            'permissions' => ['view-products'],
+        ]);
+        /**
+         * 添加模板
+         */
+
+        add_new_template([
+            'Product' => 'Product',
+        ], WEBED_BLOG_PRODUCTS);
 
         /**
          * Register menu widget

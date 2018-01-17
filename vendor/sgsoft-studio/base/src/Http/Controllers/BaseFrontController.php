@@ -35,7 +35,14 @@ class BaseFrontController extends BaseController
         ]);
         return $menuHtml;
     }
-
+    protected function getNavigation()
+    {
+        $Navigation = webed_getNavigation();
+        view()->share([
+            'Navigation' => $Navigation
+        ]);
+        return $menuHtml;
+    }
     /**
      * Override method view of AbstractBase.
      * By now, we will get assets from theme if it exists.

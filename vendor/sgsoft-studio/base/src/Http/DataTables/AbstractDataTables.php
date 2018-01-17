@@ -93,6 +93,7 @@ abstract class AbstractDataTables
     {
         $this->ajaxUrl = [$url, $method];
 
+
         return $this;
     }
 

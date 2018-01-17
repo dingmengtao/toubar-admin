@@ -11,8 +11,8 @@ if (!function_exists('get_post_link')) {
     function get_post_link($post)
     {
         $slug = is_string($post) ? $post : $post->slug;
-        $id=(!empty($post->id))?$post->id:'0';
-        return route('front.web.resolve-blog.get', ['slug' => $slug,'id'=> $id]);
+//        $id=(!empty($post->id))?$post->id:'0';
+        return route('front.web.resolve-blog.get', ['slug' => $slug]);
     }
 }
 

@@ -96,7 +96,7 @@ class PageController extends AbstractController
         $this->dis['categories'] = $categories;
 
         return $this->view('front.page-templates.homepage');
-        echo 1;
+
     }
 
     /**

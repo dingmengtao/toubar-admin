@@ -1,4 +1,6 @@
+
 @extends('webed-theme::front._master')
+
 @section('move')
  <div class="background_c index">
 	<div class="box box1 transition">
@@ -75,11 +77,12 @@
 				medisum，一个懂得关怀的专业品牌
 			</p>
 		</li>
-		<li class="lazyc">
+		<li class="lazyc" >
 			<div class="head_pic pic_continer lazy_item"><img src="{{ asset('themes/news-tv/dist/img/head_temp_3.jpg') }}"/></div>
 			<h6 class="tl_center lazy_item"><span>品牌概述</span></h6>
 			<p class="tl_center lazy_item">
 				medisum是一个融合智慧与科技结合的澳洲创新品牌，致力于通过有意义 的创新为人们提供有效安全的保健健康方案，未雨绸缪，乐享人生
+
 			</p>
 		</li>
 	</ul>
