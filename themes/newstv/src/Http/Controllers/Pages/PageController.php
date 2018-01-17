@@ -95,6 +95,19 @@ class PageController extends AbstractController
 
         $this->dis['categories'] = $categories;
 
+        //首页分享列表查询
+        $this->dis['shares'] = get_share([
+            'select' => [
+                webed_db_prefix() . 'share.id',
+                webed_db_prefix() . 'share.title',
+                webed_db_prefix() . 'share.link_url',
+                webed_db_prefix() . 'share.thumbnail',
+            ],
+            'condition' => [
+                webed_db_prefix() . 'share.status' => 1
+            ]
+        ]);
+
         return $this->view('front.page-templates.homepage');
         echo 1;
     }

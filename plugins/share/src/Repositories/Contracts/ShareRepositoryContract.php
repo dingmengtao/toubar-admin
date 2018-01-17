@@ -30,4 +30,10 @@ interface ShareRepositoryContract
      * @return bool
      */
     public function deleteShare($id, $force = false);
+    
+    /**
+     * @param array $params
+     * @return mixed
+     */
+    public function getShare(array $params);
 }

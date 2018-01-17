@@ -45,4 +45,13 @@ class ShareRepository extends EloquentBaseRepository implements ShareRepositoryC
     {
         return $this->delete($id, $force);
     }
+
+    /**
+     * @param array $params
+     * @return mixed
+     */
+    public function getShare(array $params)
+    {
+        return $this->advancedGet($params);
+    }
 }
