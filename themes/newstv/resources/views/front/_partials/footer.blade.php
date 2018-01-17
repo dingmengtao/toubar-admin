@@ -1,22 +1,14 @@
 <footer class="lazyc">
-	<div class="footer_logo"></div>
-	<ul class="footer_lead tl_center">
-		<li class="fl_item fl tl_center">
-			<a href="#">Product</a>
-		</li>
-		<li class="fl_item fl tl_center">
-			<a href="#">News</a>
-		</li>
-		<li class="fl_item fl tl_center">
-			<a href="#">About&nbsp;us</a>
-		</li>
-		<li class="fl_item fl tl_center">
-			<a href="#">Contact</a>
-		</li>
-		<li class="fl_item fl tl_center">
-			<a href="#">Term</a>
-		</li>
-		<li class="clear"></li>
+
+	<div class="footer_logo lazy_item"></div>
+	<ul class="footer_lead tl_center lazy_item">
+		@foreach ($menu as $r)
+			<li class="fl_item fl tl_center">
+				<a href="{{$r->slug}}">{{$r->title}}</a>
+			</li>
+		@endforeach
+
+
 	</ul>
 	<ul class="share-buttons">
 		<li class="fl share_item">

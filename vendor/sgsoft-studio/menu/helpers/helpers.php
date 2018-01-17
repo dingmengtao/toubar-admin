@@ -125,3 +125,11 @@ if (!function_exists('parent_active_menu_item_ids')) {
         return $result;
     }
 }
+if (!function_exists('webed_getNavigation')) {
+
+    function webed_getNavigation()
+    {
+//
+        return $result;
+    }
+}

@@ -5,6 +5,8 @@ use WebEd\Plugins\Blog\Repositories\CategoryRepository;
 use WebEd\Plugins\Blog\Repositories\Contracts\CategoryRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\Contracts\PostRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\PostRepository;
+use WebEd\Plugins\Blog\Repositories\ProductRepository;
+use WebEd\Plugins\Blog\Repositories\Contracts\ProductRepositoryContract;
 
 class ResolveBlogController extends BaseFrontController
 {
@@ -17,6 +19,7 @@ class ResolveBlogController extends BaseFrontController
      * @var PostRepositoryContract|PostRepository
      */
     protected $categoryRepository;
+    protected $productRepository;
 
     /**
      * @param PostRepositoryContract|PostRepository $repository
@@ -24,14 +27,15 @@ class ResolveBlogController extends BaseFrontController
      */
     public function __construct(
         PostRepositoryContract $repository,
-        CategoryRepositoryContract $categoryRepositoryContract
+        CategoryRepositoryContract $categoryRepositoryContract,
+        ProductRepositoryContract  $productRepository
     )
     {
         parent::__construct();
 
         $this->repository = $repository;
-
         $this->categoryRepository = $categoryRepositoryContract;
+        $this->productRepository=$productRepository;
     }
 
     /**
@@ -41,28 +45,91 @@ class ResolveBlogController extends BaseFrontController
      */
     public function handle($slug)
     {
-        $item = $this->repository
-            ->findWhere([
-                'slug' => $slug,
-                'status' => 1,
-            ]);
+        $item=$this->productRepository->findWhere([
+            'slug' => $slug,
+            'status' => 1,
+        ]);
+
+
+    //        $item = $this->repository
+    //            ->findWhere([
+    //                'slug' => $slug,
+    //                'status' => 1,
+    //            ]);
+
+//        if ($item) {
+//            $item = do_filter(WEBED_BLOG_FRONT_POSTS, $item);
+//
+//            increase_view_count(WEBED_BLOG_POSTS, $item->id);
+//
+//            admin_bar()->registerLink('Edit this post', route('admin::blog.posts.edit.get', ['id' => $item->id]));
+//
+//            $themeController = themes_management()->getThemeController('Blog\Post');
+//
+//            if (is_string($themeController)) {
+//                abort(\Constants::ERROR_CODE, $themeController . ' not exists');
+//            }
+//
+//            $this->dis['categoryIds'] = $this->repository->getRelatedCategoryIds($item);
+//
+//            $this->dis['author'] = $item->author;
+//
+//            seo()
+//                ->metaDescription($item->description)
+//                ->metaImage($item->thumbnail)
+//                ->metaKeywords($item->keywords)
+//                ->setModelObject($item);
+//
+//            $this->themeController = $themeController;
+//        } else {
+//            $item = $this->categoryRepository
+//                ->findWhere([
+//                    'slug' => $slug,
+//                    'status' => 1,
+//                ]);
+//
+//            if ($item) {
+//                $item = do_filter(WEBED_BLOG_FRONT_CATEGORIES, $item);
+//
+//                increase_view_count(WEBED_BLOG_CATEGORIES, $item->id);
+//
+//                admin_bar()->registerLink('Edit this category', route('admin::blog.categories.edit.get', ['id' => $item->id]));
+//
+//                $themeController = themes_management()->getThemeController('Blog\Category');
+//
+//                if (is_string($themeController)) {
+//                    abort(\Constants::ERROR_CODE, $themeController . ' not exists');
+//                }
+//
+//                $this->dis['allRelatedCategoryIds'] = array_unique(array_merge($this->categoryRepository->getAllRelatedChildrenIds($item), [$item->id]));
+//
+//                seo()
+//                    ->metaDescription($item->description)
+//                    ->metaImage($item->thumbnail)
+//                    ->metaKeywords($item->keywords)
+//                    ->setModelObject($item);
+//
+//                $this->themeController = $themeController;
+//            }
+//        }
 
         if ($item) {
             $item = do_filter(WEBED_BLOG_FRONT_POSTS, $item);
 
-            increase_view_count(WEBED_BLOG_POSTS, $item->id);
+            increase_view_count(WEBED_BLOG_PRODUCTS, $item->id);
 
-            admin_bar()->registerLink('Edit this post', route('admin::blog.posts.edit.get', ['id' => $item->id]));
+            admin_bar()->registerLink('Edit this post', route('admin::product.posts.create.get', ['id' => $item->id]));
 
-            $themeController = themes_management()->getThemeController('Blog\Post');
+            $themeController = themes_management()->getThemeController('Blog\Product');
+
 
             if (is_string($themeController)) {
                 abort(\Constants::ERROR_CODE, $themeController . ' not exists');
             }
 
-            $this->dis['categoryIds'] = $this->repository->getRelatedCategoryIds($item);
+//            $this->dis['categoryIds'] = $this->repository->getRelatedCategoryIds($item);
 
-            $this->dis['author'] = $item->author;
+//            $this->dis['author'] = $item->author;
 
             seo()
                 ->metaDescription($item->description)
@@ -72,35 +139,35 @@ class ResolveBlogController extends BaseFrontController
 
             $this->themeController = $themeController;
         } else {
-            $item = $this->categoryRepository
-                ->findWhere([
-                    'slug' => $slug,
-                    'status' => 1,
-                ]);
+//            $item = $this->categoryRepository
+//                ->findWhere([
+//                    'slug' => $slug,
+//                    'status' => 1,
+//                ]);
 
-            if ($item) {
-                $item = do_filter(WEBED_BLOG_FRONT_CATEGORIES, $item);
-
-                increase_view_count(WEBED_BLOG_CATEGORIES, $item->id);
-
-                admin_bar()->registerLink('Edit this category', route('admin::blog.categories.edit.get', ['id' => $item->id]));
-
-                $themeController = themes_management()->getThemeController('Blog\Category');
-
-                if (is_string($themeController)) {
-                    abort(\Constants::ERROR_CODE, $themeController . ' not exists');
-                }
-
-                $this->dis['allRelatedCategoryIds'] = array_unique(array_merge($this->categoryRepository->getAllRelatedChildrenIds($item), [$item->id]));
-
-                seo()
-                    ->metaDescription($item->description)
-                    ->metaImage($item->thumbnail)
-                    ->metaKeywords($item->keywords)
-                    ->setModelObject($item);
-
+//            if ($item) {
+//                $item = do_filter(WEBED_BLOG_FRONT_CATEGORIES, $item);
+//
+//                increase_view_count(WEBED_BLOG_CATEGORIES, $item->id);
+//
+//                admin_bar()->registerLink('Edit this category', route('admin::blog.categories.edit.get', ['id' => $item->id]));
+//
+                $themeController = themes_management()->getThemeController('Blog\Product');
+//
+//                if (is_string($themeController)) {
+//                    abort(\Constants::ERROR_CODE, $themeController . ' not exists');
+//                }
+//
+//                $this->dis['allRelatedCategoryIds'] = array_unique(array_merge($this->categoryRepository->getAllRelatedChildrenIds($item), [$item->id]));
+//
+//                seo()
+//                    ->metaDescription($item->description)
+//                    ->metaImage($item->thumbnail)
+//                    ->metaKeywords($item->keywords)
+//                    ->setModelObject($item);
+//
                 $this->themeController = $themeController;
-            }
+//            }
         }
         if (!$item) {
             abort(\Constants::NOT_FOUND_CODE);

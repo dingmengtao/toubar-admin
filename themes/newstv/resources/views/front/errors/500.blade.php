@@ -6,7 +6,7 @@
             <div class="main-left">
                 <section class="main-box">
                     <div class="main-box-header">
-                        {!! breadcrumbs()->render() !!}
+                        {{--{!! breadcrumbs()->render() !!}--}}
                     </div>
                     <div class="main-box-content">
                         <h1 class="article-content-title">
@@ -18,7 +18,7 @@
                     </div>
                 </section>
             </div>
-            @include("webed-theme::front._partials.sidebar")
+            {{--@include("webed-theme::front._partials.sidebar")--}}
         </div>
     </div>
 @endsection
