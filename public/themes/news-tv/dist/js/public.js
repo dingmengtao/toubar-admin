@@ -4,7 +4,7 @@ $(function() {
 	var now_position = $(".lazyc").eq(0).offset().top;
 	var lazyc_index = 0;
 	var lazyc_length = $(".lazyc").length;
-	var lazy_speed = 2400;
+	var lazy_speed = 1200;
 	var offset_margin = 100;
 	var finish_flag = false;
 	var ing = false;
@@ -75,13 +75,12 @@ $(function() {
 	var old_t = 0,
 	t = 0;
 	window.addEventListener("scroll",function(evt){
-        		//懒加载开始
+        //懒加载开始
 		if(!ing) {
 			refresh();
 		}
-		//					懒加载结束
+		//懒加载结束
 		t = $(window).scrollTop();
-//		var temp_str = "translateY(" + (t - old_t) + "px)";
 		var temp_str = "translateY(" + (old_t-t) + "px)";
 		$(".background_c .move").each(function() {
 			$(this).css("transform", temp_str);
@@ -97,14 +96,49 @@ $(function() {
 			$(this).css("-webkit-transform", temp_str);
 			$(this).css("-o-transform", temp_str);
 		});
-		if(t > 1200) {
+		var word_location=$("footer").eq(0).offset().top;
+		$(".background_c .box3").css("top",word_location-550+"px");
+		if(t>1200) {
+			
 			$(".background_c  .box3").animate({
 				padding: "0rem"
 			});
-			$(".background_c  .box3 .word").animate({
-				opacity: "0.3",
-				fontSize: "2.11rem"
-			});
+			if ($(window).width()>1400)
+			{
+            	$(".background_c  .box3 .word").animate({
+					opacity: "0.3",
+					fontSize: "2.11rem"
+				});
+			}else  if($(window).width()>1000)
+			{
+				$(".background_c  .box3 .word").animate({
+					opacity: "0.3",
+					fontSize: "1.5rem"
+				});
+			}
+			else  if($(window).width()>800)
+			{
+				$(".background_c  .box3 .word").animate({
+					opacity: "0.3",
+					fontSize: "1.2rem"
+				});
+			}
+			else  if($(window).width()>600)
+			{
+				$(".background_c  .box3 .word").animate({
+					opacity: "0.3",
+					fontSize: "0.8rem"
+				});
+			}
+			else
+			{
+				$(".background_c  .box3 .word").animate({
+					opacity: "0.3",
+					fontSize: "0.5rem"
+				});
+			}
+			$(".background_c").css("height",$(".outer_continer").height()+"px");
+			
 		}
 		setTimeout(function() {
 			old_t = t;

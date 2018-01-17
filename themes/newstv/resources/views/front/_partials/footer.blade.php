@@ -1,4 +1,5 @@
 <footer class="lazyc">
+
 	<div class="footer_logo lazy_item"></div>
 	<ul class="footer_lead tl_center lazy_item">
 		@foreach ($menu as $r)
@@ -7,24 +8,9 @@
 			</li>
 		@endforeach
 
-		{{--<li class="fl_item fl tl_center">--}}
-			{{--<a href="#">Product</a>--}}
-		{{--</li>--}}
-		{{--<li class="fl_item fl tl_center">--}}
-			{{--<a href="#">News</a>--}}
-		{{--</li>--}}
-		{{--<li class="fl_item fl tl_center">--}}
-			{{--<a href="#">About&nbsp;us</a>--}}
-		{{--</li>--}}
-		{{--<li class="fl_item fl tl_center">--}}
-			{{--<a href="#">Contact</a>--}}
-		{{--</li>--}}
-		{{--<li class="fl_item fl tl_center">--}}
-			{{--<a href="#">Term</a>--}}
-		{{--</li>--}}
-		{{--<li class="clear"></li>--}}
+
 	</ul>
-	<ul class="share-buttons lazy_item">
+	<ul class="share-buttons">
 		<li class="fl share_item">
 			<a class="pic_box" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftesturl&quote=testtitle" title="Share on Facebook" target="_blank"><img alt="Share on Facebook"  src="{{ asset('themes/news-tv/dist/img/inst.png') }}"/></a>
 		</li>
