@@ -120,6 +120,8 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .news_detail .detail_content h3{font-size:0.46rem;width:100%;margin-top:1.20rem;} 
 .news_detail .detail_content h4{font-size:0.24rem;color:rgba(0,0,0,0.6);margin-top:0.18rem;}
 .news_detail .detail_content .pic_temp{height:8.3rem;width:100%;}
+.news_detail .detail_content .pc_title{display:block;}
+.news_detail .detail_content .mobile_title{display:none;}
 .news_detail .detail_content .word{font-size:0.36rem;}
 .news_detail .detail_content .bottom{margin-top:0.79rem;}
 .news_detail .detail_content .bottom .tag{width:40%;}

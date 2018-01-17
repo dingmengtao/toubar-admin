@@ -62,6 +62,18 @@ $(function() {
 		$(".news_detail .detail_bg .pic").css("position", "absolute");
 		var temp_left = ($(window).width() - $(".news_detail .detail_content").width()) / 2;
 		$(".news_detail .detail_bg .pic").css("left", -temp_left);
+	    var temp_width=$(".news_detail .detail_bg .pic").width();
+	    $(".news_detail .detail_content .pic_temp").css("height",temp_width/2);
+		if($(window).width()>768)
+		{
+			var temp_height=$(".news_detail .detail_content h3").height();
+			$(".news_detail .detail_bg .pic").css("position","relative");
+			$(".news_detail .detail_bg .pic").css("top",temp_height);
+		}
+		else
+		{
+			$(".news_detail .detail_bg .pic").css("left", "0px");
+		}
 	}
 	newsdetail();
 	//关于我们
@@ -306,6 +318,7 @@ $(function() {
 	})
 	//页面改变引发的各页面变化
 	$(window).resize(function() {
+		//背景元素
 		if($(window).width()> 1400) {
 			$(".background_c  .box3 .word").css("font-size", "2.11rem");
 		} else if($(window).width()> 1000) {
@@ -317,7 +330,9 @@ $(function() {
 		} else {
 			$(".background_c  .box3 .word").css("font-size", "0.5rem");
 		}
+		//新闻详情页
 		newsdetail();
+		//关于我们
 		aboutus();
 	});
 });
