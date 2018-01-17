@@ -75,8 +75,8 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .faq_tabs .content .item .problem_list .problem_item h4{margin-top:0.29rem;font-size:0.36rem;width:100%;text-align:center;}
 .faq_tabs .content .item .problem_list .problem_item p{margin-top:0.19rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
 .faq_contact {max-width:8.41rem;margin:1.72rem auto 0rem auto;}
-.faq_contact  .talk{width:1.48rem;height:1.41rem;background:url("../img/comments@2x.png") no-repeat center;background-size:contain;}
-.faq_contact  p.title{font-size:0.6rem;line-height:0.75rem;font-family:bold;max-width:6.56rem;}
+.faq_contact  .talk{width:25%;height:1.41rem;background:url("../img/comments@2x.png") no-repeat center;background-size:contain;}
+.faq_contact  p.title{font-size:0.6rem;line-height:0.6rem;font-family:bold;max-width:75%;word-break:break-all;padding-left:0.3rem;padding-right:0.2rem;box-sizing:border-box;}
 .faq_contact  p.link{width:100%;margin-bottom:1.25rem;}
 .faq_contact  p.link span{font-size:0.3rem;}
 .faq_contact  p.link a{font-size:0.3rem;color:rgba(0,0,0,0.3);text-decoration:none;}

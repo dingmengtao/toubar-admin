@@ -42,6 +42,7 @@
 a Cityguide for the Dortmund linked Lieblingsstadt, favorite City, is a Cityguide for the German town for the as 
 Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
    					</p>
+   					<div class="mobile_clear"></div>
    				</li>
    				<li class="problem_item lazyc">
    					<h3 class="lazy_item">02</h3>
@@ -51,6 +52,7 @@ Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
 a Cityguide for the Dortmund linked Lieblingsstadt, favorite City, is a Cityguide for the German town for the as 
 Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
    					</p>
+   					<div class="mobile_clear"></div>
    				</li>
    				<li class="problem_item lazyc">
    					<h3 class="lazy_item">03</h3>
@@ -60,6 +62,7 @@ Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
 a Cityguide for the Dortmund linked Lieblingsstadt, favorite City, is a Cityguide for the German town for the as 
 Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
    					</p>
+   					<div class="mobile_clear"></div>
    				</li>
    				<li class="problem_item lazyc">
    					<h3 class="lazy_item">04</h3>
@@ -69,6 +72,7 @@ Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
 a Cityguide for the Dortmund linked Lieblingsstadt, favorite City, is a Cityguide for the German town for the as 
 Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
    					</p>
+   					<div class="mobile_clear"></div>
    				</li>
    				<li class="problem_item lazyc">
    					<h3 class="lazy_item">05</h3>
@@ -78,6 +82,7 @@ Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
 a Cityguide for the Dortmund linked Lieblingsstadt, favorite City, is a Cityguide for the German town for the as 
 Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked
    					</p>
+   					<div class="mobile_clear"></div>
    				</li>
    			</ul>
    		</li>

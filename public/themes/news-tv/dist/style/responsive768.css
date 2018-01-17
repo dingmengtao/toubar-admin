@@ -56,6 +56,25 @@
 	.news_article .c .article_item h3{text-align:left;}
 	.news_article .c .article_item p{text-align:left;word-break: break-all;}
 	.news_article .more{display:none;}
+	/*faq答疑*/
+	.faq_title{font-size:0.52rem;margin-top:0.41rem;text-align:left;text-decoration:none;text-indent:20px;}
+	.faq_tabs{margin-top:0.50rem;}
+	.faq_tabs .lead{height:0.57rem;overflow:hidden;}
+	.faq_tabs .lead .item{padding-right:0.3rem;box-sizing:border-box;display:none;min-width:51%;width:auto;text-align:left;font-size:0.46rem;}
+	.faq_tabs .lead .item.current{text-decoration:none;display:block;background:url("../img/down.png") no-repeat right center;background-size:0.2rem;}
+	.faq_tabs .lead:hover{height:auto;overflow:auto;}
+	.faq_tabs .lead:hover .item{display:block;}
+	.faq_tabs .lead:hover .item.current{background:#ffffff;}
+	.faq_tabs .content{margin-top:0.35rem;}
+	.faq_tabs .content .item.current{min-height:12rem;width:100%;}
+	.faq_tabs .content .item .problem_list .problem_item{margin-top:0.52rem;}
+	.faq_tabs .content .item .problem_list .problem_item h3{width:auto;max-width:20%;float:left;font-size:0.43rem;line-height:0.7rem;text-align:left;}
+	.faq_tabs .content .item .problem_list .problem_item h4{word-break:break-all;background:url("../img/down.png") no-repeat right center;background-size:0.2rem; text-overflow:ellipsis;white-space:nowrap; padding-right:0.3rem;padding-left:0.20rem;box-sizing:border-box;margin-top:0rem;width:80%;float:left;text-align:left;font-size:0.36rem;line-height:0.7rem;height:0.7rem;overflow:hidden;}
+	.faq_tabs .content .item .problem_list .problem_item h4:hover{background:#ffffff;overflow:auto;height:auto;padding-right:0rem;box-sizing:border-box;text-overflow:initial;white-space:initial;}
+	.faq_tabs .content .item .problem_list .problem_item p{width:100%;float:left;margin-top:0rem;word-break:break-all;padding:0rem 0.445rem;box-sizing:border-box;}
+	.faq_tabs .content .item .problem_list .problem_item .mobile_clear{clear:both;}
+	.faq_contact {max-width:100%;margin:0.89rem auto 0rem auto;}
+	.faq_contact  p.link{margin-bottom:0.55rem;text-align:right;padding-right:20px;box-sizing:border-box;}
 	/*footer*/
 	footer{background:#F9F9F9;padding-top:0.15rem;padding-top:0.15rem;}
 	footer .footer_lead .fl_item {width: 100%;height: 0.34rem;margin-top: 0.3rem;}
