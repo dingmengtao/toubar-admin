@@ -3,6 +3,7 @@
 use WebEd\Base\Http\Controllers\BaseFrontController;
 use WebEd\Base\Pages\Repositories\Contracts\PageRepositoryContract;
 use WebEd\Base\Pages\Repositories\PageRepository;
+use Illuminate\Support\Facades\DB;
 
 class ResolvePagesController extends BaseFrontController
 {
@@ -10,6 +11,7 @@ class ResolvePagesController extends BaseFrontController
      * @var PageRepositoryContract|PageRepository
      */
     protected $repository;
+    protected $navigation;
 
     /**
      * SlugWithoutSuffixController constructor.
@@ -30,6 +32,9 @@ class ResolvePagesController extends BaseFrontController
             echo 'Class ' . $this->themeController . ' not exists';
             die();
         }
+//        $navigation=$this->getNavigation();
+          $this->navigation=DB::table(webed_db_prefix()."pages")->select('*')->get();
+//        print_r( $this->navigation);
 
         $this->repository = $repository;
     }
@@ -79,7 +84,7 @@ class ResolvePagesController extends BaseFrontController
         $this->setPageTitle($page->title);
 
         $this->dis['object'] = $page;
-
+        $this->dis['menu'] =$this->navigation;
         return $this->themeController->handle($page, $this->dis);
     }
 }

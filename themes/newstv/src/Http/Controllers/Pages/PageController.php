@@ -109,7 +109,7 @@ class PageController extends AbstractController
         ]);
 
         return $this->view('front.page-templates.homepage');
-        echo 1;
+
     }
 
     /**

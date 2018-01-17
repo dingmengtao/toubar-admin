@@ -137,6 +137,7 @@ $(function() {
 					fontSize: "0.5rem"
 				});
 			}
+			$(".background_c").css("height",$(".outer_continer").height()+"px");
 			
 		}
 		setTimeout(function() {

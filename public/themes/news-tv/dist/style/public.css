@@ -1,6 +1,6 @@
 /***************************header start**********************************/
 header{height:0.41rem;}
-header .logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;}
+header .logo{display:block;width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;}
 header .lead{height:0.41rem;width:0.29rem;}
 header .lead .lead_btn p{width:0.29rem;height:0.02rem;margin-top:0.06rem;}
 header .lead .lead_btn_open{cursor:pointer;}
@@ -53,13 +53,10 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .info_list ul .item .info_logo.wechat{background:url("../img/wechat@2x.png") no-repeat center;background-size:contain;}
 .info_list ul .item h4{margin-top:0.3rem;}
 .info_list  p{margin-top:0.2rem;font-size:0.24rem;color:rgba(0,0,0,0.6);}
-.info_list  p.worktime{width:100%;margin-top:0.6rem;}
+.info_list  .worktime{width:100%;margin-top:0.6rem;font-size:0.24rem;color:rgba(0,0,0,0.6);}
 .map{margin-top:1.22rem;width:100%;height:7.7rem;}
-.map .map_content{margin-bottom:0.64rem;background:grey;opacity:0.5;width:100%;height:600px;margin-top:0.6rem;position:relative;}
-/*.map .map_content .top_mask{background:rgba(255,255,255,0.5);width:100%;height:10%;position:absolute;left:0rem;top:0rem;z-index:2;}
-.map .map_content .bottom_mask{background:rgba(255,255,255,0.5);width:100%;height:20%;position:absolute;left:0rem;bottom:0rem;z-index:2;}
-.map .map_content .left_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;left:0rem;top:10%;z-index:2;}
-.map .map_content .right_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;right:0rem;top:10%;z-index:2;}*/
+.map .map_content{position:relative;margin-bottom:0.64rem;background:grey;opacity:0.5;width:100%;height:600px;margin-top:0.6rem;}
+.map .map_content .iframe_temp{height:600px;background:transparent;}
 /***************************联系contact	 end**********************************/
 /***************************解答FAQ	 start**********************************/
 .faq_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
@@ -68,15 +65,15 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .faq_tabs .lead .item.current{color:rgba(0,0,0,1);text-decoration:underline;}
 .faq_tabs .content{margin-top:0.94rem;}
 .faq_tabs .content .item{display:none;}
-.faq_tabs .content .item.current{display:block;}
+.faq_tabs .content .item.current{display:block;min-height:17.34rem;}
 .faq_tabs .content .item .problem_list .problem_item{margin-top:0.94rem;}
 .faq_tabs .content .item .problem_list .problem_item:first-child{margin-top:0rem;}
 .faq_tabs .content .item .problem_list .problem_item h3{font-size:0.6rem;font-family:bold;color:rgba(0,0,0,0.5);width:100%;text-align:center;}
 .faq_tabs .content .item .problem_list .problem_item h4{margin-top:0.29rem;font-size:0.36rem;width:100%;text-align:center;}
 .faq_tabs .content .item .problem_list .problem_item p{margin-top:0.19rem;font-size:0.24rem;color:rgba(0,0,0,0.8);width:100%;text-align:center;}
 .faq_contact {max-width:8.41rem;margin:1.72rem auto 0rem auto;}
-.faq_contact  .talk{width:1.48rem;height:1.41rem;background:url("../img/comments@2x.png") no-repeat center;background-size:contain;}
-.faq_contact  p.title{font-size:0.6rem;line-height:0.75rem;font-family:bold;max-width:6.56rem;}
+.faq_contact  .talk{width:25%;height:1.41rem;background:url("../img/comments@2x.png") no-repeat center;background-size:contain;}
+.faq_contact  p.title{font-size:0.6rem;line-height:0.6rem;font-family:bold;max-width:75%;word-break:break-all;padding-left:0.3rem;padding-right:0.2rem;box-sizing:border-box;}
 .faq_contact  p.link{width:100%;margin-bottom:1.25rem;}
 .faq_contact  p.link span{font-size:0.3rem;}
 .faq_contact  p.link a{font-size:0.3rem;color:rgba(0,0,0,0.3);text-decoration:none;}
@@ -120,6 +117,8 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .news_detail .detail_content h3{font-size:0.46rem;width:100%;margin-top:1.20rem;} 
 .news_detail .detail_content h4{font-size:0.24rem;color:rgba(0,0,0,0.6);margin-top:0.18rem;}
 .news_detail .detail_content .pic_temp{height:8.3rem;width:100%;}
+.news_detail .detail_content .pc_title{display:block;}
+.news_detail .detail_content .mobile_title{display:none;}
 .news_detail .detail_content .word{font-size:0.36rem;}
 .news_detail .detail_content .bottom{margin-top:0.79rem;}
 .news_detail .detail_content .bottom .tag{width:40%;}

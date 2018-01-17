@@ -55,6 +55,8 @@ class PostController extends BaseAdminController
 
         $this->dis['dataTable'] = $dataTables->run();
 
+
+
         return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_BLOG_POSTS, 'index.get', $dataTables)->viewAdmin('posts.index');
     }
 

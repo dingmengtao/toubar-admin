@@ -1,4 +1,6 @@
+
 @extends('webed-theme::front._master')
+
 @section('move')
  <div class="background_c index">
 	<div class="box box1 transition">
@@ -25,7 +27,7 @@
 <div class="my_video pic_box">
 	<img src="{{ asset('themes/news-tv/dist/img/video_temp.png') }}">
 </div>
-<article class="user_feedback inner_continer">
+<!--<article class="user_feedback inner_continer">
 	<h5 class="tl_center lazyc">User Feedback</h5>
 	<h6 class="tl_center title lazyc">Curabitur mi lacus,laoreet sit amet tortor sit amet,molestie ult ricesenim oreet sit amet toror sie tmet </h6>
 	<ul class="feedback_list">
@@ -54,8 +56,8 @@
 			<div class="res_clear"></div>
 		</li>
 	</ul>
-</article>
-<!--<article class="user_feedback inner_continer">
+</article>-->
+<article class="user_feedback inner_continer">
 	<h5 class="tl_center lazyc">medisum</h5>
 	<h6 class="tl_center title lazyc">Efficacy and safrty&nbsp;事半功倍，安心之选</h6>
 	<ul class="feedback_list">
@@ -80,15 +82,16 @@
 			</p>
 			<div class="res_clear"></div>
 		</li>
-		<li class="lazyc">
+		<li class="lazyc" >
 			<div class="head_pic pic_continer lazy_item"><img src="{{ asset('themes/news-tv/dist/img/head_temp_3.jpg') }}"/></div>
 			<h6 class="tl_center lazy_item"><span>品牌概述</span></h6>
 			<p class="tl_center lazy_item">
 				medisum是一个融合智慧与科技结合的澳洲创新品牌，致力于通过有意义 的创新为人们提供有效安全的保健健康方案，未雨绸缪，乐享人生
+
 			</p>
 			<div class="res_clear"></div>
 			
 		</li>
 	</ul>
-</article>-->
+</article>
 @endsection

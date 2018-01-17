@@ -156,15 +156,34 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->string('title');
 //            $table->integer('parent_id')->unsigned()->nullable();
             $table->string('slug', 255)->nullable();
-
-
             $table->integer('order')->default(0);
-
             $table->integer('created_by')->unsigned()->nullable();
             $table->integer('updated_by')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
 
+        });
+        Schema::create(webed_db_prefix() . 'products', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('title');
+            $table->string('page_template', 255)->nullable();
+            $table->string('slug', 255)->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
+            $table->string('thumbnail', 255)->nullable();
+            $table->string('keywords', 255)->nullable();
+            $table->integer('order')->default(0);
+            $table->tinyInteger('status')->default(1);
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->tinyInteger('is_featured')->default(0);
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+//            $table->foreign('category_id')->references('id')->on(webed_db_prefix() . 'categories')->onDelete('set null');
+//            $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
+            $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
         });
     }
 }

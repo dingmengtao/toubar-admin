@@ -1,5 +1,5 @@
 <header>
-	<div class="fl logo"></div>
+	<a class="fl logo" href="#"></a>
 	<div class="fr lead">
 		<div class="lead_btn_open lead_btn">
 			<p class="fr"></p>

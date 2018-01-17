@@ -28,10 +28,12 @@
    			<div class="pic"></div>
    		</div>
    		<div class="detail_content">
-   	         <h3>Lieblingsstadt, favorite City, is a Cityguide for the German</h3>
-   	         <h4>11,Dec,2017</h4>
+   	         <h3 class="pc_title">Lieblingsstadt, favorite City, is a Cityguide for the German</h3>
+   	         <h4 class="pc_title">11,Dec,2017</h4>
    	         <div class="pic_temp">
    	         </div>
+   	         <h3 class="mobile_title">Lieblingsstadt, favorite City, is a Cityguide for the German</h3>
+   	         <h4 class="mobile_title">11,Dec,2017</h4>
    	         <p class="word lazyc">
    	         	<span class="lazy_item">Lieblingsstadt, favorite City, is a Cityguide for the German town for the as Dortmund lings stadt, favorite City, is 
 a Cityguide for the Dortmund linked  Dortmund linked</span>
@@ -92,7 +94,6 @@ Dortmund lings stadt, favorite City, is a Cityguide for the Dortmund linked</spa
    	         	 <div class="clear"></div>
    	         </div>
    		</div>
-   		<div>
    </div>
    <div class="news_article inner_continer lazyc">
    		<h2 class="tl_center">Article</h2>

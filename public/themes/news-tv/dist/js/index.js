@@ -62,6 +62,18 @@ $(function() {
 		$(".news_detail .detail_bg .pic").css("position", "absolute");
 		var temp_left = ($(window).width() - $(".news_detail .detail_content").width()) / 2;
 		$(".news_detail .detail_bg .pic").css("left", -temp_left);
+	    var temp_width=$(".news_detail .detail_bg .pic").width();
+	    $(".news_detail .detail_content .pic_temp").css("height",temp_width/2);
+		if($(window).width()>768)
+		{
+			var temp_height=$(".news_detail .detail_content h3").height();
+			$(".news_detail .detail_bg .pic").css("position","relative");
+			$(".news_detail .detail_bg .pic").css("top",temp_height);
+		}
+		else
+		{
+			$(".news_detail .detail_bg .pic").css("left", "0px");
+		}
 	}
 	newsdetail();
 	//关于我们
@@ -72,8 +84,33 @@ $(function() {
 		$(".us_detail .us_bg .pic").css("position", "absolute");
 		var us_temp_left = ($(window).width() - $(".us_detail .us_content").width()) / 2;
 		$(".us_detail .us_bg .pic").css("left", -us_temp_left);
+		var temp_width=$(".us_detail .us_bg .pic").width();
+	    $(".us_detail .us_content .pic_temp").css("height",temp_width/2);
+		if($(window).width()>768)
+		{
+			var temp_height=$(".us_detail .us_content h3").height();
+			$(".us_detail .us_bg .pic").css("position","relative");
+			$(".us_detail .us_bg .pic").css("top",temp_height);
+		}
+		else
+		{
+			$(".us_detail .detail_bg .pic").css("left", "0px");
+		}
 	}
 	aboutus();
+	//联系我们
+	function contactUs()
+	{
+		$(".map .map_content  iframe").css("width",$(window).width()+"px");
+		$(".map .map_content  iframe").css("position","absolute");
+		$(".map .map_content  iframe").css("top","0px");
+		var temp_left=($(window).width()-$(".map .map_content").width())/2;
+		$(".map .map_content  iframe").css("left","-"+temp_left+"px");
+		$(".info_list  .worktime").css("height",$(".info_list .item").height()+"px");
+		var temp_margin=($(".info_list .item").height()-$(".info_list  .worktime span").height())/2;
+		$(".info_list  .worktime span").css("margin-top",temp_margin);
+	}
+    contactUs();
 	//产品页面
 	$(".product_intro .intro_pic .pic").animate({
 		width: "40%",
@@ -306,6 +343,7 @@ $(function() {
 	})
 	//页面改变引发的各页面变化
 	$(window).resize(function() {
+		//背景元素
 		if($(window).width()> 1400) {
 			$(".background_c  .box3 .word").css("font-size", "2.11rem");
 		} else if($(window).width()> 1000) {
@@ -317,7 +355,11 @@ $(function() {
 		} else {
 			$(".background_c  .box3 .word").css("font-size", "0.5rem");
 		}
+		//新闻详情页
 		newsdetail();
+		//关于我们
 		aboutus();
+		//联系我们
+		contactUs();
 	});
 });
