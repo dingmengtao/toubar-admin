@@ -27,7 +27,7 @@
 <div class="my_video pic_box">
 	<img src="{{ asset('themes/news-tv/dist/img/video_temp.png') }}">
 </div>
-<article class="user_feedback inner_continer">
+<!--<article class="user_feedback inner_continer">
 	<h5 class="tl_center lazyc">User Feedback</h5>
 	<h6 class="tl_center title lazyc">Curabitur mi lacus,laoreet sit amet tortor sit amet,molestie ult ricesenim oreet sit amet toror sie tmet </h6>
 	<ul class="feedback_list">
@@ -56,8 +56,8 @@
 			<div class="res_clear"></div>
 		</li>
 	</ul>
-</article>
-<!--<article class="user_feedback inner_continer">
+</article>-->
+<article class="user_feedback inner_continer">
 	<h5 class="tl_center lazyc">medisum</h5>
 	<h6 class="tl_center title lazyc">Efficacy and safrty&nbsp;事半功倍，安心之选</h6>
 	<ul class="feedback_list">
@@ -93,5 +93,5 @@
 			
 		</li>
 	</ul>
-</article>-->
+</article>
 @endsection
