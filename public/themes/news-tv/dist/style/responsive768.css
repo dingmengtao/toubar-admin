@@ -17,7 +17,7 @@
 	.user_feedback .feedback_list li{margin-top:0.69rem;}
 	.user_feedback .feedback_list li .head_pic{margin-top:0rem!important;max-width:30%;height:0.80rem;width:0.80rem;float:left;}
 	.user_feedback .feedback_list li .head_pic img{vertical-align:middle;border-radius:2rem;}
-	.user_feedback .feedback_list li h6{margin-top:0rem!important;font-size:0rem;float:left;max-width:70%;line-height:0.2rem;}
+	.user_feedback .feedback_list li h6{margin-top:0rem!important;font-size:0rem;float:left;max-width:70%;/*line-height:0.2rem;*/line-height:0.30rem;}
 	.user_feedback .feedback_list li h6 span{text-indent:0.17rem;font-size:0.30rem;width:100%;display:block;text-align:left;overflow:hidden;}
 	.user_feedback .feedback_list li h6 span:first-child{margin-top:0.1rem;color:#000000;font-family:bold;}
 	.user_feedback .feedback_list h6 .pointer:hover{underline:none;}
