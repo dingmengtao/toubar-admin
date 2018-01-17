@@ -86,6 +86,19 @@ $(function() {
 		$(".us_detail .us_bg .pic").css("left", -us_temp_left);
 	}
 	aboutus();
+	//联系我们
+	function contactUs()
+	{
+		$(".map .map_content  iframe").css("width",$(window).width()+"px");
+		$(".map .map_content  iframe").css("position","absolute");
+		$(".map .map_content  iframe").css("top","0px");
+		var temp_left=($(window).width()-$(".map .map_content").width())/2;
+		$(".map .map_content  iframe").css("left","-"+temp_left+"px");
+		$(".info_list  .worktime").css("height",$(".info_list .item").height()+"px");
+		var temp_margin=($(".info_list .item").height()-$(".info_list  .worktime span").height())/2;
+		$(".info_list  .worktime span").css("margin-top",temp_margin);
+	}
+    contactUs();
 	//产品页面
 	$(".product_intro .intro_pic .pic").animate({
 		width: "40%",
@@ -334,5 +347,7 @@ $(function() {
 		newsdetail();
 		//关于我们
 		aboutus();
+		//联系我们
+		contactUs();
 	});
 });

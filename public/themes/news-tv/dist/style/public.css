@@ -53,13 +53,10 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .info_list ul .item .info_logo.wechat{background:url("../img/wechat@2x.png") no-repeat center;background-size:contain;}
 .info_list ul .item h4{margin-top:0.3rem;}
 .info_list  p{margin-top:0.2rem;font-size:0.24rem;color:rgba(0,0,0,0.6);}
-.info_list  p.worktime{width:100%;margin-top:0.6rem;}
+.info_list  .worktime{width:100%;margin-top:0.6rem;font-size:0.24rem;color:rgba(0,0,0,0.6);}
 .map{margin-top:1.22rem;width:100%;height:7.7rem;}
-.map .map_content{margin-bottom:0.64rem;background:grey;opacity:0.5;width:100%;height:600px;margin-top:0.6rem;position:relative;}
-/*.map .map_content .top_mask{background:rgba(255,255,255,0.5);width:100%;height:10%;position:absolute;left:0rem;top:0rem;z-index:2;}
-.map .map_content .bottom_mask{background:rgba(255,255,255,0.5);width:100%;height:20%;position:absolute;left:0rem;bottom:0rem;z-index:2;}
-.map .map_content .left_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;left:0rem;top:10%;z-index:2;}
-.map .map_content .right_mask{background:rgba(255,255,255,0.5);width:10%;height:70%;position:absolute;right:0rem;top:10%;z-index:2;}*/
+.map .map_content{position:relative;margin-bottom:0.64rem;background:grey;opacity:0.5;width:100%;height:600px;margin-top:0.6rem;}
+.map .map_content .iframe_temp{height:600px;background:transparent;}
 /***************************联系contact	 end**********************************/
 /***************************解答FAQ	 start**********************************/
 .faq_title{font-size:0.86rem;width:100%;font-family:bold;text-decoration:underline;margin-top:1.2rem;}
