@@ -68,7 +68,7 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .faq_tabs .lead .item.current{color:rgba(0,0,0,1);text-decoration:underline;}
 .faq_tabs .content{margin-top:0.94rem;}
 .faq_tabs .content .item{display:none;}
-.faq_tabs .content .item.current{display:block;}
+.faq_tabs .content .item.current{display:block;min-height:17.34rem;}
 .faq_tabs .content .item .problem_list .problem_item{margin-top:0.94rem;}
 .faq_tabs .content .item .problem_list .problem_item:first-child{margin-top:0rem;}
 .faq_tabs .content .item .problem_list .problem_item h3{font-size:0.6rem;font-family:bold;color:rgba(0,0,0,0.5);width:100%;text-align:center;}
