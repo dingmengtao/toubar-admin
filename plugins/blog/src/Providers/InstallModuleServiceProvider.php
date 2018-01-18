@@ -185,5 +185,26 @@ class InstallModuleServiceProvider extends ServiceProvider
 //            $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
         });
+        Schema::create(webed_db_prefix() . 'news', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('title');
+            $table->string('page_template', 255)->nullable();
+            $table->string('slug', 255)->nullable();
+            $table->text('description')->nullable();
+            $table->text('content')->nullable();
+            $table->string('thumbnail', 255)->nullable();
+            $table->string('keywords', 255)->nullable();
+            $table->tinyInteger('status')->default(1);
+            $table->tinyInteger('type')->default(0);
+            $table->integer('order')->default(0);
+            $table->tinyInteger('is_featured')->default(0);
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+            $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
+            $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
+        });
     }
 }

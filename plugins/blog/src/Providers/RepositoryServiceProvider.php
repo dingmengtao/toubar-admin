@@ -3,6 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use WebEd\Plugins\Blog\Models\BlogTag;
 use WebEd\Plugins\Blog\Models\Category;
+use WebEd\Plugins\Blog\Models\News;
 use WebEd\Plugins\Blog\Models\Post;
 use WebEd\Plugins\Blog\Models\Navigation;
 use WebEd\Plugins\Blog\Models\Product;
@@ -14,9 +15,12 @@ use WebEd\Plugins\Blog\Repositories\Contracts\BlogTagRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\Contracts\CategoryRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\Contracts\NavigationRepositoryContract;
 
+use WebEd\Plugins\Blog\Repositories\Contracts\NewsRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\Contracts\PostRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\Contracts\ProductRepositoryContract;
 use WebEd\Plugins\Blog\Repositories\NavigationRepositoryCacheDecorator;
+use WebEd\Plugins\Blog\Repositories\NewsRepository;
+use WebEd\Plugins\Blog\Repositories\NewsRepositoryCacheDecorator;
 use WebEd\Plugins\Blog\Repositories\PostRepository;
 use WebEd\Plugins\Blog\Repositories\NavigationRepository;
 use WebEd\Plugins\Blog\Repositories\PostRepositoryCacheDecorator;
@@ -76,6 +80,14 @@ class RepositoryServiceProvider extends ServiceProvider
 
             if (config('webed-caching.repository.enabled')) {
                 return new ProductRepositoryCacheDecorator($repository, WEBED_BLOG_GROUP_CACHE_KEY);
+            }
+            return $repository;
+        });
+        $this->app->bind(NewsRepositoryContract::class, function () {
+            $repository = new NewsRepository(new News());
+
+            if (config('webed-caching.repository.enabled')) {
+                return new NewsRepositoryCacheDecorator($repository, WEBED_BLOG_GROUP_CACHE_KEY);
             }
             return $repository;
         });

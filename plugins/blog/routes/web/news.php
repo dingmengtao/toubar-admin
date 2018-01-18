@@ -19,39 +19,40 @@ $router->group(['prefix' => 'news'], function (Router $router) {
         ->name('admin::blog.news.index.get');
 //        ->middleware('has-permission:view-news');
 
-//    $router->post('', 'PostController@postListing')
-//        ->name('admin::blog.posts.index.post')
+    $router->post('', 'NewsController@postListing')
+        ->name('admin::blog.news.index.post');
 //        ->middleware('has-permission:view-posts');
 //
-//    $router->get('create', 'PostController@getCreate')
-//        ->name('admin::blog.posts.create.get')
+    $router->get('create', 'NewsController@getCreate')
+        ->name('admin::blog.news.create.get');
 //        ->middleware('has-permission:create-posts');
 //
-//    $router->post('create', 'PostController@postCreate')
-//        ->name('admin::blog.posts.create.post')
+    $router->post('create', 'NewsController@postCreate')
+        ->name('admin::blog.news.create.post');
 //        ->middleware('has-permission:create-posts');
 //
-//    $router->get('edit/{id}', 'PostController@getEdit')
-//        ->name('admin::blog.posts.edit.get')
+    $router->get('edit/{id}', 'NewsController@getEdit')
+        ->name('admin::blog.news.edit.get');
 //        ->middleware('has-permission:view-posts');
 //
-//    $router->post('edit/{id}', 'PostController@postEdit')
-//        ->name('admin::blog.posts.edit.post')
+    $router->post('edit/{id}', 'NewsController@postEdit')
+        ->name('admin::blog.news.edit.post');
 //        ->middleware('has-permission:update-posts');
 //
-//    $router->post('update-status/{id}/{status}', 'PostController@postUpdateStatus')
-//        ->name('admin::blog.posts.update-status.post')
+    $router->post('update-status/{id}/{status}', 'NewsController@postUpdateStatus')
+        ->name('admin::blog.news.update-status.post');
 //        ->middleware('has-permission:update-posts');
 //
-//    $router->post('delete/{id}', 'PostController@postDelete')
-//        ->name('admin::blog.posts.delete.post')
+    $router->post('delete/{id}', 'NewsController@postDelete')
+        ->name('admin::blog.news.delete.post');
 //        ->middleware('has-permission:delete-posts');
 //
-//    $router->post('force-delete/{id}', 'PostController@postForceDelete')
-//        ->name('admin::blog.posts.force-delete.post')
+    $router->post('force-delete/{id}', 'NewsController@postForceDelete')
+        ->name('admin::blog.news.force-delete.post');
 //        ->middleware('has-permission:force-delete-posts');
 //
-//    $router->post('restore/{id}', 'PostController@postRestore')
-//        ->name('admin::blog.posts.restore.post')
+    $router->post('restore/{id}', 'NewsController@postRestore')
+        ->name('admin::blog.news.restore.post');
 //        ->middleware('has-permission:restore-deleted-posts');
+
 });
