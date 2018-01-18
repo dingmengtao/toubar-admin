@@ -203,8 +203,8 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->integer('updated_by')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
-            $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
+            // $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
+            // $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
         });
     }
 }
