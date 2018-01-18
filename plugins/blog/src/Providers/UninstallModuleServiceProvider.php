@@ -34,6 +34,7 @@ class UninstallModuleServiceProvider extends ServiceProvider
         Schema::dropIfExists(webed_db_prefix() . 'tags');
         Schema::dropIfExists(webed_db_prefix() . 'posts');
         Schema::dropIfExists(webed_db_prefix() . 'categories');
-//        Schema::dropIfExists(webed_db_prefix() . 'cms_navigation');
+       Schema::dropIfExists(webed_db_prefix() . 'cms_navigation');
+       Schema::dropIfExists(webed_db_prefix() . 'products');
     }
 }
