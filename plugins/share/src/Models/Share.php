@@ -31,4 +31,11 @@ class Share extends BaseModel implements ShareModelContract
     {
         return $this->belongsTo(User::class, 'created_by');
     }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function modifier()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }
