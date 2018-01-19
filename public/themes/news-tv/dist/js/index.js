@@ -112,41 +112,84 @@ $(function() {
 	}
     contactUs();
 	//产品页面
-	$(".product_intro .intro_pic .pic").animate({
-		width: "40%",
-		height: "5.83rem",
-		opacity: "1"
-	}, "slow");
+	function productPicShow()
+	{
+		if($(window).width()>768)
+		{
+			$(".product_intro .intro_pic .pic").animate({
+			width: "5.39rem",
+			height:"4rem",
+			opacity: "1"
+			}, "slow");
+		}else
+		{
+			$(".product_intro .intro_pic .pic").css("width","80%");
+			$(".product_intro .intro_pic .pic").css("height",($(window).width()*0.8)/5.39*4+"px");
+			$(".product_intro .intro_pic .pic").css("opacity","1");
+			
+			$(".product_intro .intro_content .pic_temp").css("width",$(".product_intro .intro_pic .pic").width());
+			$(".product_intro .intro_content .pic_temp").css("height",$(".product_intro .intro_pic .pic").height());
+			
+			$(".product_intro .intro_content .content_bottom h2").css("position","relative");
+			$(".product_intro .intro_content .content_bottom h2").css("bottom",$(".product_intro .intro_pic .pic").height()+50+"px");
+			
+			$(".mobile_product_intro  .compoment_c .c .pic_box").css("height",$(".mobile_product_intro  .compoment_c .c .pic_box").width()+44+"px");
+			$(".mobile_product_intro  .compoment_c .c .pic_box div").css("height",$(".mobile_product_intro  .compoment_c .c .pic_box").width()+"px");	
+		
+			$(".product_search .left").css("height",$(".product_search .left").width()/694*548+"px");
+		    
+		    $(".product_bmi form .left .c .radio_temp .pic_box").css("height",$(".product_bmi form .left .c .radio_temp .pic_box").width()+"px");
+			$(".product_bmi form .left .c").css("height",$(".product_bmi form .left .c").width()+"px");
+		}
+	}
+	productPicShow();
 	var product_show = false;
 	var comp_show = false;
-
 	function productShow() {
 		if(!product_show) {
-			$(".product_intro .intro_content .content_word").each(function() {
-				$(this).animate({
-					minHeight: "5rem",
-					height: "auto",
+			if($(window).width()>768)
+			{
+				var content_width=($(window).width()-539)/2;
+				$(".product_intro .intro_content .content_word").css("width",content_width);
+				$(".product_intro .intro_content .content_word").each(function() {
+					$(this).animate({
+						minHeight: "5rem",
+						height: "auto",
+						opacity: "1"
+					}, "slow");
+				});
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "1.72rem"
+				});
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "1.6rem"
+				});
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "1.72rem"
+				});
+				$(".product_intro .intro_content .content_bottom h4").animate({
+					height: "0.688rem",
 					opacity: "1"
-				}, "slow");
-			});
-			$(".product_intro .intro_content .content_bottom h2").animate({
-				fontSize: "1.72rem"
-			});
-			$(".product_intro .intro_content .content_bottom h2").animate({
-				fontSize: "1.6rem"
-			});
-			$(".product_intro .intro_content .content_bottom h2").animate({
-				fontSize: "1.72rem"
-			});
-			$(".product_intro .intro_content .content_bottom h4").animate({
-				height: "0.688rem",
-				opacity: "1"
-			});
+				});
+			}else{
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "0.52rem"
+				});
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "0.27rem"
+				});
+				$(".product_intro .intro_content .content_bottom h2").animate({
+					fontSize: "0.52em"
+				});
+				$(".product_intro .intro_content .content_bottom h4").animate({
+					height: "0.50rem",
+					opacity: "1"
+				});
+			}
 		}
 		product_show = true;
 	}
 	productShow();
-
 	function productHide() {
 		if(product_show) {
 			$(".product_intro .intro_content .content_word").each(function() {
@@ -212,7 +255,6 @@ $(function() {
 		}
 		comp_show = true;
 	}
-
 	function comphide() {
 		if(comp_show) {
 			$(".intro_component .compoment_c .pic_box").css("position", "relative");
@@ -252,21 +294,25 @@ $(function() {
 				top: "0rem",
 				opacity: "0"
 			}, "fast");
+			$(".product_intro .intro_component").css("display", "none");
 		}
 		comp_show = false;
 	}
 	window.addEventListener("scroll", function(evt) {
 		var product_t = $(window).scrollTop();
 		var product_temp2 = $("header").height();
-
-		if(product_t > product_temp2 && product_t < product_temp2 + $(window).height()) {
-			productHide();
-			compmove();
+		if($(window).width()>768)
+		{
+			if(product_t > product_temp2 && product_t < product_temp2 + $(window).height()) {
+				productHide();
+				compmove();
+			}
+			if(product_t > product_temp2 + $(window).height() || product_t < product_temp2) {
+				comphide();
+				productShow();
+			}
 		}
-		if(product_t > product_temp2 + $(window).height() || product_t < product_temp2) {
-			comphide();
-			productShow();
-		}
+		
 	}, false);
 	$(".product_intro .intro_component .compoment_c").delegate(".pic_box", "click", function() {
 		var pro_index = $(".product_intro .intro_component .compoment_c .com").index(this);
@@ -296,6 +342,7 @@ $(function() {
 		});
 		$(".product_intro .component_detail").css("display", "none");
 	});
+	
 	//bmi表单-sex
 	$(".product_bmi form .left").delegate(".c", "click", function() {
 		if(!$(this).hasClass("choose")) {
@@ -361,5 +408,8 @@ $(function() {
 		aboutus();
 		//联系我们
 		contactUs();
+		//产品
+		productPicShow();
+		productShow();
 	});
 });

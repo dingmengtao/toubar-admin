@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="{{ asset('themes/news-tv/dist/style/init.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/news-tv/dist/style/lazy.css') }}">
     <link rel="stylesheet" href="{{ asset('themes/news-tv/dist/style/public.css') }}">
+     <link rel="stylesheet" type="text/css" href="{{ asset('themes/news-tv/dist/style/responsive1203.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('themes/news-tv/dist/style/responsive768.css') }}"/>   
     @php do_action('front_header_css') @endphp
     @yield('css')
     @stack('css')

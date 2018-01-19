@@ -21,7 +21,7 @@
 @endsection
 @section('content')
 <div class="product_intro">
-	<div class="intro_pic"><div class="pic"></div></div>
+	<div class="intro_pic"><div class="pic pic_box"><img src="{{ asset('themes/news-tv/dist/img/temp_pic.png') }}"/></div></div>
 	<div class="intro_content ">
 		<div class="content_left content_word">
 			<h3>Trim Fat Remover</h3>
@@ -198,6 +198,45 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 		</div>		
 	</div>
 </div>
+<div class="mobile_product_intro ">
+	<div class="content_word inner_continer">
+			<h3>Trim Fat Remover</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit. Aenean euismod bibendum
+laoreet. Proin gravida dolor sit amet lacus 
+accumsan et viverra justo commodo.
+			</p>
+	</div>
+	<div class="content_word inner_continer">
+			<h3>Trim Carb Eraser</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur 
+adipiscing elit. Aenean euismod bibendum
+laoreet. Proin gravida dolor sit amet lacus 
+accumsan et viverra justo commodo.</p>
+	</div>
+	<div class="compoment_c inner_continer">
+			<ul class="c">
+					<li class="com_1 pic_box fl com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp1.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name1</h4></li>
+					<li class="com_2 pic_box fr com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp2.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name2</h4></li>
+					<li class="clear"></li>
+			</ul>
+			<ul class="c">
+					<li class="com_3 pic_box fl com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp3.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name3</h4></li>
+					<li class="com_4 pic_box fr com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp4.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name4</h4></li>
+					<li class="clear"></li>
+			</ul>
+			<ul class="c">
+					<li class="com_5 pic_box fl com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp5.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name5</h4></li>
+					<li class="com_6 pic_box fr com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp6.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name6</h4></li>
+					<li class="clear"></li>
+			</ul>
+			<ul class="c">
+					<li class="com_7 pic_box fl com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp7.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name7</h4></li>
+					<li class="com_8 pic_box fr com"><div style="background:url('{{ asset('themes/news-tv/dist/img/comp8.png') }}') no-repeat center;background-size:80%;"></div><h4 class="transitionf">name8</h4></li>
+					<li class="clear"></li>
+			</ul>
+	</div>
+</div>
 <div class="product_video">
 	<img src="{{ asset('themes/news-tv/dist/img/movie_temp.png') }}"/>
 </div>
@@ -208,6 +247,7 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 			<div class="pic_box"></div>
 			<h4>australian laboratories tested</h4>
 			<h3>more--></h3>
+			<div class="mobile_clear"></div>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -224,6 +264,7 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 			<p class="tl_center lazy_item">
 				Curabitur mi lacus ,laoreet sit amet toror amet,mlerite ultricle enime .Ccurabiter mi lacus ,laoreet sit amet ,mloreet ultrics enime.curabites mi lacus,moleries yltrics enim tolit
 			</p>
+			<div class="res_clear"></div>
 		</li>
 		<li class="lazyc">
 			<div class="head_pic pic_continer lazy_item"><img src="{{ asset('themes/news-tv/dist/img/head_temp2.jpg') }}"/></div>
@@ -231,6 +272,7 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 			<p class="tl_center lazy_item">
 				Curabitur mi lacus ,laoreet sit amet toror amet,mlerite ultricle enime .Ccurabiter mi lacus ,laoreet sit amet ,mloreet ultrics enime.curabites mi lacus,moleries yltrics enim tolit
 			</p>
+			<div class="res_clear"></div>
 		</li>
 	</ul>
 </article>
@@ -253,6 +295,11 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 					<div class="pic_box"></div>
 					<h4>FEMALE</h4>
 				</div>
+		      </div>
+		      <div class="mobile_name fl">
+		      	<p class="left_name fl">MALE</p>
+		      	<P class="right_name fr">FEMALE</P>
+		      	<div class="clear"></div>
 		      </div>
 		      <div class="clear"></div>		
 			</div>
@@ -323,6 +370,35 @@ laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.</
 		<li class="fl detail_item">test2</li>
 		<li class="fl detail_item">test3</li>
 		<li class="clear"></li>
+	</ul>
+</div>
+
+<div class="mobile_product_list inner_continer">
+	<ul class="pl_lead">
+		<li class="lead_item current">
+			<h2>Ingredients<h2>
+			<div class="detail_item current">
+				<h3>Each Tablet Contains</h3>
+				<ul class="comp_list">
+					<li><span class="fl">Poliglusam (chitosan) derived from Aspergillus niger</span><span class="fr">425mg</span><div class="clear"></div></li>
+					<li><span class="fl">Camellia Sinesis (green tea)</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Equiv. green tea dry leaf</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Equiv. to caffine</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Chromium picolinate</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Equiv. Chromium</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Magnolia Offinalis</span><span class="fr">225mg</span><div class="clear"></div></li>
+					<li><span class="fl">Equiv. Magnolia officinalis dry bark</span><span class="fr">225mg</span><div class="clear"></div></li>
+				</ul>
+			</div>	
+		</li>
+		<li class="lead_item">
+			<h2>Directions</h2>
+			<div class="detail_item">test2</div>
+		</li>
+		<li class="lead_item">
+			<h2>FAQ</h2>
+			<div class="detail_item">test3</div>
+		</li>
 	</ul>
 </div>
 @endsection

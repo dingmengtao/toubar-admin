@@ -177,19 +177,20 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 /***************************产品product start**********************************/
 .product_intro {/*margin-top:1rem;*//*首屏*/margin-top:0rem;width:100%;position:relative;}
 .product_intro .intro_pic{width:100%;height:100%;position:absolute;z-index:-1;left:0rem;top:0rem;}
-.product_intro .intro_pic .pic{/*height:5.83rem;width:40%;*/ /*效果*/ opacity:0;height:0rem;  width:0rem;margin:auto;background:url("../img/temp_pic.png") no-repeat top;background-size:contain;}
+.product_intro .intro_pic .pic{ /*效果*/ opacity:0;height:0rem;  width:0rem;margin:auto;/*background:url("../img/temp_pic.png") no-repeat top;background-size:contain;*/}
+.product_intro .intro_pic .pic img{width:100%;}
 .product_intro .intro_content{width:100%;height:100%;position:relative;padding-bottom:2.24rem;box-sizing:border-box;}
-.product_intro .intro_content .pic_temp{width:40%;/*height:5.83rem;*//*首屏*/height:5rem;margin:auto;}
-.product_intro .intro_content .content_word{ width:30%;/*效果*/ height:0rem;overflow:hidden;min-height:0rem;opacity:0; }
+.product_intro .intro_content .pic_temp{/*首屏*/margin:auto;width:5.39rem;height:4rem;}
+.product_intro .intro_content .content_word{/*效果*/ height:0rem;overflow:hidden;min-height:0rem;opacity:0; }
 .product_intro .intro_content .content_word h3{/*margin-top:1.6rem;*/margin-top:1.2rem;font-size:0.56rem;font-family:bold;text-shadow: 10px 10px 5px #C7C7C7;}
 .product_intro .intro_content .content_word p{font-size:0.24rem;}
 .product_intro .intro_content .content_left{position:absolute;z-index:1;left:0rem;top:0rem;padding-left:0.69rem;box-sizing:border-box;}
 .product_intro .intro_content .content_right{position:absolute;z-index:1;right:0rem;top:0rem;padding-right:0.69rem;box-sizing:border-box;}
-.product_intro .intro_content .content_bottom{width:45%;position:absolute;bottom:1rem;left:27.5%;}
-.product_intro .intro_content .content_bottom h4{font-size:0.56rem;color:red;width:90%;text-align:right;/*效果*/height:0rem;opacity:0;}
-.product_intro .intro_content .content_bottom h2{/*font-size:1.72rem;*//*效果*/font-size:0rem;font-family:bold;width:100%;text-align:center;}
+.product_intro .intro_content .content_bottom{margin:auto;width:100%;position:relative;bottom:0.688rem;}
+.product_intro .intro_content .content_bottom h4{width:5.39rem;margin:auto;font-size:0.56rem;color:red;text-align:right;/*效果*/height:0rem;opacity:0;}
+.product_intro .intro_content .content_bottom h2{width:100%;/*font-size:1.72rem;*//*效果*/font-size:0rem;font-family:bold;text-align:center;}
 .product_intro .intro_component {/*效果*/display:none; width:100%;height:100%;position:absolute;z-index:1;left:0rem;top:0rem;}
-.product_intro .intro_component .compoment_c{width:3rem;height:4.5rem;margin:1rem auto 0rem auto;position:relative;left:-5%;}
+.product_intro .intro_component .compoment_c{width:3rem;height:4.5rem;margin:0rem auto 0rem auto;position:relative;left:-5%;}
 .product_intro .intro_component .compoment_c .c .pic_box{position:relative;opacity:0;width:1rem;height:1rem;line-height:1rem;padding-bottom:0.5rem;cursor:pointer;}
 .product_intro .intro_component .compoment_c .c .pic_box h4{/*font-size:0.24rem;*/font-size:0rem;line-height:0.5rem;font-family:bold;position:absolute;bottom:0rem;left:0rem;width:100%;text-align:center;}
 .product_intro .intro_component .compoment_c .c .pic_box:hover h4{font-size:0.24rem;}
@@ -199,6 +200,7 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .product_intro .component_detail .box .title .pic_box{width:1.75rem;height:1.75rem;/*background:url("../img/comp1.png") no-repeat center;background-size:contain;*/}
 .product_intro .component_detail .box .title h3{/*效果*/opacity:0; font-size:0.64rem;font-family:bold;line-height:1.75rem;text-indent:0.28rem;}
 .product_intro .component_detail .box p {/*效果*/overflow:hidden;line-height:0rem; font-size:0.31rem;/*line-height:0.38rem;*/margin-top:0.3rem;}
+.mobile_product_intro{display:none;}
 .product_video {margin-top:1.46rem;/*temp*/opacity:0.5;width:100%;height:10.12rem;line-height:10.12rem;text-align:right;overflow:hidden;}
 .product_video  img{width:100%;}
 .product_search{display:block;width:100%;}
@@ -223,7 +225,7 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .product_bmi .bmi_intro{width:100%;text-align:center;font-size:0.36rem;margin-top:0.49rem;}
 .product_bmi form{margin-top:0.6rem;}
 .product_bmi form .left{width:50%;}
-.product_bmi form .left .c{/*box-shadow:10px 10px 5px #DBDBDB;-webkit-box-shadow:0px 0px 5px #DBDBDB;*/border-radius:0.3rem;overflow:hidden;width:2.24rem;height:2.24rem;position:relative;}
+.product_bmi form .left .c{/*box-shadow:10px 10px 5px #DBDBDB;-webkit-box-shadow:0px 0px 5px #DBDBDB;*/border-radius:0.3rem;overflow:hidden;width:40%;height:2.24rem;position:relative;}
 .product_bmi form .left .c.c_male{background:#618AC2;}
 .product_bmi form .left .c_male.choose{box-shadow:0px 0px 15px #618AC2;-webkit-box-shadow:0px 0px 15px #618AC2;}
 .product_bmi form .left .c.c_female{background:#999999;}
@@ -234,6 +236,7 @@ header .lead  .lead_content  ul li a{text-decoration:none;color: transparent;-we
 .product_bmi form .left .c .temp_male .pic_box{background:url("../img/male.png") no-repeat center;background-size:contain;}
 .product_bmi form .left .c .temp_female .pic_box{background:url("../img/female.png") no-repeat center;background-size:contain;}
 .product_bmi form .left .c .radio_temp h4{color:#ffffff;font-size:0.36rem;line-height:0.41rem;width:100%;text-align:center;}
+.product_bmi form .left .mobile_name{display:none;}
 .product_bmi form .right{width:40%;margin-left:10%;}
 .product_bmi form .right .unknow {width:70%;border:1px solid #000000;border-radius:0.1rem;overflow:hidden;}
 .product_bmi form .right .unknow .c {width:50%;height:0.44rem;position:relative;}
@@ -285,6 +288,7 @@ input[type=range]:focus::-ms-fill-upper {
 .product_list .pl_detail .detail_item h3{font-size:0.30rem;}
 .product_list .pl_detail .detail_item .comp_list{margin-top:0.37rem;width:100%;}
 .product_list .pl_detail .detail_item .comp_list li{width:100%;font-size:0.24rem;margin-bottom:0.29rem;}
+.mobile_product_list{display:none;}
 /***************************产品product end**********************************/
 /***************************footer start**********************************/
 footer .footer_logo{width:1.67rem;height:0.41rem;background:url("../img/Medisum_logo_black.png") no-repeat center;background-size:100% 100%;margin:auto;}
