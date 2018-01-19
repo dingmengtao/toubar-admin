@@ -24,11 +24,6 @@
 		</li>
 	</ul>
 	<ul class="share-buttons">
-		<!-- @foreach($shares as $share)
-			<li class="fl share_item">
-				<a class="pic_box" href="{{$share->link_url }}" title="Share on {{ $share->title }}" target="_blank"><img alt="Share on {{ $share->title }}"  src="{{ get_image($share->thumbnail) }}"/></a>
-			</li>
-		@endforeach -->
 		<li class="fl share_item">
 			<a class="pic_box" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftesturl&quote=testtitle" title="Share on Facebook" target="_blank"><img alt="Share on Facebook"  src="{{ asset('themes/news-tv/dist/img/inst.png') }}"/></a>
 		</li>
