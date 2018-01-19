@@ -1,17 +1,17 @@
-<?php namespace WebEd\Plugins\Share\Repositories;
+<?php namespace WebEd\Plugins\Blog\Repositories;
 
 use WebEd\Base\Models\Contracts\BaseModelContract;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
 
-use WebEd\Plugins\Share\Repositories\Contracts\ShareRepositoryContract;
+use WebEd\Plugins\Blog\Repositories\Contracts\NewsRepositoryContract;
 
-class ShareRepository extends EloquentBaseRepository implements ShareRepositoryContract
+class NewsRepository extends EloquentBaseRepository implements NewsRepositoryContract
 {
     /**
      * @param array $data
      * @return int
      */
-    public function createShare(array $data)
+    public function createNews(array $data)
     {
         return $this->create($data);
     }
@@ -21,7 +21,7 @@ class ShareRepository extends EloquentBaseRepository implements ShareRepositoryC
      * @param array $data
      * @return int
      */
-    public function createOrUpdateShare($id, array $data)
+    public function createOrUpdateNews($id, array $data)
     {
         return $this->createOrUpdate($id, $data);
     }
@@ -31,7 +31,7 @@ class ShareRepository extends EloquentBaseRepository implements ShareRepositoryC
      * @param array $data
      * @return int
      */
-    public function updateShare($id, array $data)
+    public function updateNews($id, array $data)
     {
         return $this->update($id, $data);
     }
@@ -41,17 +41,8 @@ class ShareRepository extends EloquentBaseRepository implements ShareRepositoryC
      * @param bool $force
      * @return bool
      */
-    public function deleteShare($id, $force = false)
+    public function deleteNews($id, $force = false)
     {
         return $this->delete($id, $force);
-    }
-
-    /**
-     * @param array $params
-     * @return mixed
-     */
-    public function getShare(array $params)
-    {
-        return $this->advancedGet($params);
     }
 }

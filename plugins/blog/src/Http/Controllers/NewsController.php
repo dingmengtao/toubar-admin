@@ -4,6 +4,14 @@ use Illuminate\Http\Request;
 use WebEd\Base\Http\Controllers\BaseAdminController;
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
+use WebEd\Plugins\Blog\Actions\News\CreateNewsAction;
+use WebEd\Plugins\Blog\Actions\News\DeleteNewsAction;
+use WebEd\Plugins\Blog\Actions\News\RestoreNewsAction;
+use WebEd\Plugins\Blog\Actions\News\UpdateNewsAction;
+use WebEd\Plugins\Blog\Http\DataTables\NewsDataTable;
+use WebEd\Plugins\Blog\Http\Requests\News\CreateNewsRequest;
+use WebEd\Plugins\Blog\Http\Requests\News\UpdateNewsRequest;
+use WebEd\Plugins\Blog\Repositories\Contracts\NewsRepositoryContract;
 
 class NewsController extends BaseAdminController
 {
@@ -17,7 +25,7 @@ class NewsController extends BaseAdminController
     /**
      * @param EloquentBaseRepository $repository
      */
-    public function __construct(YourModuleRepositoryContract $repository)
+    public function __construct(NewsRepositoryContract $repository)
     {
         parent::__construct();
 
@@ -26,7 +34,7 @@ class NewsController extends BaseAdminController
         $this->middleware(function (Request $request, $next) {
             $this->getDashboardMenu($this->module);
 
-            $this->breadcrumbs->addLink('webed-blog', route('admin::your-module.index.get'));
+            $this->breadcrumbs->addLink('news', route('admin::blog.news.index.get'));
 
             return $next($request);
         });
@@ -36,22 +44,22 @@ class NewsController extends BaseAdminController
      * @param AbstractDataTables $dataTables
      * @return @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex(YourDataTables $dataTables)
+    public function getIndex(NewsDataTable $dataTables)
     {
-        $this->setPageTitle('Entity');
+        $this->setPageTitle('News');
 
         $this->dis['dataTable'] = $dataTables->run();
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, 'webed-blog', 'index.get', $dataTables)->viewAdmin('index');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_BLOG_NEWS, 'index.get', $dataTables)->viewAdmin('news.index');
     }
 
     /**
      * @param AbstractDataTables $dataTables
      * @return mixed
      */
-    public function postListing(YourDataTables $dataTables)
+    public function postListing(NewsDataTable $dataTables)
     {
-        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, 'webed-blog', 'index.post', $this);
+        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, WEBED_BLOG_NEWS, 'index.post', $this);
     }
 
     /**
@@ -60,7 +68,7 @@ class NewsController extends BaseAdminController
      * @param $status
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postUpdateStatus(YourUpdateEntityAction $action, $id, $status)
+    public function postUpdateStatus(UpdateNewsAction $action, $id, $status)
     {
         $result = $action->run($id, [
             'status' => $status
@@ -74,16 +82,16 @@ class NewsController extends BaseAdminController
      */
     public function getCreate()
     {
-        do_action(BASE_ACTION_BEFORE_CREATE, YOUR_SCREEN_NAME, 'create.get');
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_BLOG_NEWS, 'create.get');
 
         /**
          * Place your magic here
          */
 
-        $this->setPageTitle('Create entity');
-        $this->breadcrumbs->addLink('Create entity');
+        $this->setPageTitle('Create News');
+        $this->breadcrumbs->addLink('Create News');
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'create.get')->viewAdmin('create');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_BLOG_NEWS, 'create.get')->viewAdmin('news.create');
     }
 
     /**
@@ -91,7 +99,7 @@ class NewsController extends BaseAdminController
      * @param YourCreateEntityAction $action
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreate(YourCreateEntityRequest $request, YourCreateEntityAction $action)
+    public function postCreate(CreateNewsRequest $request, CreateNewsAction $action)
     {
         $data = $this->parseData($request);
 
@@ -108,10 +116,10 @@ class NewsController extends BaseAdminController
         }
 
         if ($this->request->has('_continue_edit')) {
-            return redirect()->to(route('admin::your-module.edit.get', ['id' => $result['data']['id']]));
+            return redirect()->to(route('admin::blog.news.edit.get', ['id' => $result['data']['id']]));
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::blog.news.index.get'));
     }
 
     /**
@@ -122,7 +130,7 @@ class NewsController extends BaseAdminController
     {
         $item = $this->repository->find($id);
 
-        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, YOUR_SCREEN_NAME, 'edit.get');
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, WEBED_BLOG_NEWS, 'edit.get');
 
         if (!$item) {
             flash_messages()
@@ -135,8 +143,12 @@ class NewsController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->setPageTitle('Edit news' . ' #' . $item->id);
+        $this->breadcrumbs->addLink(trans('Edit news'));
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'edit.get', $id)->viewAdmin('edit');
+        $this->dis['object'] = $item;
+
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_BLOG_NEWS, 'edit.get', $id)->viewAdmin('news.edit');
     }
 
     /**
@@ -145,7 +157,7 @@ class NewsController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEdit(YourUpdateEntityRequest $request, YourUpdateEntityAction $action, $id)
+    public function postEdit(UpdateNewsRequest $request, UpdateNewsAction $action, $id)
     {
         $data = $this->parseData($request);
 
@@ -161,14 +173,14 @@ class NewsController extends BaseAdminController
             return redirect()->back();
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::blog.news.index.get'));
     }
 
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postDelete(YourDeleteEntityAction $action, $id)
+    public function postDelete(DeleteNewsAction $action, $id)
     {
         $result = $action->run($id, false);
 
@@ -179,7 +191,7 @@ class NewsController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postForceDelete(YourDeleteEntityAction $action, $id)
+    public function postForceDelete(DeleteNewsAction $action, $id)
     {
         $result = $action->run($id, true);
 
@@ -190,7 +202,7 @@ class NewsController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postRestore(YourRestoreEntityAction $action, $id)
+    public function postRestore(RestoreNewsAction $action, $id)
     {
         $result = $action->run($id);
 
@@ -199,7 +211,10 @@ class NewsController extends BaseAdminController
 
     protected function parseData(\WebEd\Base\Http\Requests\Request $request)
     {
-        $data = $request->input('entity');
+        $data = $request->input('post');
+        if (!$data['slug']) {
+            $data['slug'] = str_slug($data['title']);
+        }
 
         return $data;
     }

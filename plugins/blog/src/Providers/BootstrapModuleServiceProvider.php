@@ -114,6 +114,9 @@ class BootstrapModuleServiceProvider extends ServiceProvider
         add_new_template([
             'Product' => 'Product',
         ], WEBED_BLOG_PRODUCTS);
+        add_new_template([
+            'News' => 'News',
+        ], WEBED_BLOG_NEWS);
 
         /**
          * Register menu widget

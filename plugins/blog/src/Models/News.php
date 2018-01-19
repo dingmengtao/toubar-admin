@@ -1,21 +1,28 @@
-<?php namespace WebEd\Plugins\Share\Models;
+<?php namespace WebEd\Plugins\Blog\Models;
 
+use Illuminate\Database\Eloquent\SoftDeletes;
 use WebEd\Base\Users\Models\User;
-use WebEd\Plugins\Share\Models\Contracts\ShareModelContract;
+use WebEd\Plugins\Blog\Models\Contracts\NewsModelContract;
 use WebEd\Base\Models\EloquentBase as BaseModel;
 
-class Share extends BaseModel implements ShareModelContract
+class News extends BaseModel implements NewsModelContract
 {
-    protected $table = 'share';
+    use SoftDeletes;
+
+    protected $table = 'news';
 
     protected $primaryKey = 'id';
 
     protected $fillable = [
         'title',
-        'link_url',
-//        'icon_url',
+        'page_template',
+        'slug',
+        'description',
+        'content',
         'thumbnail',
+        'keywords',
         'status',
+        'type',
         'order',
         'is_featured',
         'created_by',
@@ -31,6 +38,7 @@ class Share extends BaseModel implements ShareModelContract
     {
         return $this->belongsTo(User::class, 'created_by');
     }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -38,4 +46,5 @@ class Share extends BaseModel implements ShareModelContract
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
 }
