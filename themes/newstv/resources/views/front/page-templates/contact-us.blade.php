@@ -31,7 +31,7 @@
     	<form id="info lazy_item" onsubmit="return false;">
     		<ul>
     			<li><input type="text" placeholder="First Name" name="fname" class="fl tinput"/><input type="text" placeholder="Last Name" name="lname" class="fr tinput"><div class="clear"></div></li>
-    			<li><input type="email" placeholder="Email" name="email" class="fl tinput"/><input type="number" placeholder="Phone" name="phone" class="fr tinput"/><div class="clear"></div></li>
+    			<li><input type="email" placeholder="Email" name="email" class="fl tinput"/><input type="tel" placeholder="Phone" name="phone" class="fr tinput"/><div class="clear"></div></li>
     			<li>
     				<textarea></textarea>
     			</li>
