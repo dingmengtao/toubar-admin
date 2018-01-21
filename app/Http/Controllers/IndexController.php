@@ -10,6 +10,6 @@ class IndexController  extends Controller
 {
 
     public function getIndex(){
-        return redirect('/home');
+        return redirect('/homepage');
     }
 }
