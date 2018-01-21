@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 
 class UninstallModuleServiceProvider extends ServiceProvider
 {
-    protected $moduleAlias = 'miniprograms';
+    protected $moduleAlias = WEBED_MINIPROGRAMS;
 
     /**
      * Register the application services.

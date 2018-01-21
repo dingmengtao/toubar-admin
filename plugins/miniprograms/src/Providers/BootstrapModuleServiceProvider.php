@@ -23,16 +23,17 @@ class BootstrapModuleServiceProvider extends ServiceProvider
      */
     protected function onSessionStarted()
     {
-        /*dashboard_menu()->registerItem([
-            'id' => 'miniprograms',
+        dashboard_menu()->registerItem([
+            'id' => WEBED_MINIPROGRAMS,
             'priority' => 20,
             'parent_id' => null,
-            'heading' => null,
-            'title' => 'WebEd miniprograms',
-            'font_icon' => 'icon-puzzle',
-            'link' => '',
+            'heading' => '微信小程序',
+            'title' => 'toubar',
+//            'font_icon' => 'icon-puzzle',
+            'font_icon' => 'icon-program',
+            'link' => route('admin::miniprograms.toubar.index.get'),
             'css_class' => null,
             'permissions' => [],
-        ]);*/
+        ]);
     }
 }
