@@ -16,4 +16,5 @@ Route::group(['prefix' => $adminRoute . '/' . $moduleRoute], function (Router $r
      * Put some route here
      *
      */
+    require 'web/toubar.php';
 });
