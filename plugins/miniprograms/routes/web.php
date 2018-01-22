@@ -16,5 +16,9 @@ Route::group(['prefix' => $adminRoute . '/' . $moduleRoute], function (Router $r
      * Put some route here
      *
      */
-    require 'web/toubar.php';
+    require 'web/investor.php';
+    require 'web/item.php';
+    require 'web/stage.php';
+    require 'web/trade.php';
+    require 'web/user.php';
 });

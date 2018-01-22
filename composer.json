@@ -38,9 +38,10 @@
         "psr-4": {
             "App\\": "app/",
             "Tests\\": "tests/",
-            "NewsTV\\": "F:\\Caredin\\webed\\themes\\newstv/src",
-            "WebEd\\Plugins\\Banner\\": "F:\\Caredin\\webed\\plugins\\banner/src",
-            "WebEd\\Plugins\\Blog\\": "F:\\Caredin\\webed\\plugins\\blog/src"
+            "WebEd\\Plugins\\Banner\\": "E:\\wamp\\www\\toubar-admin\\plugins\\banner/src",
+            "WebEd\\Plugins\\Blog\\": "E:\\wamp\\www\\toubar-admin\\plugins\\blog/src",
+            "WebEd\\Plugins\\Share\\": "E:\\wamp\\www\\toubar-admin\\plugins\\share/src",
+            "NewsTV\\": "E:\\wamp\\www\\toubar-admin\\themes\\newstv/src"
         }
     },
     "extra": {

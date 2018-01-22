@@ -4,7 +4,7 @@ use Illuminate\Support\ServiceProvider;
 
 class UpdateModuleServiceProvider extends ServiceProvider
 {
-    protected $moduleAlias = WEBED_MINIPROGRAMS;
+    protected $moduleAlias = 'miniprograms';
 
     /**
      * Register any application services.

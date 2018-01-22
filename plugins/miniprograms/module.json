@@ -1,0 +1,10 @@
+{
+    "alias": "miniprograms",
+    "name": "WebEd miniprograms",
+    "author": "dingmengtao",
+    "description": "miniprograms manage system",
+    "namespace": "WebEd\\Plugins\\Miniprograms",
+    "version": "1.0",
+    "autoload": "psr-4",
+    "require": {}
+}

@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 
 class InstallModuleServiceProvider extends ServiceProvider
 {
-    protected $moduleAlias = 'miniprograms';
+    protected $moduleAlias = WEBED_TOUBAR;
 
     /**
      * Register the application services.
@@ -44,7 +44,8 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->integer('updated_by')->unsigned()->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('user_id')->references('id')->on('user')->onDelete('set null');
+//            $table->foreign('user_id')->references('id')->on('user')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('user');
             $table->foreign('created_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
             $table->foreign('updated_by')->references('id')->on(webed_db_prefix() . 'users')->onDelete('set null');
         });
