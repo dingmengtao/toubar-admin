@@ -257,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `trade` (
 -- 转存表中的数据 `trade`
 --
 
-INSERT INTO `trade` (`id`, `name`, `isshow`, `type`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_trade` (`id`, `name`, `status`, `type`, `delete_time`, `create_time`, `update_time`) VALUES
 (1, '全部项目', 1, 'circle', NULL, 1513050322, 1513050322),
 (2, '新零售', 1, 'circle', NULL, 1513050322, 1513050322),
 (3, '互联网', 1, 'circle', NULL, 1513050322, 1513050322),

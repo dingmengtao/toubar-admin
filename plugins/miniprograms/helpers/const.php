@@ -5,6 +5,9 @@
  * Date: 2018-01-22
  * Time: 17:25
  */
+if (!defined('WEBED_MINIPROGRAMS')) {
+    define('WEBED_MINIPROGRAMS', 'miniprograms');
+}
 if (!defined('WEBED_TOUBAR')) {
     define('WEBED_TOUBAR', 'toubar');
 }

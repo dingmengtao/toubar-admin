@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Schema;
 
 class UninstallModuleServiceProvider extends ServiceProvider
 {
-    protected $moduleAlias = 'miniprograms';
+    protected $moduleAlias = WEBED_MINIPROGRAMS;
 
     /**
      * Register the application services.
@@ -22,6 +22,12 @@ class UninstallModuleServiceProvider extends ServiceProvider
 
     protected function dropSchema()
     {
-        Schema::dropIfExists('table-name');
+        Schema::dropIfExists(webed_db_prefix().'investor_trade');
+        Schema::dropIfExists(webed_db_prefix().'item_trade');
+        Schema::dropIfExists(webed_db_prefix().'investor');
+        Schema::dropIfExists(webed_db_prefix().'item');
+        Schema::dropIfExists(webed_db_prefix().'stage');
+        Schema::dropIfExists(webed_db_prefix().'trade');
+        Schema::dropIfExists(webed_db_prefix().'user');
     }
 }

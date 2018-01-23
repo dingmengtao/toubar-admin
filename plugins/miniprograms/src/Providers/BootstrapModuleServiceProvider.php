@@ -50,7 +50,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.user.index.get'),
             'css_class' => null,
-            'permissions' => [],
+            'permissions' => ['view-user'],
         ])->registerItem([
             'id' => WEBED_TOUBAR_INVESTOR,
             'priority' => 10.1-2,
@@ -59,7 +59,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.investor.index.get'),
             'css_class' => null,
-            'permissions' => [],
+            'permissions' => ['view-investor'],
         ])->registerItem([
             'id' => WEBED_TOUBAR_ITEM,
             'priority' => 10.1-3,
@@ -68,7 +68,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.item.index.get'),
             'css_class' => null,
-            'permissions' => [],
+            'permissions' => ['view-item'],
         ])->registerItem([
             'id' => WEBED_TOUBAR_STAGE,
             'priority' => 10.1-4,
@@ -77,7 +77,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.stage.index.get'),
             'css_class' => null,
-            'permissions' => [],
+            'permissions' => ['stage'],
         ])->registerItem([
             'id' => WEBED_TOUBAR_TRADE,
             'priority' => 10.1-5,
@@ -86,7 +86,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.trade.index.get'),
             'css_class' => null,
-            'permissions' => [],
+            'permissions' => ['view-trade'],
         ]);
     }
 }

@@ -41,7 +41,8 @@
             "WebEd\\Plugins\\Banner\\": "E:\\wamp\\www\\toubar-admin\\plugins\\banner/src",
             "WebEd\\Plugins\\Blog\\": "E:\\wamp\\www\\toubar-admin\\plugins\\blog/src",
             "WebEd\\Plugins\\Share\\": "E:\\wamp\\www\\toubar-admin\\plugins\\share/src",
-            "NewsTV\\": "E:\\wamp\\www\\toubar-admin\\themes\\newstv/src"
+            "NewsTV\\": "E:\\wamp\\www\\toubar-admin\\themes\\newstv/src",
+            "WebEd\\Plugins\\Miniprograms\\": "E:\\wamp\\www\\toubar-admin\\plugins\\miniprograms/src"
         }
     },
     "extra": {
