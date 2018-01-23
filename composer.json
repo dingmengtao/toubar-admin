@@ -38,11 +38,11 @@
         "psr-4": {
             "App\\": "app/",
             "Tests\\": "tests/",
-            "WebEd\\Plugins\\Banner\\": "E:\\wamp\\www\\toubar-admin\\plugins\\banner/src",
-            "WebEd\\Plugins\\Blog\\": "E:\\wamp\\www\\toubar-admin\\plugins\\blog/src",
-            "WebEd\\Plugins\\Share\\": "E:\\wamp\\www\\toubar-admin\\plugins\\share/src",
-            "NewsTV\\": "E:\\wamp\\www\\toubar-admin\\themes\\newstv/src",
-            "WebEd\\Plugins\\Miniprograms\\": "E:\\wamp\\www\\toubar-admin\\plugins\\miniprograms/src"
+            "WebEd\\Plugins\\Miniprograms\\": "F:\\wamp\\www\\toubar-admin\\plugins\\miniprograms/src",
+            "WebEd\\Plugins\\Banner\\": "F:\\wamp\\www\\toubar-admin\\plugins\\banner/src",
+            "WebEd\\Plugins\\Blog\\": "F:\\wamp\\www\\toubar-admin\\plugins\\blog/src",
+            "WebEd\\Plugins\\Share\\": "F:\\wamp\\www\\toubar-admin\\plugins\\share/src",
+            "NewsTV\\": "F:\\wamp\\www\\toubar-admin\\themes\\newstv/src"
         }
     },
     "extra": {
