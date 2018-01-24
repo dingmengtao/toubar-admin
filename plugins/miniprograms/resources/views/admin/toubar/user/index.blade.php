@@ -23,8 +23,8 @@
                     </h3>
                     <div class="box-tools">
                         <a class="btn btn-transparent green btn-sm"
-                           {{--href="{{ route('admin::miniprograms.toubar.user.create.get') }}--}}
-                                   ">
+                           {{--href="{{ route('admin::miniprograms.toubar.user.create.get') }}"--}}
+                                   >
                             <i class="fa fa-plus"></i> {{ trans('webed-core::base.form.create') }}
                         </a>
                     </div>
