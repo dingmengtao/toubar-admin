@@ -69,7 +69,7 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->tinyInteger('gender')->nullable();
             $table->string('language','50')->nullable();
             $table->string('extend','255')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->integer('order')->default(0);
             $table->integer('delete_time')->nullable();
             $table->integer('create_time')->nullable();

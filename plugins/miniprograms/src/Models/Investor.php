@@ -26,10 +26,11 @@ class Investor extends BaseModel implements InvestorModelContract
     ];
 
     public $timestamps = true;
-    protected $dateFormat = 'U';
+
     public function fromDateTime($value){
         return strtotime(parent::fromDateTime($value));
     }
+
     const CREATED_AT = 'create_time';
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'delete_time';

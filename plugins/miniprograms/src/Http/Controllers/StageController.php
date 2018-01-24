@@ -4,10 +4,18 @@ use Illuminate\Http\Request;
 use WebEd\Base\Http\Controllers\BaseAdminController;
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\CreateStageAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\DeleteStageAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\RestoreStageAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\UpdateStageAction;
+use WebEd\Plugins\Miniprograms\Http\DataTables\StageDataTable;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Stage\CreateStageRequest;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Stage\UpdateStageRequest;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\StageRepositoryContract;
 
 class StageController extends BaseAdminController
 {
-    protected $module = 'miniprograms';
+    protected $module = WEBED_MINIPROGRAMS;
 
     /**
      * @var YourModuleRepositoryContract|EloquentBaseRepository
@@ -17,16 +25,16 @@ class StageController extends BaseAdminController
     /**
      * @param EloquentBaseRepository $repository
      */
-    public function __construct(YourModuleRepositoryContract $repository)
+    public function __construct(StageRepositoryContract $repository)
     {
         parent::__construct();
 
         $this->repository = $repository;
 
         $this->middleware(function (Request $request, $next) {
-            $this->getDashboardMenu($this->module);
+            $this->getDashboardMenu(WEBED_TOUBAR_STAGE);
 
-            $this->breadcrumbs->addLink('miniprograms', route('admin::your-module.index.get'));
+            $this->breadcrumbs->addLink(WEBED_TOUBAR_STAGE, route('admin::miniprograms.toubar.stage.index.get'));
 
             return $next($request);
         });
@@ -36,22 +44,23 @@ class StageController extends BaseAdminController
      * @param AbstractDataTables $dataTables
      * @return @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex(YourDataTables $dataTables)
+    public function getIndex(StageDataTable $dataTables)
     {
-        $this->setPageTitle('Entity');
+        // 浏览器图标或名称
+        $this->setPageTitle('Stage');
 
         $this->dis['dataTable'] = $dataTables->run();
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, 'miniprograms', 'index.get', $dataTables)->viewAdmin('index');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_STAGE, 'index.get', $dataTables)->viewAdmin('toubar.stage.index');
     }
 
     /**
      * @param AbstractDataTables $dataTables
      * @return mixed
      */
-    public function postListing(YourDataTables $dataTables)
+    public function postListing(StageDataTable $dataTables)
     {
-        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, 'miniprograms', 'index.post', $this);
+        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, WEBED_TOUBAR_STAGE, 'index.post', $this);
     }
 
     /**
@@ -60,7 +69,7 @@ class StageController extends BaseAdminController
      * @param $status
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postUpdateStatus(YourUpdateEntityAction $action, $id, $status)
+    public function postUpdateStatus(UpdateStageAction $action, $id, $status)
     {
         $result = $action->run($id, [
             'status' => $status
@@ -74,16 +83,16 @@ class StageController extends BaseAdminController
      */
     public function getCreate()
     {
-        do_action(BASE_ACTION_BEFORE_CREATE, YOUR_SCREEN_NAME, 'create.get');
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_STAGE, 'create.get');
 
         /**
          * Place your magic here
          */
 
-        $this->setPageTitle('Create entity');
-        $this->breadcrumbs->addLink('Create entity');
+        $this->setPageTitle('Create stage');
+        $this->breadcrumbs->addLink('Create stage');
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'create.get')->viewAdmin('create');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_STAGE, 'create.get')->viewAdmin('toubar.stage.create');
     }
 
     /**
@@ -91,7 +100,7 @@ class StageController extends BaseAdminController
      * @param YourCreateEntityAction $action
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreate(YourCreateEntityRequest $request, YourCreateEntityAction $action)
+    public function postCreate(CreateStageRequest $request, CreateStageAction $action)
     {
         $data = $this->parseData($request);
 
@@ -108,10 +117,10 @@ class StageController extends BaseAdminController
         }
 
         if ($this->request->has('_continue_edit')) {
-            return redirect()->to(route('admin::your-module.edit.get', ['id' => $result['data']['id']]));
+            return redirect()->to(route('admin::miniprograms.toubar.stage.edit.get', ['id' => $result['data']['id']]));
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.stage.index.get'));
     }
 
     /**
@@ -122,7 +131,7 @@ class StageController extends BaseAdminController
     {
         $item = $this->repository->find($id);
 
-        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, YOUR_SCREEN_NAME, 'edit.get');
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, WEBED_TOUBAR_STAGE, 'edit.get');
 
         if (!$item) {
             flash_messages()
@@ -135,8 +144,12 @@ class StageController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->setPageTitle('Edit stage' . ' #' . $item->id);
+        $this->breadcrumbs->addLink(trans('Edit tage'));
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'edit.get', $id)->viewAdmin('edit');
+        $this->dis['object'] = $item;
+
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_STAGE, 'edit.get', $id)->viewAdmin('toubar.stage.edit');
     }
 
     /**
@@ -145,7 +158,7 @@ class StageController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEdit(YourUpdateEntityRequest $request, YourUpdateEntityAction $action, $id)
+    public function postEdit(UpdateStageRequest $request, UpdateStageAction $action, $id)
     {
         $data = $this->parseData($request);
 
@@ -161,14 +174,14 @@ class StageController extends BaseAdminController
             return redirect()->back();
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.stage.index.get'));
     }
 
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postDelete(YourDeleteEntityAction $action, $id)
+    public function postDelete(DeleteStageAction $action, $id)
     {
         $result = $action->run($id, false);
 
@@ -179,7 +192,7 @@ class StageController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postForceDelete(YourDeleteEntityAction $action, $id)
+    public function postForceDelete(DeleteStageAction $action, $id)
     {
         $result = $action->run($id, true);
 
@@ -190,7 +203,7 @@ class StageController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postRestore(YourRestoreEntityAction $action, $id)
+    public function postRestore(RestoreStageAction $action, $id)
     {
         $result = $action->run($id);
 
@@ -199,7 +212,7 @@ class StageController extends BaseAdminController
 
     protected function parseData(\WebEd\Base\Http\Requests\Request $request)
     {
-        $data = $request->input('entity');
+        $data = $request->input('post');
 
         return $data;
     }

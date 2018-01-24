@@ -33,55 +33,21 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.title') }}</b>
+                            <b>{{ trans('Name') }}</b>
                             <span class="required">*</span>
                         </label>
-                        <input required type="text" name="post[title]"
+                        <input required type="text" name="post[name]"
                                class="form-control"
-                               value="{{ old('post.title') }}"
+                               value="{{ old('post.name') }}"
                                autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.slug') }}</b>
-                            <span class="required">*</span>
-                        </label>
-                        <input type="text" name="post[slug]"
-                               class="form-control"
-                               value="{{ old('post.slug') }}" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.content') }}</b>
-                        </label>
-                        <textarea name="post[content]"
-                                  class="form-control js-wysiwyg">{!! old('post.content') !!}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.keywords') }}</b>
-                        </label>
-                        <input type="text" name="post[keywords]"
-                               class="form-control js-tags-input"
-                               value="{{ old('post.keywords') }}" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.description') }}</b>
-                        </label>
-                        <textarea name="post[description]"
-                                  class="form-control js-wysiwyg"
-                                  data-toolbar="basic"
-                                  data-height="200px"
-                                  rows="5">{!! old('post.description') !!}</textarea>
                     </div>
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_BLOG_NEWS, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_TOUBAR_TRADE, null) @endphp
         </div>
         <div class="column right">
             @include('webed-core::admin._components.form-actions')
-            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_BLOG_NEWS, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_TOUBAR_TRADE, null) @endphp
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('webed-core::base.form.status') }}</h3>
@@ -109,8 +75,7 @@
                 </div>
                 <div class="box-body">
                     {!! form()->select('post[type]', [
-                       0 => '新闻动态',
-                       1 => '组织活动',
+                       'circle' => 'circle',
                     ], old('post.type'), ['class' => 'form-control']) !!}
                 </div>
             </div>
@@ -129,32 +94,7 @@
                            value="{{ old('post.order', 0) }}" autocomplete="off">
                 </div>
             </div>
-            @include('webed-core::admin._widgets.page-templates', [
-                'name' => 'post[page_template]',
-                'templates' => get_templates(WEBED_BLOG_NEWS),
-                'selected' => old('post.page_template'),
-            ])
-            @include('webed-core::admin._widgets.thumbnail', [
-                'name' => 'post[thumbnail]',
-                'value' => old('post.thumbnail')
-            ])
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">{{ trans('webed-core::base.form.is_featured') }}</h3>
-                    <div class="box-tools">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
-                            <i class="fa fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    {!! form()->customRadio('post[is_featured]', [
-                        [0, trans('webed-blog::base.posts.form.featured_no')],
-                        [1, trans('webed-blog::base.posts.form.featured_yes')]
-                    ], old('post.is_featured', 0)) !!}
-                </div>
-            </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_BLOG_NEWS, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_TRADE, null) @endphp
         </div>
     </div>
     {!! Form::close() !!}

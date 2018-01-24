@@ -18,7 +18,7 @@
 @endsection
 
 @section('content')
-    {!! form()->open(['class' => 'js-validate-form']) !!}
+    {!! Form::open(['class' => 'js-validate-form']) !!}
     <div class="layout-2columns sidebar-right">
         <div class="column main">
             <div class="box box-primary">
@@ -33,65 +33,67 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.title') }}</b>
+                            <b>{{ trans('OpenID') }}</b>
                             <span class="required">*</span>
                         </label>
-                        <input required type="text" name="post[title]"
+                        <input required type="text" name="post[openid]"
                                class="form-control"
-                               value="{{ $object->title }}"
+                               value="{{ $object->openid }}"
                                autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.slug') }}</b>
+                            <b>{{ trans('Nickname') }}</b>
                             <span class="required">*</span>
                         </label>
-                        <input type="text" name="post[slug]"
+                        <input required type="text" name="post[nickname]"
                                class="form-control"
-                               value="{{ $object->slug }}" autocomplete="off">
-                    </div>
-                    @if($object->slug)
-                        <div class="form-group">
-                            <label class="control-label">
-                                <b>{{ trans('webed-core::base.visit_page') }}&nbsp;</b>
-                            </label>
-                            <a href="{{ get_post_link($object) }}" target="_blank">
-                                {{ get_post_link($object) }}
-                            </a>
-                        </div>
-                    @endif
-                    <div class="form-group">
-                        <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.content') }}</b>
-                        </label>
-                        <textarea name="post[content]"
-                                  class="form-control js-wysiwyg">{!! $object->content !!}</textarea>
+                               value="{{ $object->nickname }}"
+                               autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.keywords') }}</b>
+                            <b>{{ trans('Country') }}</b>
                         </label>
-                        <input type="text" name="post[keywords]"
-                               class="form-control js-tags-input"
-                               value="{{ $object->keywords }}" autocomplete="off">
+                        <input required type="text" name="post[country]"
+                               class="form-control"
+                               value="{{ $object->country }}"
+                               autocomplete="off">
                     </div>
                     <div class="form-group">
                         <label class="control-label">
-                            <b>{{ trans('webed-core::base.form.description') }}</b>
+                            <b>{{ trans('Province') }}</b>
                         </label>
-                        <textarea name="post[description]"
-                                  class="form-control js-wysiwyg"
-                                  data-toolbar="basic"
-                                  data-height="200px"
-                                  rows="5">{!! $object->description or '' !!}</textarea>
+                        <input required type="text" name="post[province]"
+                               class="form-control"
+                               value="{{ $object->province }}"
+                               autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <b>{{ trans('City') }}</b>
+                        </label>
+                        <input required type="text" name="post[city]"
+                               class="form-control"
+                               value="{{ $object->city }}"
+                               autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">
+                            <b>{{ trans('Language') }}</b>
+                        </label>
+                        <input required type="text" name="post[language]"
+                               class="form-control"
+                               value="{{ $object->language }}"
+                               autocomplete="off">
                     </div>
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_BLOG_NEWS, $object) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_TOUBAR_USER, null) @endphp
         </div>
         <div class="column right">
             @include('webed-core::admin._components.form-actions')
-            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_BLOG_NEWS, $object) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_TOUBAR_USER, null) @endphp
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('webed-core::base.form.status') }}</h3>
@@ -110,26 +112,10 @@
             </div>
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ trans('Type') }}</h3>
+                    <h3 class="box-title">{{ trans('webed-core::base.form.order') }}</h3>
                     <div class="box-tools">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="box-body">
-                    {!! form()->select('post[type]', [
-                       0 => '新闻动态',
-                       1 => '组织活动',
-                    ], $object->type, ['class' => 'form-control']) !!}
-                </div>
-            </div>
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">{{ trans('webed-core::base.form.order') }}</h3>
-                    <div class="box-tools">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                class="fa fa-minus"></i>
                         </button>
                     </div>
                 </div>
@@ -139,18 +125,9 @@
                            value="{{ $object->order ?: 0 }}" autocomplete="off">
                 </div>
             </div>
-            @include('webed-core::admin._widgets.page-templates', [
-                'name' => 'post[page_template]',
-                'templates' => get_templates(WEBED_BLOG_NEWS),
-                'selected' => $object->page_template,
-            ])
-            @include('webed-core::admin._widgets.thumbnail', [
-                'name' => 'post[thumbnail]',
-                'value' => $object->thumbnail
-            ])
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ trans('webed-core::base.form.is_featured') }}</h3>
+                    <h3 class="box-title">{{ trans('Gender') }}</h3>
                     <div class="box-tools">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse">
                             <i class="fa fa-minus"></i>
@@ -158,14 +135,14 @@
                     </div>
                 </div>
                 <div class="box-body">
-                    {!! form()->customRadio('post[is_featured]', [
-                        [0, trans('webed-blog::base.posts.form.featured_no')],
-                        [1, trans('webed-blog::base.posts.form.featured_yes')]
-                    ], $object->is_featured) !!}
+                    {!! form()->select('post[gender]', [
+                       1 => trans('男'),
+                       2 => trans('女'),
+                    ], $object->gender, ['class' => 'form-control']) !!}
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_BLOG_NEWS, $object) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_USER, null) @endphp
         </div>
     </div>
-    {!! form()->close() !!}
+    {!! Form::close() !!}
 @endsection

@@ -4,10 +4,18 @@ use Illuminate\Http\Request;
 use WebEd\Base\Http\Controllers\BaseAdminController;
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\WXTBUser\CreateWXTBUserAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\WXTBUser\DeleteWXTBUserAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\WXTBUser\RestoreWXTBUserAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\WXTBUser\UpdateWXTBUserAction;
+use WebEd\Plugins\Miniprograms\Http\DataTables\WXTBUserDataTable;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\WXTBUser\CreateWXTBUserRequest;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\WXTBUser\UpdateWXTBUserRequest;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\UserRepositoryContract;
 
 class WXTBUserController extends BaseAdminController
 {
-    protected $module = 'miniprograms';
+    protected $module = WEBED_MINIPROGRAMS;
 
     /**
      * @var YourModuleRepositoryContract|EloquentBaseRepository
@@ -17,16 +25,16 @@ class WXTBUserController extends BaseAdminController
     /**
      * @param EloquentBaseRepository $repository
      */
-    public function __construct(YourModuleRepositoryContract $repository)
+    public function __construct(UserRepositoryContract $repository)
     {
         parent::__construct();
 
         $this->repository = $repository;
 
         $this->middleware(function (Request $request, $next) {
-            $this->getDashboardMenu($this->module);
+            $this->getDashboardMenu(WEBED_TOUBAR_USER);
 
-            $this->breadcrumbs->addLink('miniprograms', route('admin::your-module.index.get'));
+            $this->breadcrumbs->addLink(WEBED_TOUBAR_USER, route('admin::miniprograms.toubar.user.index.get'));
 
             return $next($request);
         });
@@ -36,22 +44,22 @@ class WXTBUserController extends BaseAdminController
      * @param AbstractDataTables $dataTables
      * @return @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex(YourDataTables $dataTables)
+    public function getIndex(WXTBUserDataTable $dataTables)
     {
-        $this->setPageTitle('Entity');
+        $this->setPageTitle('WXTBUser');
 
         $this->dis['dataTable'] = $dataTables->run();
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, 'miniprograms', 'index.get', $dataTables)->viewAdmin('index');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_USER, 'index.get', $dataTables)->viewAdmin('toubar.user.index');
     }
 
     /**
      * @param AbstractDataTables $dataTables
      * @return mixed
      */
-    public function postListing(YourDataTables $dataTables)
+    public function postListing(WXTBUserDataTable $dataTables)
     {
-        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, 'miniprograms', 'index.post', $this);
+        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, WEBED_TOUBAR_USER, 'index.post', $this);
     }
 
     /**
@@ -60,7 +68,7 @@ class WXTBUserController extends BaseAdminController
      * @param $status
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postUpdateStatus(YourUpdateEntityAction $action, $id, $status)
+    public function postUpdateStatus(UpdateWXTBUserAction $action, $id, $status)
     {
         $result = $action->run($id, [
             'status' => $status
@@ -74,16 +82,16 @@ class WXTBUserController extends BaseAdminController
      */
     public function getCreate()
     {
-        do_action(BASE_ACTION_BEFORE_CREATE, YOUR_SCREEN_NAME, 'create.get');
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_USER, 'create.get');
 
         /**
          * Place your magic here
          */
 
-        $this->setPageTitle('Create entity');
-        $this->breadcrumbs->addLink('Create entity');
+        $this->setPageTitle('Create wxtbuser');
+        $this->breadcrumbs->addLink('Create wxtbuser');
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'create.get')->viewAdmin('create');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_USER, 'create.get')->viewAdmin('toubar.user.create');
     }
 
     /**
@@ -91,7 +99,7 @@ class WXTBUserController extends BaseAdminController
      * @param YourCreateEntityAction $action
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreate(YourCreateEntityRequest $request, YourCreateEntityAction $action)
+    public function postCreate(CreateWXTBUserRequest $request, CreateWXTBUserAction $action)
     {
         $data = $this->parseData($request);
 
@@ -108,10 +116,10 @@ class WXTBUserController extends BaseAdminController
         }
 
         if ($this->request->has('_continue_edit')) {
-            return redirect()->to(route('admin::your-module.edit.get', ['id' => $result['data']['id']]));
+            return redirect()->to(route('admin::miniprograms.toubar.user.edit.get', ['id' => $result['data']['id']]));
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.user.index.get'));
     }
 
     /**
@@ -122,7 +130,7 @@ class WXTBUserController extends BaseAdminController
     {
         $item = $this->repository->find($id);
 
-        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, YOUR_SCREEN_NAME, 'edit.get');
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, WEBED_TOUBAR_USER, 'edit.get');
 
         if (!$item) {
             flash_messages()
@@ -135,8 +143,12 @@ class WXTBUserController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->setPageTitle('Edit wxtbuser' . ' #' . $item->id);
+        $this->breadcrumbs->addLink(trans('Edit wxtbuser'));
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'edit.get', $id)->viewAdmin('edit');
+        $this->dis['object'] = $item;
+
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_USER, 'edit.get', $id)->viewAdmin('toubar.user.edit');
     }
 
     /**
@@ -145,7 +157,7 @@ class WXTBUserController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEdit(YourUpdateEntityRequest $request, YourUpdateEntityAction $action, $id)
+    public function postEdit(UpdateWXTBUserRequest $request, UpdateWXTBUserAction $action, $id)
     {
         $data = $this->parseData($request);
 
@@ -161,14 +173,14 @@ class WXTBUserController extends BaseAdminController
             return redirect()->back();
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.user.index.get'));
     }
 
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postDelete(YourDeleteEntityAction $action, $id)
+    public function postDelete(DeleteWXTBUserAction $action, $id)
     {
         $result = $action->run($id, false);
 
@@ -179,7 +191,7 @@ class WXTBUserController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postForceDelete(YourDeleteEntityAction $action, $id)
+    public function postForceDelete(DeleteWXTBUserAction $action, $id)
     {
         $result = $action->run($id, true);
 
@@ -190,7 +202,7 @@ class WXTBUserController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postRestore(YourRestoreEntityAction $action, $id)
+    public function postRestore(RestoreWXTBUserAction $action, $id)
     {
         $result = $action->run($id);
 
@@ -199,7 +211,7 @@ class WXTBUserController extends BaseAdminController
 
     protected function parseData(\WebEd\Base\Http\Requests\Request $request)
     {
-        $data = $request->input('entity');
+        $data = $request->input('post');
 
         return $data;
     }

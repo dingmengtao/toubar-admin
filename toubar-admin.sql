@@ -212,8 +212,8 @@ INSERT INTO `item_trade` (`item_id`, `trade_id`, `delete_time`, `create_time`, `
 -- 表的结构 `stage`
 --
 
-DROP TABLE IF EXISTS `stage`;
-CREATE TABLE IF NOT EXISTS `stage` (
+DROP TABLE IF EXISTS `we_stage`;
+CREATE TABLE IF NOT EXISTS `we_stage` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '融资阶段id',
   `name` varchar(50) NOT NULL COMMENT '融资阶段名称',
   `isshow` int(1) NOT NULL DEFAULT '1' COMMENT '是否前台显示（1：是，0否）',
@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `stage` (
 -- 转存表中的数据 `stage`
 --
 
-INSERT INTO `stage` (`id`, `name`, `isshow`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_stage` (`id`, `name`, `isshow`, `delete_time`, `create_time`, `update_time`) VALUES
 (1, '全部阶段', 1, NULL, 1513050322, 1513050322),
 (2, '种子轮', 1, NULL, 1513050322, 1513050322),
 (3, '天使轮', 1, NULL, 1513050322, 1513050322),
@@ -241,8 +241,8 @@ INSERT INTO `stage` (`id`, `name`, `isshow`, `delete_time`, `create_time`, `upda
 -- 表的结构 `trade`
 --
 
-DROP TABLE IF EXISTS `trade`;
-CREATE TABLE IF NOT EXISTS `trade` (
+DROP TABLE IF EXISTS `we_trade`;
+CREATE TABLE IF NOT EXISTS `we_trade` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '行业id',
   `name` varchar(50) NOT NULL COMMENT '行业名称',
   `isshow` int(1) NOT NULL DEFAULT '1' COMMENT '是否前台显示（1：是，0否）',
@@ -304,8 +304,8 @@ INSERT INTO `we_trade` (`id`, `name`, `status`, `type`, `delete_time`, `create_t
 -- 表的结构 `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `we_user`;
+CREATE TABLE IF NOT EXISTS `we_user` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `openid` varchar(50) NOT NULL COMMENT '用户微信openid',
   `nickname` varchar(100) DEFAULT NULL COMMENT '用户微信名（昵称）',
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- 转存表中的数据 `user`
 --
 
-INSERT INTO `user` (`id`, `openid`, `nickname`, `country`, `province`, `city`, `gender`, `language`, `extend`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_user` (`id`, `openid`, `nickname`, `country`, `province`, `city`, `gender`, `language`, `extend`, `delete_time`, `create_time`, `update_time`) VALUES
 (10, 'oJWz60PxIt1n7vLLm91Dzq0VekrI', '丁丁丁梦涛', 'China', 'Henan', 'Zhoukou', 1, 'zh_CN', NULL, NULL, 1515327389, 1515339879);
 
 -- --------------------------------------------------------

@@ -19,11 +19,12 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">
                         <i class="icon-layers font-dark"></i>
-                        news
+                        wxtbuser
                     </h3>
                     <div class="box-tools">
                         <a class="btn btn-transparent green btn-sm"
-                           href="{{ route('admin::blog.news.create.get') }}">
+                           {{--href="{{ route('admin::miniprograms.toubar.user.create.get') }}--}}
+                                   ">
                             <i class="fa fa-plus"></i> {{ trans('webed-core::base.form.create') }}
                         </a>
                     </div>
@@ -32,7 +33,7 @@
                     {!! $dataTable or '' !!}
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_BLOG_NEWS . '.index') @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_TOUBAR_USER . '.index') @endphp
         </div>
     </div>
 @endsection

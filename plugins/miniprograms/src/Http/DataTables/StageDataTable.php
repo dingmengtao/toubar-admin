@@ -2,6 +2,9 @@
 
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Models\Contracts\BaseModelContract;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\DeleteStageAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Stage\UpdateStageAction;
+use WebEd\Plugins\Miniprograms\Models\Stage;
 use Yajra\DataTables\CollectionDataTable;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\QueryDataTable;
@@ -16,11 +19,11 @@ class StageDataTable extends AbstractDataTables
     /**
      * @var string
      */
-    protected $screenName = 'miniprograms';
+    protected $screenName = WEBED_TOUBAR_STAGE;
 
     public function __construct()
     {
-        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, YourModel::select(['id', 'title', 'created_at']), $this->screenName);
+        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Stage::select(['id', 'name', 'create_time','status', 'order','created_by']), $this->screenName);
     }
 
     /**
@@ -33,13 +36,25 @@ class StageDataTable extends AbstractDataTables
                 'title' => 'ID',
                 'width' => '5%',
             ],
-            'title' => [
-                'title' => trans('webed-core::datatables.heading.title'),
+            'name' => [
+                'title' => 'Name',
+                'width' => '15%',
+            ],
+            'status' => [
+                'title' => trans('webed-core::datatables.heading.status'),
+                'width' => '10%',
+            ],
+            'order' => [
+                'title' => trans('webed-core::datatables.heading.order'),
+                'width' => '10%',
+            ],
+            'create_time' => [
+                'title' => 'Create_time',
                 'width' => '20%',
             ],
-            'created_at' => [
-                'title' => trans('webed-core::datatables.heading.created_at'),
-                'width' => '50%',
+            'created_by' => [
+                'title' => 'Created_by',
+                'width' => '10%',
             ],
             'actions' => [
                 'title' => trans('webed-core::datatables.heading.actions'),
@@ -55,8 +70,12 @@ class StageDataTable extends AbstractDataTables
     {
         return [
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'orderable' => false],
-            ['data' => 'title', 'name' => 'title'],
-            ['data' => 'created_at', 'name' => 'created_at'],
+            ['data' => 'viewID', 'name' => 'id'],
+            ['data' => 'name', 'name' => 'name'],
+            ['data' => 'status', 'name' => 'status'],
+            ['data' => 'order', 'name' => 'order', 'searchable' => false],
+            ['data' => 'create_time', 'name' => 'create_time'],
+            ['data' => 'created_by', 'name' => 'created_by'],
             ['data' => 'actions', 'name' => 'actions', 'searchable' => false, 'orderable' => false],
         ];
     }
@@ -66,13 +85,28 @@ class StageDataTable extends AbstractDataTables
      */
     public function run(): string
     {
-        $this->setAjaxUrl('fetch-data-url', 'POST');
+        $this->setAjaxUrl(route('admin::miniprograms.toubar.stage.index.post'), 'POST');
 
         $this
-            ->addFilter(1, form()->text('title', '', [
+            ->addFilter(1, form()->text('id', '', [
                 'class' => 'form-control form-filter input-sm',
                 'placeholder' => trans('webed-core::datatables.search') . '...',
-            ]));
+            ]))
+            ->addFilter(2, form()->text('name', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(6, form()->text('created_by', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(4, form()->select('status', [
+                'without_trashed' => trans('webed-core::datatables.select') . '...',
+                1 => trans('webed-core::base.status.activated'),
+                0 => trans('webed-core::base.status.disabled'),
+                'deleted' => trans('webed-core::base.status.deleted'),
+//                'is_featured' => 'Featured',
+            ], null, ['class' => 'form-control form-filter input-sm']));
 
         $this->withGroupActions([
             '' => trans('webed-core::datatables.select') . '...',
@@ -90,12 +124,34 @@ class StageDataTable extends AbstractDataTables
     protected function fetchDataForAjax()
     {
         return webed_datatable()->of($this->model)
-            ->rawColumns(['actions'])
+            ->rawColumns(['actions','status','created_by'])
+            ->filterColumn('status', function ($query, $keyword) {
+                if ($keyword === 'deleted') {
+                    return $query->whereNotNull('delete_time');
+                } else if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                if ($keyword === 'is_featured') {
+                    return $query->whereNull('delete_time')->where('is_featured', '=', 1);
+                } else {
+                    return $query->whereNull('delete_time')->where('status', '=', $keyword);
+                }
+            })
+            ->filterColumn('created_by', function ($query, $keyword) {
+                if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                return $query->whereNull('delete_time')->where('created_by', '=', $keyword);
+            })
+            ->addColumn('viewID', function ($item) {
+                return $item->id;
+            })
             ->editColumn('id', function ($item) {
                 return form()->customCheckbox([['id[]', $item->id]]);
             })
             ->editColumn('status', function ($item) {
-                if ($item->trashed()) {
+//                if ($item->trashed()) {
+                if (!$item->status) {
                     return html()->label(trans('webed-core::base.status.deleted'), 'deleted');
                 }
 
@@ -107,12 +163,12 @@ class StageDataTable extends AbstractDataTables
             })
             ->addColumn('actions', function ($item) {
                 /*Edit link*/
-                $activeLink = route('admin::your-module.update-status.post', ['id' => $item->id, 'status' => 1]);
-                $disableLink = route('admin::your-module.update-status.post', ['id' => $item->id, 'status' => 0]);
-                $deleteLink = route('admin::your-module.delete.post', ['id' => $item->id]);
+                $activeLink = route('admin::miniprograms.toubar.stage.update-status.post', ['id' => $item->id, 'status' => 1]);
+                $disableLink = route('admin::miniprograms.toubar.stage.update-status.post', ['id' => $item->id, 'status' => 0]);
+                $deleteLink = route('admin::miniprograms.toubar.stage.delete.post', ['id' => $item->id]);
 
                 /*Buttons*/
-                $editBtn = link_to(route('admin::your-module.edit.get', ['id' => $item->id]), trans('webed-core::datatables.edit'), ['class' => 'btn btn-sm btn-outline green']);
+                $editBtn = link_to(route('admin::miniprograms.toubar.stage.edit.get', ['id' => $item->id]), trans('webed-core::datatables.edit'), ['class' => 'btn btn-sm btn-outline green']);
                 $activeBtn = ($item->status != 1) ? form()->button(trans('webed-core::datatables.active'), [
                     'title' => trans('webed-core::datatables.active_this_item'),
                     'data-ajax' => $activeLink,
@@ -153,7 +209,7 @@ class StageDataTable extends AbstractDataTables
         $data = [];
 
         if ($request->input('customActionType', null) === 'group_action') {
-            if (!has_permissions(get_current_logged_user(), ['your-update-permission-here'])) {
+            if (!has_permissions(get_current_logged_user(), ['update-stage'])) {
                 return [
                     'customActionMessage' => trans('webed-acl::base.do_not_have_permission'),
                     'customActionStatus' => 'danger',
@@ -165,14 +221,14 @@ class StageDataTable extends AbstractDataTables
 
             switch ($actionValue) {
                 case 'deleted':
-                    if (!has_permissions(get_current_logged_user(), ['your-delete-permission-here'])) {
+                    if (!has_permissions(get_current_logged_user(), ['delete-stage'])) {
                         return [
                             'customActionMessage' => trans('webed-acl::base.do_not_have_permission'),
                             'customActionStatus' => 'danger',
                         ];
                     }
 
-                    $action = app(YourDeleteAction::class);
+                    $action = app(DeleteStageAction::class);
 
                     foreach ($ids as $id) {
                         $action->run($id);
@@ -180,7 +236,7 @@ class StageDataTable extends AbstractDataTables
                     break;
                 case 1:
                 case 0:
-                    $action = app(YourUpdateAction::class);
+                    $action = app(UpdateStageAction::class);
 
                     foreach ($ids as $id) {
                         $action->run($id, [
