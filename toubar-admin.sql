@@ -227,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `we_stage` (
 -- 转存表中的数据 `stage`
 --
 
-INSERT INTO `we_stage` (`id`, `name`, `isshow`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_stage` (`id`, `name`, `status`, `delete_time`, `create_time`, `update_time`) VALUES
 (1, '全部阶段', 1, NULL, 1513050322, 1513050322),
 (2, '种子轮', 1, NULL, 1513050322, 1513050322),
 (3, '天使轮', 1, NULL, 1513050322, 1513050322),
