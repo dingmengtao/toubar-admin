@@ -77,7 +77,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             'font_icon' => 'icon-puzzle',
             'link' => route('admin::miniprograms.toubar.stage.index.get'),
             'css_class' => null,
-            'permissions' => ['stage'],
+            'permissions' => ['view-stage'],
         ])->registerItem([
             'id' => WEBED_TOUBAR_TRADE,
             'priority' => 10.1-5,

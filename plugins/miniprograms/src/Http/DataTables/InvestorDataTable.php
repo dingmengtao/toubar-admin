@@ -2,6 +2,9 @@
 
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Models\Contracts\BaseModelContract;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\DeleteInvestorAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\UpdateInvestorAction;
+use WebEd\Plugins\Miniprograms\Models\Investor;
 use Yajra\DataTables\CollectionDataTable;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\QueryDataTable;
@@ -16,11 +19,11 @@ class InvestorDataTable extends AbstractDataTables
     /**
      * @var string
      */
-    protected $screenName = 'miniprograms';
+    protected $screenName = WEBED_TOUBAR_INVESTOR;
 
     public function __construct()
     {
-        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, YourModel::select(['id', 'title', 'created_at']), $this->screenName);
+        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Investor::select(['id','user_id', 'name','company','job','telephone', 'create_time','status', 'order','isaudit','updated_by']), $this->screenName);
     }
 
     /**
@@ -33,11 +36,15 @@ class InvestorDataTable extends AbstractDataTables
                 'title' => 'ID',
                 'width' => '5%',
             ],
-            'title' => [
+            'name' => [
                 'title' => trans('webed-core::datatables.heading.title'),
                 'width' => '20%',
             ],
-            'created_at' => [
+            'status' => [
+                'title' => trans('webed-core::datatables.heading.status'),
+                'width' => '10%',
+            ],
+            'create_time' => [
                 'title' => trans('webed-core::datatables.heading.created_at'),
                 'width' => '50%',
             ],
@@ -55,8 +62,10 @@ class InvestorDataTable extends AbstractDataTables
     {
         return [
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'orderable' => false],
-            ['data' => 'title', 'name' => 'title'],
-            ['data' => 'created_at', 'name' => 'created_at'],
+            ['data' => 'viewID', 'name' => 'id'],
+            ['data' => 'name', 'name' => 'name'],
+            ['data' => 'status', 'name' => 'status'],
+            ['data' => 'create_time', 'name' => 'create_time'],
             ['data' => 'actions', 'name' => 'actions', 'searchable' => false, 'orderable' => false],
         ];
     }
@@ -66,13 +75,20 @@ class InvestorDataTable extends AbstractDataTables
      */
     public function run(): string
     {
-        $this->setAjaxUrl('fetch-data-url', 'POST');
+        $this->setAjaxUrl(route('admin::miniprograms.toubar.investor.index.post'), 'POST');
 
         $this
-            ->addFilter(1, form()->text('title', '', [
+            ->addFilter(1, form()->text('name', '', [
                 'class' => 'form-control form-filter input-sm',
                 'placeholder' => trans('webed-core::datatables.search') . '...',
-            ]));
+            ]))
+            ->addFilter(8, form()->select('status', [
+                'without_trashed' => trans('webed-core::datatables.select') . '...',
+                1 => trans('webed-core::base.status.activated'),
+                0 => trans('webed-core::base.status.disabled'),
+                'deleted' => trans('webed-core::base.status.deleted'),
+//                'is_featured' => 'Featured',
+            ], null, ['class' => 'form-control form-filter input-sm']));;
 
         $this->withGroupActions([
             '' => trans('webed-core::datatables.select') . '...',
@@ -90,7 +106,10 @@ class InvestorDataTable extends AbstractDataTables
     protected function fetchDataForAjax()
     {
         return webed_datatable()->of($this->model)
-            ->rawColumns(['actions'])
+            ->rawColumns(['status','actions'])
+            ->addColumn('viewID', function ($item) {
+                return $item->id;
+            })
             ->editColumn('id', function ($item) {
                 return form()->customCheckbox([['id[]', $item->id]]);
             })
@@ -107,12 +126,12 @@ class InvestorDataTable extends AbstractDataTables
             })
             ->addColumn('actions', function ($item) {
                 /*Edit link*/
-                $activeLink = route('admin::your-module.update-status.post', ['id' => $item->id, 'status' => 1]);
-                $disableLink = route('admin::your-module.update-status.post', ['id' => $item->id, 'status' => 0]);
-                $deleteLink = route('admin::your-module.delete.post', ['id' => $item->id]);
+                $activeLink = route('admin::miniprograms.toubar.investor.update-status.post', ['id' => $item->id, 'status' => 1]);
+                $disableLink = route('admin::miniprograms.toubar.investor.update-status.post', ['id' => $item->id, 'status' => 0]);
+                $deleteLink = route('admin::miniprograms.toubar.investor.delete.post', ['id' => $item->id]);
 
                 /*Buttons*/
-                $editBtn = link_to(route('admin::your-module.edit.get', ['id' => $item->id]), trans('webed-core::datatables.edit'), ['class' => 'btn btn-sm btn-outline green']);
+                $editBtn = link_to(route('admin::miniprograms.toubar.investor.edit.get', ['id' => $item->id]), trans('webed-core::datatables.edit'), ['class' => 'btn btn-sm btn-outline green']);
                 $activeBtn = ($item->status != 1) ? form()->button(trans('webed-core::datatables.active'), [
                     'title' => trans('webed-core::datatables.active_this_item'),
                     'data-ajax' => $activeLink,
@@ -153,7 +172,7 @@ class InvestorDataTable extends AbstractDataTables
         $data = [];
 
         if ($request->input('customActionType', null) === 'group_action') {
-            if (!has_permissions(get_current_logged_user(), ['your-update-permission-here'])) {
+            if (!has_permissions(get_current_logged_user(), ['update-investor'])) {
                 return [
                     'customActionMessage' => trans('webed-acl::base.do_not_have_permission'),
                     'customActionStatus' => 'danger',
@@ -165,14 +184,14 @@ class InvestorDataTable extends AbstractDataTables
 
             switch ($actionValue) {
                 case 'deleted':
-                    if (!has_permissions(get_current_logged_user(), ['your-delete-permission-here'])) {
+                    if (!has_permissions(get_current_logged_user(), ['delete-investor'])) {
                         return [
                             'customActionMessage' => trans('webed-acl::base.do_not_have_permission'),
                             'customActionStatus' => 'danger',
                         ];
                     }
 
-                    $action = app(YourDeleteAction::class);
+                    $action = app(DeleteInvestorAction::class);
 
                     foreach ($ids as $id) {
                         $action->run($id);
@@ -180,7 +199,7 @@ class InvestorDataTable extends AbstractDataTables
                     break;
                 case 1:
                 case 0:
-                    $action = app(YourUpdateAction::class);
+                    $action = app(UpdateInvestorAction::class);
 
                     foreach ($ids as $id) {
                         $action->run($id, [

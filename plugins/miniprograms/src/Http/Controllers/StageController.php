@@ -145,7 +145,7 @@ class StageController extends BaseAdminController
          * Place your magic here
          */
         $this->setPageTitle('Edit stage' . ' #' . $item->id);
-        $this->breadcrumbs->addLink(trans('Edit tage'));
+        $this->breadcrumbs->addLink(trans('Edit stage'));
 
         $this->dis['object'] = $item;
 

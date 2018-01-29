@@ -4,10 +4,18 @@ use Illuminate\Http\Request;
 use WebEd\Base\Http\Controllers\BaseAdminController;
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Item\CreateItemAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Item\DeleteItemAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Item\RestoreItemAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Item\UpdateItemAction;
+use WebEd\Plugins\Miniprograms\Http\DataTables\ItemDataTable;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Item\CreateItemRequest;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Item\UpdateItemRequest;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\ItemRepositoryContract;
 
 class ItemController extends BaseAdminController
 {
-    protected $module = 'miniprograms';
+    protected $module = WEBED_MINIPROGRAMS;
 
     /**
      * @var YourModuleRepositoryContract|EloquentBaseRepository
@@ -17,16 +25,16 @@ class ItemController extends BaseAdminController
     /**
      * @param EloquentBaseRepository $repository
      */
-    public function __construct(YourModuleRepositoryContract $repository)
+    public function __construct(ItemRepositoryContract $repository)
     {
         parent::__construct();
 
         $this->repository = $repository;
 
         $this->middleware(function (Request $request, $next) {
-            $this->getDashboardMenu($this->module);
+            $this->getDashboardMenu(WEBED_TOUBAR_ITEM);
 
-            $this->breadcrumbs->addLink('miniprograms', route('admin::your-module.index.get'));
+            $this->breadcrumbs->addLink(WEBED_TOUBAR_ITEM, route('admin::miniprograms.toubar.item.index.get'));
 
             return $next($request);
         });
@@ -36,22 +44,22 @@ class ItemController extends BaseAdminController
      * @param AbstractDataTables $dataTables
      * @return @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex(YourDataTables $dataTables)
+    public function getIndex(ItemDataTable $dataTables)
     {
-        $this->setPageTitle('Entity');
+        $this->setPageTitle('Item');
 
         $this->dis['dataTable'] = $dataTables->run();
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, 'miniprograms', 'index.get', $dataTables)->viewAdmin('index');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_ITEM, 'index.get', $dataTables)->viewAdmin('toubar.item.index');
     }
 
     /**
      * @param AbstractDataTables $dataTables
      * @return mixed
      */
-    public function postListing(YourDataTables $dataTables)
+    public function postListing(ItemDataTable $dataTables)
     {
-        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, 'miniprograms', 'index.post', $this);
+        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, WEBED_TOUBAR_ITEM, 'index.post', $this);
     }
 
     /**
@@ -60,7 +68,7 @@ class ItemController extends BaseAdminController
      * @param $status
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postUpdateStatus(YourUpdateEntityAction $action, $id, $status)
+    public function postUpdateStatus(UpdateItemAction $action, $id, $status)
     {
         $result = $action->run($id, [
             'status' => $status
@@ -74,16 +82,16 @@ class ItemController extends BaseAdminController
      */
     public function getCreate()
     {
-        do_action(BASE_ACTION_BEFORE_CREATE, YOUR_SCREEN_NAME, 'create.get');
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_ITEM, 'create.get');
 
         /**
          * Place your magic here
          */
 
-        $this->setPageTitle('Create entity');
-        $this->breadcrumbs->addLink('Create entity');
+        $this->setPageTitle('Create item');
+        $this->breadcrumbs->addLink('Create item');
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'create.get')->viewAdmin('create');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_ITEM, 'create.get')->viewAdmin('toubar.item.create');
     }
 
     /**
@@ -91,7 +99,7 @@ class ItemController extends BaseAdminController
      * @param YourCreateEntityAction $action
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreate(YourCreateEntityRequest $request, YourCreateEntityAction $action)
+    public function postCreate(CreateItemRequest $request, CreateItemAction $action)
     {
         $data = $this->parseData($request);
 
@@ -108,10 +116,10 @@ class ItemController extends BaseAdminController
         }
 
         if ($this->request->has('_continue_edit')) {
-            return redirect()->to(route('admin::your-module.edit.get', ['id' => $result['data']['id']]));
+            return redirect()->to(route('admin::miniprograms.toubar.item.edit.get', ['id' => $result['data']['id']]));
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.item.index.get'));
     }
 
     /**
@@ -122,7 +130,7 @@ class ItemController extends BaseAdminController
     {
         $item = $this->repository->find($id);
 
-        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, YOUR_SCREEN_NAME, 'edit.get');
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, WEBED_TOUBAR_ITEM, 'edit.get');
 
         if (!$item) {
             flash_messages()
@@ -135,8 +143,12 @@ class ItemController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->setPageTitle('Edit item' . ' #' . $item->id);
+        $this->breadcrumbs->addLink(trans('Edit item'));
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'edit.get', $id)->viewAdmin('edit');
+        $this->dis['object'] = $item;
+
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_ITEM, 'edit.get', $id)->viewAdmin('toubar.item.edit');
     }
 
     /**
@@ -145,7 +157,7 @@ class ItemController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEdit(YourUpdateEntityRequest $request, YourUpdateEntityAction $action, $id)
+    public function postEdit(UpdateItemRequest $request, UpdateItemAction $action, $id)
     {
         $data = $this->parseData($request);
 
@@ -161,14 +173,14 @@ class ItemController extends BaseAdminController
             return redirect()->back();
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.item.index.get'));
     }
 
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postDelete(YourDeleteEntityAction $action, $id)
+    public function postDelete(DeleteItemAction $action, $id)
     {
         $result = $action->run($id, false);
 
@@ -179,7 +191,7 @@ class ItemController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postForceDelete(YourDeleteEntityAction $action, $id)
+    public function postForceDelete(DeleteItemAction $action, $id)
     {
         $result = $action->run($id, true);
 
@@ -190,7 +202,7 @@ class ItemController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postRestore(YourRestoreEntityAction $action, $id)
+    public function postRestore(RestoreItemAction $action, $id)
     {
         $result = $action->run($id);
 
@@ -199,7 +211,7 @@ class ItemController extends BaseAdminController
 
     protected function parseData(\WebEd\Base\Http\Requests\Request $request)
     {
-        $data = $request->input('entity');
+        $data = $request->input('post');
 
         return $data;
     }

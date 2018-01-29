@@ -4,10 +4,18 @@ use Illuminate\Http\Request;
 use WebEd\Base\Http\Controllers\BaseAdminController;
 use WebEd\Base\Http\DataTables\AbstractDataTables;
 use WebEd\Base\Repositories\Eloquent\EloquentBaseRepository;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\CreateInvestorAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\DeleteInvestorAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\RestoreInvestorAction;
+use WebEd\Plugins\Miniprograms\Actions\Toubar\Investor\UpdateInvestorAction;
+use WebEd\Plugins\Miniprograms\Http\DataTables\InvestorDataTable;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Investor\CreateInvestorRequest;
+use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Investor\UpdateInvestorRequest;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\InvestorRepositoryContract;
 
-class InverstorController extends BaseAdminController
+class InvestorController extends BaseAdminController
 {
-    protected $module = 'miniprograms';
+    protected $module = WEBED_TOUBAR_INVESTOR;
 
     /**
      * @var YourModuleRepositoryContract|EloquentBaseRepository
@@ -17,16 +25,16 @@ class InverstorController extends BaseAdminController
     /**
      * @param EloquentBaseRepository $repository
      */
-    public function __construct(YourModuleRepositoryContract $repository)
+    public function __construct(InvestorRepositoryContract $repository)
     {
         parent::__construct();
 
         $this->repository = $repository;
 
         $this->middleware(function (Request $request, $next) {
-            $this->getDashboardMenu($this->module);
+            $this->getDashboardMenu(WEBED_TOUBAR_INVESTOR);
 
-            $this->breadcrumbs->addLink('miniprograms', route('admin::your-module.index.get'));
+            $this->breadcrumbs->addLink(WEBED_TOUBAR_INVESTOR, route('admin::miniprograms.toubar.investor.index.get'));
 
             return $next($request);
         });
@@ -36,22 +44,22 @@ class InverstorController extends BaseAdminController
      * @param AbstractDataTables $dataTables
      * @return @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getIndex(YourDataTables $dataTables)
+    public function getIndex(InvestorDataTable $dataTables)
     {
-        $this->setPageTitle('Entity');
+        $this->setPageTitle('Investor');
 
         $this->dis['dataTable'] = $dataTables->run();
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, 'miniprograms', 'index.get', $dataTables)->viewAdmin('index');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_INVESTOR, 'index.get', $dataTables)->viewAdmin('toubar.investor.index');
     }
 
     /**
      * @param AbstractDataTables $dataTables
      * @return mixed
      */
-    public function postListing(YourDataTables $dataTables)
+    public function postListing(InvestorDataTable $dataTables)
     {
-        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, 'miniprograms', 'index.post', $this);
+        return do_filter(BASE_FILTER_CONTROLLER, $dataTables, WEBED_TOUBAR_INVESTOR, 'index.post', $this);
     }
 
     /**
@@ -60,7 +68,7 @@ class InverstorController extends BaseAdminController
      * @param $status
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postUpdateStatus(YourUpdateEntityAction $action, $id, $status)
+    public function postUpdateStatus(UpdateInvestorAction $action, $id, $status)
     {
         $result = $action->run($id, [
             'status' => $status
@@ -74,16 +82,16 @@ class InverstorController extends BaseAdminController
      */
     public function getCreate()
     {
-        do_action(BASE_ACTION_BEFORE_CREATE, YOUR_SCREEN_NAME, 'create.get');
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_INVESTOR, 'create.get');
 
         /**
          * Place your magic here
          */
 
-        $this->setPageTitle('Create entity');
-        $this->breadcrumbs->addLink('Create entity');
+        $this->setPageTitle('Create investor');
+        $this->breadcrumbs->addLink('Create investor');
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'create.get')->viewAdmin('create');
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_INVESTOR, 'create.get')->viewAdmin('toubar.investor.create');
     }
 
     /**
@@ -91,7 +99,7 @@ class InverstorController extends BaseAdminController
      * @param YourCreateEntityAction $action
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postCreate(YourCreateEntityRequest $request, YourCreateEntityAction $action)
+    public function postCreate(CreateInvestorRequest $request, CreateInvestorAction $action)
     {
         $data = $this->parseData($request);
 
@@ -108,10 +116,10 @@ class InverstorController extends BaseAdminController
         }
 
         if ($this->request->has('_continue_edit')) {
-            return redirect()->to(route('admin::your-module.edit.get', ['id' => $result['data']['id']]));
+            return redirect()->to(route('admin::miniprograms.toubar.investor.edit.get', ['id' => $result['data']['id']]));
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.investor.index.get'));
     }
 
     /**
@@ -122,7 +130,7 @@ class InverstorController extends BaseAdminController
     {
         $item = $this->repository->find($id);
 
-        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, YOUR_SCREEN_NAME, 'edit.get');
+        $item = do_filter(BASE_FILTER_BEFORE_UPDATE, $item, WEBED_TOUBAR_INVESTOR, 'edit.get');
 
         if (!$item) {
             flash_messages()
@@ -135,8 +143,12 @@ class InverstorController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->setPageTitle('Edit investor' . ' #' . $item->id);
+        $this->breadcrumbs->addLink(trans('Edit investor'));
 
-        return do_filter(BASE_FILTER_CONTROLLER, $this, YOUR_SCREEN_NAME, 'edit.get', $id)->viewAdmin('edit');
+        $this->dis['object'] = $item;
+
+        return do_filter(BASE_FILTER_CONTROLLER, $this, WEBED_TOUBAR_INVESTOR, 'edit.get', $id)->viewAdmin('toubar.investor.edit');
     }
 
     /**
@@ -145,7 +157,7 @@ class InverstorController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postEdit(YourUpdateEntityRequest $request, YourUpdateEntityAction $action, $id)
+    public function postEdit(UpdateInvestorRequest $request, UpdateInvestorAction $action, $id)
     {
         $data = $this->parseData($request);
 
@@ -161,14 +173,14 @@ class InverstorController extends BaseAdminController
             return redirect()->back();
         }
 
-        return redirect()->to(route('admin::your-module.index.get'));
+        return redirect()->to(route('admin::miniprograms.toubar.investor.index.get'));
     }
 
     /**
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postDelete(YourDeleteEntityAction $action, $id)
+    public function postDelete(DeleteInvestorAction $action, $id)
     {
         $result = $action->run($id, false);
 
@@ -179,7 +191,7 @@ class InverstorController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postForceDelete(YourDeleteEntityAction $action, $id)
+    public function postForceDelete(DeleteInvestorAction $action, $id)
     {
         $result = $action->run($id, true);
 
@@ -190,7 +202,7 @@ class InverstorController extends BaseAdminController
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function postRestore(YourRestoreEntityAction $action, $id)
+    public function postRestore(RestoreInvestorAction $action, $id)
     {
         $result = $action->run($id);
 
@@ -199,7 +211,7 @@ class InverstorController extends BaseAdminController
 
     protected function parseData(\WebEd\Base\Http\Requests\Request $request)
     {
-        $data = $request->input('entity');
+        $data = $request->input('post');
 
         return $data;
     }

@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- 表的结构 `investor`
 --
 
-DROP TABLE IF EXISTS `investor`;
+DROP TABLE IF EXISTS `we_investor`;
 CREATE TABLE IF NOT EXISTS `investor` (
   `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户（投资人）id',
   `user_id` int(11) UNSIGNED NOT NULL COMMENT '用户id',
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `investor` (
   `identify_one_url` varchar(300) DEFAULT NULL COMMENT '用户（投资人）名片路径1',
   `identify_two_url` varchar(300) DEFAULT NULL COMMENT '用户（投资人）名片路径2',
   `isaudit` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否审核（0否，1是（默认））',
-  `isshow` int(1) DEFAULT '1' COMMENT '是否前台显示（1：是，0否）',
+  `status` int(1) DEFAULT '1' COMMENT '是否前台显示（1：是，0否）',
   `delete_time` int(11) DEFAULT NULL COMMENT '删除时间',
   `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
   `update_time` int(11) DEFAULT NULL COMMENT '修改时间',
@@ -51,12 +51,12 @@ CREATE TABLE IF NOT EXISTS `investor` (
 -- 转存表中的数据 `investor`
 --
 
-INSERT INTO `investor` (`id`, `user_id`, `name`, `company`, `job`, `telephone`, `img_url`, `identify_one_url`, `identify_two_url`, `isaudit`, `isshow`, `delete_time`, `create_time`, `update_time`) VALUES
-(8, 3, '丁梦涛', '杭州应韦科技有限公司', 'PHP开发', '15237179191', '20171219/5a38c97972f5bYd0roYb.jpg', '20171219/5a38c97972f5bYd0roYb.jpg', NULL, 1, 1, NULL, 1513671033, 1513671033),
-(9, 3, '丁梦涛', '杭州应韦科技有限公司', 'PHP开发', '15237179192', '20171219/5a38cd0d918baXk5oV44.jpg', '20171219/5a38cd0d918baXk5oV44.jpg', NULL, 1, 1, NULL, 1513671949, 1513671949),
-(10, 3, '张三', '杭州滨江', '总经理', '15237179193', '20171227/5a43616a01af7yOTsN3RzFCw7a5BqLzk.jpg', '20171227/5a43616c5b494lqEpeBq4Viu1KWVuzwl.png', NULL, 1, 1, NULL, 1514365333, 1514365333),
-(11, 3, '王胖子', '陕西考古研究所', '考古研究员', '15237179195', '20171229/5a45b4fba88a4coWbjIqukBQueEXusYW.jpg', '20171229/5a45b4fbad73bonNCeFR8EBemvbw18PO.png', NULL, 1, 1, NULL, 1514517758, 1514517758),
-(12, 3, '吴邪', '杭州土夫子古物研究所', '富二代研究员', '15237179194', '20171229/5a45ce85b635cJ8Wsf5XiagBTjBtZ3CE.jpg', '20171229/5a45cea9646579AYXSXxGreGmGnZIXRx.png', NULL, 1, 1, NULL, 1514524352, 1514524352);
+INSERT INTO `we_investor` (`id`, `user_id`, `name`, `company`, `job`, `telephone`, `img_url`, `identify_one_url`, `identify_two_url`, `isaudit`, `status`, `delete_time`, `create_time`, `update_time`) VALUES
+(8, 2, '丁梦涛', '杭州应韦科技有限公司', 'PHP开发', '15237179191', '20171219/5a38c97972f5bYd0roYb.jpg', '20171219/5a38c97972f5bYd0roYb.jpg', NULL, 1, 1, NULL, 1513671033, 1513671033),
+(9, 2, '丁梦涛', '杭州应韦科技有限公司', 'PHP开发', '15237179192', '20171219/5a38cd0d918baXk5oV44.jpg', '20171219/5a38cd0d918baXk5oV44.jpg', NULL, 1, 1, NULL, 1513671949, 1513671949),
+(10, 2, '张三', '杭州滨江', '总经理', '15237179193', '20171227/5a43616a01af7yOTsN3RzFCw7a5BqLzk.jpg', '20171227/5a43616c5b494lqEpeBq4Viu1KWVuzwl.png', NULL, 1, 1, NULL, 1514365333, 1514365333),
+(11, 2, '王胖子', '陕西考古研究所', '考古研究员', '15237179195', '20171229/5a45b4fba88a4coWbjIqukBQueEXusYW.jpg', '20171229/5a45b4fbad73bonNCeFR8EBemvbw18PO.png', NULL, 1, 1, NULL, 1514517758, 1514517758),
+(12, 2, '吴邪', '杭州土夫子古物研究所', '富二代研究员', '15237179194', '20171229/5a45ce85b635cJ8Wsf5XiagBTjBtZ3CE.jpg', '20171229/5a45cea9646579AYXSXxGreGmGnZIXRx.png', NULL, 1, 1, NULL, 1514524352, 1514524352);
 
 -- --------------------------------------------------------
 
@@ -64,7 +64,7 @@ INSERT INTO `investor` (`id`, `user_id`, `name`, `company`, `job`, `telephone`, 
 -- 表的结构 `investor_trade`
 --
 
-DROP TABLE IF EXISTS `investor_trade`;
+DROP TABLE IF EXISTS `we_investor_trade`;
 CREATE TABLE IF NOT EXISTS `investor_trade` (
   `investor_id` int(11) UNSIGNED NOT NULL,
   `trade_id` int(11) UNSIGNED NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `investor_trade` (
 -- 转存表中的数据 `investor_trade`
 --
 
-INSERT INTO `investor_trade` (`investor_id`, `trade_id`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_investor_trade` (`investor_id`, `trade_id`, `delete_time`, `create_time`, `update_time`) VALUES
 (8, 1, NULL, 1513671033, 1513671033),
 (8, 2, NULL, 1513671033, 1513671033),
 (8, 3, NULL, 1513671033, 1513671033),
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `item` (
 -- 转存表中的数据 `item`
 --
 
-INSERT INTO `item` (`id`, `user_id`, `name`, `stage_id`, `telephone`, `bp_url`, `video_url`, `img_url`, `isgood`, `isaudit`, `isshow`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_item` (`id`, `user_id`, `name`, `stage_id`, `telephone`, `bp_url`, `video_url`, `img_url`, `isgood`, `isaudit`, `status`, `delete_time`, `create_time`, `update_time`) VALUES
 (9, 2, 'test', 1, '15237179193', '', '20171219/5a38ce413fa1a4LOyb5i.mp4', '20171219/5a38c97972777g10FIzm.png', 1, 1, 1, NULL, 1513672257, 1513672257),
 (10, 2, 'test', 1, '15237179193', '', '20171219/5a38de50d2dd1kLe3fXT.mp4', '20171219/5a38c97972777g10FIzm.png', 1, 1, 1, NULL, 1513676369, 1513676369),
 (12, 2, '互联网应用', 3, '15237179193', '', '20171227/5a4338f860d2bu3FtXqPiK3SZRwxTKW1.mp4', '20171227/5a4338f860d2bu3FtXqPiK3SZRwxTKW1.jpg', 0, 1, 1, NULL, 1514354943, 1514354943),
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `item_trade` (
 -- 转存表中的数据 `item_trade`
 --
 
-INSERT INTO `item_trade` (`item_id`, `trade_id`, `delete_time`, `create_time`, `update_time`) VALUES
+INSERT INTO `we_item_trade` (`item_id`, `trade_id`, `delete_time`, `create_time`, `update_time`) VALUES
 (9, 1, NULL, 1513672257, 1513672257),
 (9, 2, NULL, 1513672257, 1513672257),
 (9, 3, NULL, 1513672257, 1513672257),

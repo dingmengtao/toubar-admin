@@ -80,7 +80,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
         ])->registerItem([
             'id' => WEBED_BLOG_NEWS,
             'priority' => 2.3,
-            'parent_id' => WEBED_BLOG_POSTS,
+//            'parent_id' => WEBED_BLOG_POSTS,
             'title' => trans('webed-blog::base.admin_menu.news'),
             'font_icon' => 'icon-tag',
             'link' => route('admin::blog.news.index.get'),
@@ -100,7 +100,7 @@ class BootstrapModuleServiceProvider extends ServiceProvider
             ->registerItem([
             'id' => WEBED_BLOG_PRODUCTS,
             'priority' => 2.4,
-            'parent_id' => WEBED_BLOG_POSTS,
+//            'parent_id' => WEBED_BLOG_POSTS,
             'title' => trans('webed-blog::base.admin_menu.products'),
             'font_icon' => 'icon-tag',
             'link' => route('admin::product.posts.index.get'),
