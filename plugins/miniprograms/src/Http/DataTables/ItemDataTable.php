@@ -54,15 +54,15 @@ class ItemDataTable extends AbstractDataTables
             ],
             'isgood' => [
                 'title' => 'Isgood',
-                'width' => '10%',
+                'width' => '5%',
             ],
             'isaudit' => [
                 'title' => 'Isaudit',
-                'width' => '10%',
+                'width' => '5%',
             ],
             'status' => [
                 'title' => trans('webed-core::datatables.heading.status'),
-                'width' => '10%',
+                'width' => '5%',
             ],
             'order' => [
                 'title' => trans('webed-core::datatables.heading.order'),
@@ -70,7 +70,7 @@ class ItemDataTable extends AbstractDataTables
             ],
             'create_time' => [
                 'title' => 'Create_time',
-                'width' => '20%',
+                'width' => '10%',
             ],
             'updated_by' => [
                 'title' => 'Updated_by',
@@ -135,13 +135,14 @@ class ItemDataTable extends AbstractDataTables
             ]))
             ->addFilter(6, form()->select('isgood', [
                 'without_trashed' => trans('webed-core::datatables.select') . '...',
-                1 => trans('精选项目'),
-                0 => trans('非精选项目'),
+                1 => trans('精选'),
+                0 => trans('非精选'),
             ], null, ['class' => 'form-control form-filter input-sm']))
             ->addFilter(7, form()->select('isaudit', [
                 'without_trashed' => trans('webed-core::datatables.select') . '...',
-                1 => trans('通过审核'),
-                0 => trans('未通过审核'),
+                1 => trans('已审核'),
+                0 => trans('未审核'),
+                2 => trans('拒绝'),
             ], null, ['class' => 'form-control form-filter input-sm']))
             ->addFilter(11, form()->text('updated_by', '', [
                 'class' => 'form-control form-filter input-sm',
@@ -152,7 +153,6 @@ class ItemDataTable extends AbstractDataTables
                 1 => trans('webed-core::base.status.activated'),
                 0 => trans('webed-core::base.status.disabled'),
                 'deleted' => trans('webed-core::base.status.deleted'),
-//                'is_featured' => 'Featured',
             ], null, ['class' => 'form-control form-filter input-sm']));
 
         $this->withGroupActions([
@@ -173,17 +173,25 @@ class ItemDataTable extends AbstractDataTables
         return webed_datatable()->of($this->model)
             ->rawColumns(['actions','status','isgood','isaudit','updated_by'])
             ->filterColumn('isgood', function ($query, $keyword) {
-                if ($keyword === '1') {
-                    return $query->whereNull('delete_time')->where('isgood', '=', 1);
-                } else {
-                    return $query->whereNull('delete_time')->where('isgood', '=', 0);
+                if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                if ($keyword == 1) {
+                    return $query->whereNull('delete_time')->where('isgood', '=', $keyword);
+                } elseif ($keyword == 0) {
+                    return $query->whereNull('delete_time')->where('isgood', '=', $keyword);
                 }
             })
             ->filterColumn('isaudit', function ($query, $keyword) {
-                if ($keyword === '1') {
-                    return $query->whereNull('delete_time')->where('isaudit', '=', 1);
-                } else {
-                    return $query->whereNull('delete_time')->where('isaudit', '=', 0);
+                if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                if ($keyword == 1) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', $keyword);
+                } elseif ($keyword == 0) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', $keyword);
+                }elseif ($keyword == 2) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', $keyword);
                 }
             })
             ->filterColumn('status', function ($query, $keyword) {

@@ -1,16 +1,41 @@
 <?php namespace WebEd\Plugins\Miniprograms\Actions\Toubar\Item;
 
 use WebEd\Base\Actions\AbstractAction;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\ItemRepositoryContract;
+use WebEd\Plugins\Miniprograms\Repositories\ItemRepository;
 
 class CreateItemAction extends AbstractAction
 {
-    public function __construct()
-    {
+    /**
+     * @var ItemRepository
+     */
+    protected $repository;
 
+    public function __construct(ItemRepositoryContract $repository)
+    {
+        $this->repository = $repository;
     }
 
-    public function run()
+    /**
+     * @param array $data
+     * @return array
+     */
+    public function run(array $data)
     {
+        do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_INVESTOR, 'create.post');
 
+        $data['created_by'] = get_current_logged_user_id();
+
+        $result = $this->repository->createItem($data);
+
+        do_action(BASE_ACTION_AFTER_CREATE, WEBED_TOUBAR_INVESTOR, $result);
+
+        if (!$result) {
+            return $this->error();
+        }
+
+        return $this->success(null, [
+            'id' => $result,
+        ]);
     }
 }

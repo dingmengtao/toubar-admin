@@ -15,7 +15,7 @@ use WebEd\Plugins\Miniprograms\Repositories\Contracts\InvestorRepositoryContract
 
 class InvestorController extends BaseAdminController
 {
-    protected $module = WEBED_TOUBAR_INVESTOR;
+    protected $module = WEBED_MINIPROGRAMS;
 
     /**
      * @var YourModuleRepositoryContract|EloquentBaseRepository

@@ -36,17 +36,45 @@ class InvestorDataTable extends AbstractDataTables
                 'title' => 'ID',
                 'width' => '5%',
             ],
+            'user_id' => [
+                'title' => 'WXTBUser',
+                'width' => '10%',
+            ],
             'name' => [
-                'title' => trans('webed-core::datatables.heading.title'),
-                'width' => '20%',
+                'title' => 'Name',
+                'width' => '10%',
+            ],
+            'company' => [
+                'title' => 'Company',
+                'width' => '10%',
+            ],
+            'job' => [
+                'title' => 'Job',
+                'width' => '10%',
+            ],
+            'telephone' => [
+                'title' => 'Telephone',
+                'width' => '10%',
+            ],
+            'isaudit' => [
+                'title' => 'Isaudit',
+                'width' => '5%',
             ],
             'status' => [
                 'title' => trans('webed-core::datatables.heading.status'),
-                'width' => '10%',
+                'width' => '5%',
+            ],
+            'order' => [
+                'title' => trans('webed-core::datatables.heading.order'),
+                'width' => '5%',
             ],
             'create_time' => [
-                'title' => trans('webed-core::datatables.heading.created_at'),
-                'width' => '50%',
+                'title' => 'Create_time',
+                'width' => '10%',
+            ],
+            'updated_by' => [
+                'title' => 'Updated_by',
+                'width' => '5%',
             ],
             'actions' => [
                 'title' => trans('webed-core::datatables.heading.actions'),
@@ -63,9 +91,16 @@ class InvestorDataTable extends AbstractDataTables
         return [
             ['data' => 'id', 'name' => 'id', 'searchable' => false, 'orderable' => false],
             ['data' => 'viewID', 'name' => 'id'],
+            ['data' => 'user_id', 'name' => 'user_id'],
             ['data' => 'name', 'name' => 'name'],
+            ['data' => 'company', 'name' => 'company', 'searchable' => false],
+            ['data' => 'job', 'name' => 'job'],
+            ['data' => 'telephone', 'name' => 'telephone'],
+            ['data' => 'isaudit', 'name' => 'isaudit'],
             ['data' => 'status', 'name' => 'status'],
+            ['data' => 'order', 'name' => 'order', 'searchable' => false],
             ['data' => 'create_time', 'name' => 'create_time'],
+            ['data' => 'updated_by', 'name' => 'updated_by'],
             ['data' => 'actions', 'name' => 'actions', 'searchable' => false, 'orderable' => false],
         ];
     }
@@ -78,7 +113,32 @@ class InvestorDataTable extends AbstractDataTables
         $this->setAjaxUrl(route('admin::miniprograms.toubar.investor.index.post'), 'POST');
 
         $this
-            ->addFilter(1, form()->text('name', '', [
+            ->addFilter(1, form()->text('id', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(2, form()->text('user_id', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(3, form()->text('name', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(5, form()->text('job', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(6, form()->text('telephone', '', [
+                'class' => 'form-control form-filter input-sm',
+                'placeholder' => trans('webed-core::datatables.search') . '...',
+            ]))
+            ->addFilter(7, form()->select('isaudit', [
+                'without_trashed' => trans('webed-core::datatables.select') . '...',
+                1 => trans('已审核'),
+                0 => trans('未审核'),
+            ], null, ['class' => 'form-control form-filter input-sm']))
+            ->addFilter(11, form()->text('updated_by', '', [
                 'class' => 'form-control form-filter input-sm',
                 'placeholder' => trans('webed-core::datatables.search') . '...',
             ]))
@@ -87,8 +147,7 @@ class InvestorDataTable extends AbstractDataTables
                 1 => trans('webed-core::base.status.activated'),
                 0 => trans('webed-core::base.status.disabled'),
                 'deleted' => trans('webed-core::base.status.deleted'),
-//                'is_featured' => 'Featured',
-            ], null, ['class' => 'form-control form-filter input-sm']));;
+            ], null, ['class' => 'form-control form-filter input-sm']));
 
         $this->withGroupActions([
             '' => trans('webed-core::datatables.select') . '...',
@@ -106,7 +165,37 @@ class InvestorDataTable extends AbstractDataTables
     protected function fetchDataForAjax()
     {
         return webed_datatable()->of($this->model)
-            ->rawColumns(['status','actions'])
+            ->rawColumns(['actions','status','isaudit','updated_by'])
+            ->filterColumn('isaudit', function ($query, $keyword) {
+                if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                if ($keyword == 1) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', 1);
+                } elseif ($keyword == 0) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', 0);
+                }elseif ($keyword == 2) {
+                    return $query->whereNull('delete_time')->where('isaudit', '=', $keyword);
+                }
+            })
+            ->filterColumn('status', function ($query, $keyword) {
+                if ($keyword === 'deleted') {
+                    return $query->whereNotNull('delete_time');
+                } else if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                if ($keyword === 'is_featured') {
+                    return $query->whereNull('delete_time')->where('is_featured', '=', 1);
+                } else {
+                    return $query->whereNull('delete_time')->where('status', '=', $keyword);
+                }
+            })
+            ->filterColumn('updated_by', function ($query, $keyword) {
+                if ($keyword == 'without_trashed') {
+                    return $query->whereNull('delete_time');
+                }
+                return $query->whereNull('delete_time')->where('updated_by', '=', $keyword);
+            })
             ->addColumn('viewID', function ($item) {
                 return $item->id;
             })
@@ -114,7 +203,8 @@ class InvestorDataTable extends AbstractDataTables
                 return form()->customCheckbox([['id[]', $item->id]]);
             })
             ->editColumn('status', function ($item) {
-                if ($item->trashed()) {
+//                if ($item->trashed()) {
+                if (!$item->status) {
                     return html()->label(trans('webed-core::base.status.deleted'), 'deleted');
                 }
 
