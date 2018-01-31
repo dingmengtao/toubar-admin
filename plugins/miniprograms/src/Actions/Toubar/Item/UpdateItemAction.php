@@ -19,9 +19,10 @@ class UpdateItemAction extends AbstractAction
     /**
      * @param $id
      * @param array $data
+     * @param array $trades
      * @return array
      */
-    public function run($id, array $data)
+    public function run($id, array $data, array $trades)
     {
         $item = $this->repository->find($id);
 
@@ -33,7 +34,7 @@ class UpdateItemAction extends AbstractAction
 
         $data['updated_by'] = get_current_logged_user_id();
 
-        $result = $this->repository->updateItem($item, $data);
+        $result = $this->repository->updateItem($item, $data, $trades);
 
         do_action(BASE_ACTION_AFTER_UPDATE, WEBED_TOUBAR_INVESTOR, $id, $result);
 

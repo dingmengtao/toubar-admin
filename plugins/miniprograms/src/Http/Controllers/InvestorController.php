@@ -12,6 +12,7 @@ use WebEd\Plugins\Miniprograms\Http\DataTables\InvestorDataTable;
 use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Investor\CreateInvestorRequest;
 use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Investor\UpdateInvestorRequest;
 use WebEd\Plugins\Miniprograms\Repositories\Contracts\InvestorRepositoryContract;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\TradeRepositoryContract;
 
 class InvestorController extends BaseAdminController
 {
@@ -80,13 +81,23 @@ class InvestorController extends BaseAdminController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getCreate()
+    public function getCreate(TradeRepositoryContract $tradeRepository)
     {
         do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_INVESTOR, 'create.get');
 
         /**
          * Place your magic here
          */
+        $this->assets
+            ->addJavascripts([
+                'jquery-ckeditor',
+                'jquery-select2'
+            ])
+            ->addStylesheets(['jquery-select2']);
+        $this->dis['trades'] = $tradeRepository
+            ->get(['id', 'name'])
+            ->pluck('name', 'id')
+            ->toArray();
 
         $this->setPageTitle('Create investor');
         $this->breadcrumbs->addLink('Create investor');
@@ -103,7 +114,7 @@ class InvestorController extends BaseAdminController
     {
         $data = $this->parseData($request);
 
-        $result = $action->run($data);
+        $result = $action->run($data,$request->input('trades', []));
 
         $msgType = $result['error'] ? 'danger' : 'success';
 
@@ -126,7 +137,7 @@ class InvestorController extends BaseAdminController
      * @param int $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function getEdit($id)
+    public function getEdit(TradeRepositoryContract $tradeRepository, $id)
     {
         $item = $this->repository->find($id);
 
@@ -143,6 +154,18 @@ class InvestorController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $this->assets
+            ->addJavascripts([
+                'jquery-ckeditor',
+                'jquery-select2'
+            ])
+            ->addStylesheets(['jquery-select2']);
+        $this->dis['trades'] = $tradeRepository
+            ->get(['id', 'name'])
+            ->pluck('name', 'id')
+            ->toArray();
+        $this->dis['selectedTrades'] = $this->repository->getRelatedTradeIds($item);
+
         $this->setPageTitle('Edit investor' . ' #' . $item->id);
         $this->breadcrumbs->addLink(trans('Edit investor'));
 
@@ -161,7 +184,7 @@ class InvestorController extends BaseAdminController
     {
         $data = $this->parseData($request);
 
-        $result = $action->run($id, $data);
+        $result = $action->run($id, $data, $request->input('trades', []));
 
         $msgType = $result['error'] ? 'danger' : 'success';
 

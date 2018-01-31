@@ -30,4 +30,12 @@ interface StageRepositoryContract
      * @return bool
      */
     public function deleteStage($id, $force = false);
+
+    /**
+     * @param array $params
+     * @param bool $withTrash
+     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection|Collection|mixed
+     */
+    public function getStages(array $params, $withTrash = false);
+
 }

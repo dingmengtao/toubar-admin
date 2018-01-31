@@ -12,6 +12,7 @@ use WebEd\Plugins\Miniprograms\Http\DataTables\ItemDataTable;
 use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Item\CreateItemRequest;
 use WebEd\Plugins\Miniprograms\Http\Requests\Toubar\Item\UpdateItemRequest;
 use WebEd\Plugins\Miniprograms\Repositories\Contracts\ItemRepositoryContract;
+use WebEd\Plugins\Miniprograms\Repositories\Contracts\TradeRepositoryContract;
 
 class ItemController extends BaseAdminController
 {
@@ -80,13 +81,31 @@ class ItemController extends BaseAdminController
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getCreate()
+    public function getCreate(TradeRepositoryContract $tradeRepository)
     {
         do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_ITEM, 'create.get');
 
         /**
          * Place your magic here
          */
+        $allStages = get_stages();
+
+        $selectArr = ['' => trans('webed-core::base.form.select') . '...',];
+        foreach ($allStages as $stage) {
+            $selectArr[$stage->id] = $stage->name;
+        }
+        $this->dis['baseStages'] = $selectArr;
+
+        $this->assets
+            ->addJavascripts([
+                'jquery-ckeditor',
+                'jquery-select2'
+            ])
+            ->addStylesheets(['jquery-select2']);
+        $this->dis['trades'] = $tradeRepository
+            ->get(['id', 'name'])
+            ->pluck('name', 'id')
+            ->toArray();
 
         $this->setPageTitle('Create item');
         $this->breadcrumbs->addLink('Create item');
@@ -103,7 +122,7 @@ class ItemController extends BaseAdminController
     {
         $data = $this->parseData($request);
 
-        $result = $action->run($data);
+        $result = $action->run($data, $request->input('trades', []));
 
         $msgType = $result['error'] ? 'danger' : 'success';
 
@@ -126,7 +145,7 @@ class ItemController extends BaseAdminController
      * @param int $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    public function getEdit($id)
+    public function getEdit(TradeRepositoryContract $tradeRepository, $id)
     {
         $item = $this->repository->find($id);
 
@@ -143,6 +162,26 @@ class ItemController extends BaseAdminController
         /**
          * Place your magic here
          */
+        $allStages = get_stages();
+
+        $selectArr = ['' => trans('webed-core::base.form.select') . '...',];
+        foreach ($allStages as $stage) {
+            $selectArr[$stage->id] = $stage->name;
+        }
+        $this->dis['baseStages'] = $selectArr;
+
+        $this->assets
+            ->addJavascripts([
+                'jquery-ckeditor',
+                'jquery-select2'
+            ])
+            ->addStylesheets(['jquery-select2']);
+        $this->dis['trades'] = $tradeRepository
+            ->get(['id', 'name'])
+            ->pluck('name', 'id')
+            ->toArray();
+        $this->dis['selectedTrades'] = $this->repository->getRelatedTradeIds($item);
+
         $this->setPageTitle('Edit item' . ' #' . $item->id);
         $this->breadcrumbs->addLink(trans('Edit item'));
 
@@ -161,7 +200,7 @@ class ItemController extends BaseAdminController
     {
         $data = $this->parseData($request);
 
-        $result = $action->run($id, $data);
+        $result = $action->run($id, $data, $request->input('trades', []));
 
         $msgType = $result['error'] ? 'danger' : 'success';
 

@@ -121,10 +121,51 @@
                            value="{{ $object->order ?: 0 }}" autocomplete="off">
                 </div>
             </div>
-            {{--@include('webed-core::admin._widgets.img_url', [--}}
-            {{--'name' => 'post[img_url]',--}}
-            {{--'value' => old('post.img_url')--}}
-            {{--])--}}
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{ trans('Stage') }}</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    {!! form()->select(
+                            'post[stage_id]',
+                            $baseStages,
+                            $object->stage_id,
+                            ['class' => 'form-control']
+                        )
+                    !!}
+                </div>
+            </div>
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{ trans('Trade') }}</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    {!! form()->select('trades[]', $trades, $selectedTrades, [
+                        'multiple' => 'multiple',
+                        'class' => 'form-control js-select2'
+                    ]) !!}
+                </div>
+            </div>
+            <h3>路演视频缩略图片</h3>
+            @include('webed-core::admin._widgets.thumbnail', [
+                'name' => 'post[img_url]',
+                'value' => $object->img_url
+            ])
+            <h3>路演视频</h3>
+            @include('webed-core::admin._widgets.thumbnail', [
+                'name' => 'post[video_url]',
+                'value' => $object->video_url
+            ])
             @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_ITEM, $object) @endphp
         </div>
     </div>

@@ -214,6 +214,10 @@ class InvestorDataTable extends AbstractDataTables
 
                 return html()->label(trans('webed-core::base.status.' . $status), $status) . $featured;
             })
+            ->editColumn('isaudit', function ($item) {
+                $isaudit = $item->isaudit == 0 ? '未审核' : ($item->isaudit == 1 ? '已审核': '拒绝');
+                return $isaudit;
+            })
             ->addColumn('actions', function ($item) {
                 /*Edit link*/
                 $activeLink = route('admin::miniprograms.toubar.investor.update-status.post', ['id' => $item->id, 'status' => 1]);

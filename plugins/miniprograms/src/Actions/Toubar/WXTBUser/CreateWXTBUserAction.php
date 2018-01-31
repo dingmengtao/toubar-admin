@@ -25,6 +25,7 @@ class CreateWXTBUserAction extends AbstractAction
         do_action(BASE_ACTION_BEFORE_CREATE, WEBED_TOUBAR_USER, 'create.post');
 
         $data['created_by'] = get_current_logged_user_id();
+        $data['updated_by'] = get_current_logged_user_id();
 
         $result = $this->repository->createUser($data);
 

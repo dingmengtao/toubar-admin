@@ -14,6 +14,7 @@ class Item extends BaseModel implements ItemModelContract
         'user_id',
         'name',
         'stage_id',
+        'telephone',
         'bp_url',
         'video_url',
         'img_url',

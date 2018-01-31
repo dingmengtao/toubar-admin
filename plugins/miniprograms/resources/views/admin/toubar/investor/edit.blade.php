@@ -123,10 +123,32 @@
                            value="{{ $object->order ?: 0 }}" autocomplete="off">
                 </div>
             </div>
-            {{--@include('webed-core::admin._widgets.thumbnail', [--}}
-            {{--'name' => 'post[thumbnail]',--}}
-            {{--'value' => old('post.thumbnail')--}}
-            {{--])--}}
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">{{ trans('Trade') }}</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    {!! form()->select('trades[]', $trades, $selectedTrades, [
+                        'multiple' => 'multiple',
+                        'class' => 'form-control js-select2'
+                    ]) !!}
+                </div>
+            </div>
+            <h3>认证投资人头像</h3>
+            @include('webed-core::admin._widgets.thumbnail', [
+                'name' => 'post[img_url]',
+                'value' => $object->img_url
+            ])
+            <h3>认证投资人名片</h3>
+            @include('webed-core::admin._widgets.thumbnail', [
+                'name' => 'post[identify_one_url]',
+                'value' => $object->identify_one_url
+            ])
             @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_INVESTOR, $object) @endphp
         </div>
     </div>
