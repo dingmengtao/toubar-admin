@@ -162,7 +162,7 @@
                 'value' => old('post.img_url')
             ])
             <h3>路演视频</h3>
-            @include('webed-core::admin._widgets.thumbnail', [
+            @include('webed-core::admin._widgets.video', [
                 'name' => 'post[video_url]',
                 'value' => old('post.video_url')
             ])

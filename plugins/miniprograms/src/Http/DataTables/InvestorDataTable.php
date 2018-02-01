@@ -23,7 +23,7 @@ class InvestorDataTable extends AbstractDataTables
 
     public function __construct()
     {
-        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Investor::select(['id','user_id', 'name','company','job','telephone', 'create_time','status', 'order','isaudit','updated_by']), $this->screenName);
+        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Investor::select(['id','user_id', 'name','company','job','telephone', 'create_time','status', 'order','isaudit','type','updated_by']), $this->screenName);
     }
 
     /**

@@ -79,6 +79,16 @@ class CollectiveServiceProvider extends ServiceProvider
             'thumbnail' => null,
             'label' => null,
         ]);
+
+        /**
+         * Select video box
+         */
+        Form::component('selectVideoBox', 'webed-core::admin._components.select-video-box', [
+            'name',
+            'value' => null,
+            'thumbnail' => null,
+            'label' => null,
+        ]);
     }
 
     protected function registerHtmlComponents()

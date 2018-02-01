@@ -23,7 +23,7 @@ class ItemDataTable extends AbstractDataTables
 
     public function __construct()
     {
-        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Item::select(['id','user_id', 'name','stage_id','telephone', 'create_time','status', 'order','isgood','isaudit','updated_by']), $this->screenName);
+        $this->model = do_filter(FRONT_FILTER_DATA_TABLES_MODEL, Item::select(['id','user_id', 'name','stage_id','telephone', 'create_time','status', 'order','isgood','isaudit','type','updated_by']), $this->screenName);
     }
 
     /**

@@ -20,6 +20,7 @@ class Item extends BaseModel implements ItemModelContract
         'img_url',
         'isgood',
         'isaudit',
+        'type',
         'status',
         'order',
         'created_by',
@@ -35,6 +36,63 @@ class Item extends BaseModel implements ItemModelContract
     const CREATED_AT = 'create_time';
     const UPDATED_AT = 'update_time';
     const DELETED_AT = 'delete_time';
+
+    // 修改器
+    public function setVideoUrlAttribute($value){
+        $video_url_ary = explode('/',$value);
+        for($i=0;$i<5;$i++){
+            array_shift($video_url_ary);
+        }
+        $video_url = implode('/',$video_url_ary);
+        $this->attributes['video_url'] = $video_url;
+    }
+    public function setImgUrlAttribute($value){
+        $img_url_ary = explode('/',$value);
+        for($i=0;$i<5;$i++){
+            array_shift($img_url_ary);
+        }
+        $img_url = implode('/',$img_url_ary);
+        $this->attributes['img_url'] = $img_url;
+    }
+    // 读取器
+    /**
+     * 获取路演视频路径
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getVideoUrlAttribute($value){
+        $type = $this->type;
+        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/videos/';
+        $tba_base_url = 'http://toubar-admin.me';
+        if($type == 1){
+            if(substr($value,0,4) === 'http'){
+                return $value;
+            }
+            return $tbl_base_url.$value;
+        }elseif($type == 2) {
+            return $tba_base_url . $value;
+        }
+    }
+    /**
+     * 获取路演视频缩略图路径
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getImgUrlAttribute($value){
+        $type = $this->type;
+        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/videos/';
+        $tba_base_url = 'http://toubar-admin.me';
+        if($type == 1){
+            if(substr($value,0,4) === 'http'){
+                return $value;
+            }
+            return $tbl_base_url.$value;
+        }elseif($type == 2) {
+            return $tba_base_url . $value;
+        }
+    }
 
     // 关联所属阶段
     public function item_stage(){

@@ -162,7 +162,7 @@
                 'value' => $object->img_url
             ])
             <h3>路演视频</h3>
-            @include('webed-core::admin._widgets.thumbnail', [
+            @include('webed-core::admin._widgets.video', [
                 'name' => 'post[video_url]',
                 'value' => $object->video_url
             ])

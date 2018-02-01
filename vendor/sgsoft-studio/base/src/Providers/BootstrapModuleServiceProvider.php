@@ -86,6 +86,20 @@ class BootstrapModuleServiceProvider extends ServiceProvider
                     trans('webed-core::base.form.choose_image'),
                 ];
             })
+            ->addSettingField('site_logo', [
+                'group' => 'basic',
+                'type' => 'selectVideoBox',
+                'priority' => 7,
+                'label' => trans('webed-core::base.settings.site_logo.label'),
+                'helper' => trans('webed-core::base.settings.site_logo.helper')
+            ], function () {
+                return [
+                    'site_logo',
+                    get_setting('site_logo'),
+                    null,
+                    trans('Choose Video'),
+                ];
+            })
             ->addSettingField('favicon', [
                 'group' => 'basic',
                 'type' => 'selectImageBox',

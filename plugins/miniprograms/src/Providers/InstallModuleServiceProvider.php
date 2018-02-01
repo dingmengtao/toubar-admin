@@ -163,6 +163,7 @@ class InstallModuleServiceProvider extends ServiceProvider
             $table->string('img_url','300')->nullable();
             $table->tinyInteger('isgood')->default(0);
             $table->tinyInteger('isaudit')->default(0);
+            $table->tinyInteger('type')->default(2);
             $table->tinyInteger('status')->default(0);
             $table->integer('order')->default(0);
             $table->integer('delete_time')->nullable();
