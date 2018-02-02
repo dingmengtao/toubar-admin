@@ -63,8 +63,8 @@ class Item extends BaseModel implements ItemModelContract
      */
     public function getVideoUrlAttribute($value){
         $type = $this->type;
-        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/videos/';
-        $tba_base_url = 'http://toubar-admin.me';
+        $tbl_base_url = config('toubar_config.video_prefix');
+        $tba_base_url = config('toubar_config.tba_base_prefix');
         if($type == 1){
             if(substr($value,0,4) === 'http'){
                 return $value;
@@ -82,8 +82,8 @@ class Item extends BaseModel implements ItemModelContract
      */
     public function getImgUrlAttribute($value){
         $type = $this->type;
-        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/videos/';
-        $tba_base_url = 'http://toubar-admin.me';
+        $tbl_base_url = config('toubar_config.video_prefix');
+        $tba_base_url = config('toubar_config.tba_base_prefix');
         if($type == 1){
             if(substr($value,0,4) === 'http'){
                 return $value;

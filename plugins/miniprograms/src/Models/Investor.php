@@ -63,8 +63,8 @@ class Investor extends BaseModel implements InvestorModelContract
      */
     public function getImgUrlAttribute($value){
         $type = $this->type;
-        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/images/';
-        $tba_base_url = 'http://toubar-admin.me';
+        $tbl_base_url = config('toubar_config.img_prefix');
+        $tba_base_url = config('toubar_config.tba_base_prefix');
         if($type == 1){
             if(substr($value,0,4) === 'http'){
                 return $value;
@@ -82,8 +82,8 @@ class Investor extends BaseModel implements InvestorModelContract
      */
     public function getIdentifyOneUrlAttribute($value){
         $type = $this->type;
-        $tbl_base_url = 'http://toubar-localhost.me/uploadfile/images/';
-        $tba_base_url = 'http://toubar-admin.me';
+        $tbl_base_url = config('toubar_config.img_prefix');
+        $tba_base_url = config('toubar_config.tba_base_prefix');
         if($type == 1){
             if(substr($value,0,4) === 'http'){
                 return $value;

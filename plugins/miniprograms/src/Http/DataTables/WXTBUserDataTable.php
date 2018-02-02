@@ -48,7 +48,7 @@ class WXTBUserDataTable extends AbstractDataTables
             ],
             'country' => [
                 'title' => 'Country',
-                'width' => '10%',
+                'width' => '5%',
             ],
             'province' => [
                 'title' => 'Province',
@@ -60,11 +60,11 @@ class WXTBUserDataTable extends AbstractDataTables
             ],
             'gender' => [
                 'title' => 'Gender',
-                'width' => '10%',
+                'width' => '5%',
             ],
             'language' => [
                 'title' => 'Language',
-                'width' => '10%',
+                'width' => '5%',
             ],
             'order' => [
                 'title' => trans('webed-core::datatables.heading.order'),
@@ -237,6 +237,10 @@ class WXTBUserDataTable extends AbstractDataTables
                 $featured = ($item->is_featured) ? '<br><br>' . html()->label('featured', 'purple') : '';
 
                 return html()->label(trans('webed-core::base.status.' . $status), $status) . $featured;
+            })
+            ->editColumn('gender', function ($item) {
+                $gender = $item->gender == 0 ? '未知' : ($item->gender == 1 ? '男': '女');
+                return $gender;
             })
             ->addColumn('actions', function ($item) {
                 /*Edit link*/
