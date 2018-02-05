@@ -89,11 +89,11 @@
                     </div>
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_TOUBAR_USER, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'main', WEBED_TOUBAR_USER, $object) @endphp
         </div>
         <div class="column right">
             @include('webed-core::admin._components.form-actions')
-            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_TOUBAR_USER, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'top-sidebar', WEBED_TOUBAR_USER, $object) @endphp
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <h3 class="box-title">{{ trans('webed-core::base.form.status') }}</h3>
@@ -141,7 +141,7 @@
                     ], $object->gender, ['class' => 'form-control']) !!}
                 </div>
             </div>
-            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_USER, null) @endphp
+            @php do_action(BASE_ACTION_META_BOXES, 'bottom-sidebar', WEBED_TOUBAR_USER, $object) @endphp
         </div>
     </div>
     {!! Form::close() !!}
